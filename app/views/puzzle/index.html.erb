@@ -1,0 +1,7 @@
+<p>All puzzles</a>
+
+<ul>
+<% @puzzles.each do |puzzle| %>
+  <%= link_to puzzle.title, url_for(puzzle) %>
+<% end %>
+</ul>

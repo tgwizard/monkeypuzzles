@@ -1,5 +1,7 @@
 Monkeypuzzles::Application.routes.draw do
-  root :to => "home#index"
+  root :to => "puzzle#index"
+
+  get 'puzzle/:slug' => "puzzle#show", :as => :puzzle
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
