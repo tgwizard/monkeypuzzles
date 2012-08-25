@@ -1,9 +1,47 @@
 require 'rubygems'
 require 'bundler/setup'
-
 require 'sinatra'
+require 'sinatra/partial'
+
+require_relative 'puzzles.rb'
+
+configure do
+	set :public_folder, File.dirname(__FILE__) + '../static'
+	set :partial_template_engine, :erb
+end
+
+helpers do
+	def path_to_puzzle(puzzle)
+		url "/puzzle/#{puzzle.slug}"
+	end
+	def path_to_puzzle_answer(puzzle)
+		url "/puzzle/#{puzzle.slug}/answer"
+	end
+end
 
 get '/' do
-	#"Hello world, it's Sinatra speaking at #{Time.now}"
+	@puzzles = Puzzle.all
 	erb :index
+end
+
+get '/about' do
+	erb :about
+end
+
+get '/search' do
+	@q = params[:q]
+	@puzzles = []
+	erb :search
+end
+
+before '/puzzle/:slug*' do
+	@puzzle = Puzzle.find params[:slug]
+end
+
+get '/puzzle/:slug' do
+	erb :show_puzzle
+end
+
+get '/puzzle/:slug/answer' do
+	erb :show_answer
 end

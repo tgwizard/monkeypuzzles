@@ -8,7 +8,7 @@
 
   <a href="/"><h1>monkeypuzzles</h1></a>
 
-  <form action="/search" method="post">
+  <form action="/search" method="get">
     <input type="text" name="q" placeholder="Search..." />
   </form>
 
@@ -17,7 +17,7 @@
 <hr />
 
 <p>
-A site by Adam Renberg and Olle Werme.
+A site by Adam Renberg and Olle Werme. <a href="<%= url '/about' %>">About</a>.
 </p>
 
 </body>

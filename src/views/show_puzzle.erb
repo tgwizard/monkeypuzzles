@@ -1,0 +1,9 @@
+<h2><%= @puzzle.title %></h2>
+
+<%= @puzzle.content %>
+
+<p>
+<a href="<%= path_to_puzzle_answer @puzzle %>">Show answer &raquo;</a>
+</p>
+
+<%= partial :"partials/puzzle_metadata" %>
