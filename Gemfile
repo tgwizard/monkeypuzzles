@@ -1,6 +1,7 @@
 source :rubygems
 
-gem 'sinatra', '~>1.3.3'
+gem 'sinatra'
+gem 'thin'
 gem 'sinatra-contrib'
 gem 'sinatra-partial'
 gem 'shotgun'
