@@ -2,17 +2,22 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
-  attr_reader :slug, :title, :content, :answer
-  attr_reader :content_md, :answer_md
+  attr_reader :slug, :title, :content, :answer, :about
+	attr_reader :created_at, :updated_at
+  attr_reader :content_md, :answer_md, :about_md
 
   def initialize(attributes = {})
     @slug = attributes['slug']
     @title = attributes['title']
     @content_md = attributes['content']
 		@answer_md = attributes['answer']
+		@about_md = attributes['about']
+		@created_at = attributes['created_at']
+		@updated_at = attributes['updated_at']
 
     @content = @@markdown.render(@content_md)
-    @answer = @@markdown.render(@answer_md)
+    @answer = @@markdown.render(@answer_md) unless @answer_md.nil?
+		@about = @@markdown.render(@about_md) unless @about_md.nil?
   end
 
   # class stuff

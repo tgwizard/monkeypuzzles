@@ -1,4 +1,12 @@
-<div class="puzzle_metadata">
+<div class="puzzle_metadata span4">
+	<% if not @puzzle.about.nil? %>
+		<h3>About</h3>
+		<%= @puzzle.about %>
+	<% end %>
+	<p>Created on <%= @puzzle.created_at %></p>
+	<% if @puzzle.updated_at != @puzzle.created_at %>
+	<p>Updated on <%= @puzzle.updated_at %></p>
+	<% end %>
 	<p>TODO: like</p>
 	<p>TODO: share</p>
 </div>

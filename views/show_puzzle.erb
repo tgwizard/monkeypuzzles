@@ -1,9 +1,18 @@
 <h2><%= @puzzle.title %></h2>
 
+<div class="row">
+<div class="span4">
+
 <%= @puzzle.content %>
 
+<% if not @puzzle.answer.nil? %>
 <p>
 <a href="<%= path_to_puzzle_answer @puzzle %>">Show answer &raquo;</a>
 </p>
+<% end %>
+
+</div>
 
 <%= partial :"partials/puzzle_metadata" %>
+
+</div>
