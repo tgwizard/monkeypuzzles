@@ -7,7 +7,7 @@ domain name will be acquired later.
 
 ## Setup and Coding
 
-Then, [RVM](https://rvm.io/) is the recommended way of installing ruby. It will
+[RVM](https://rvm.io/) is the recommended way of installing ruby. It will
 sandbox each project with their own ruby and gem versions. But it is (probably)
 not required.
 
