@@ -6,7 +6,8 @@ require 'sinatra/partial'
 require_relative 'puzzles.rb'
 
 configure do
-	set :public_folder, File.dirname(__FILE__) + '../static'
+	set :root, File.expand_path("..", File.dirname(__FILE__))
+	set :public_folder, 'static'
 	set :partial_template_engine, :erb
 end
 
