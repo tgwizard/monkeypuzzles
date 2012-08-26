@@ -11,6 +11,16 @@ configure do
 	set :partial_template_engine, :erb
 end
 
+configure :production do
+	not_found do
+		"404 - Not Found"
+	end
+
+	error do
+		"Nasty error encountered"
+	end
+end
+
 helpers do
 	def path_to_puzzle(puzzle)
 		url "/puzzle/#{puzzle.slug}"
