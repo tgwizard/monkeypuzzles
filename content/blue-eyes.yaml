@@ -1,0 +1,26 @@
+title: Blue eyes
+difficulty: 4
+created_at: new Date "2012-08-05"
+updated_at: new Date "2012-08-05"
+
+content: |
+  On an island in the middle of the ocean lives several people of a
+  peculiar sort: They are all logicians. And they don't communicate with
+  each other. 100 of them have blue eyes, and one of them, the guru, has
+  green eyes. The rest have brown eyes. No one knows their own eye color
+  (and no one will tell anyone their eye color).
+
+  It so happens to be that at midnight on every night a ferry arrives at
+  the island, and leaves shortly thereafter with anyone who knows their own
+  eye color.
+
+  One day the guru stands up and says, so that everyone hears:
+
+  "I can see at least one person with blue eyes."
+
+  What will happen? Who will leave the island, and when?
+
+about: |
+  There are several variations of this puzzle, where the blue eyes version
+  has been popularized by Randall Munroe on
+  [xkcd.com/blue_eyes.html](http://xkcd.com/blue_eyes.html).
