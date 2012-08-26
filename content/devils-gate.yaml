@@ -1,0 +1,32 @@
+title: The devil's gate
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content: |
+  100 people have died and are now standing in line outside the Devil's gate.
+  The Devil has given them each a hat, black or white. No one knows the color
+  of their own hat, but everyone can see the hats of the people in front of
+  them, e.g. the last guy can see 99 hats, while the gal in front can't see
+  any.
+
+  The Devil proceeds by asking the last person in the line:
+
+  "What is the color of your hat?"
+
+  If the person answers correctly, she gets to go to heaven. If she answers
+  incorrectly, she will burn in hell for all eternity. The Devil then proceeds
+  to the next-to-last, and so on.
+
+  The kind-hearted Devil have, before he put them in line and handed out the
+  hats, given them a chance to come up with a strategy to save as many of them
+  as possible.
+
+  What strategy should they use? How many can they save?
+
+  Please note, once they have the hats, the only words that may be uttered are
+  black and white. Everyone can hear everyone's response.
+
+answer: |
+  Buh!
+

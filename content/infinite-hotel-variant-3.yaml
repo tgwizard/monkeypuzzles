@@ -1,0 +1,18 @@
+title: Infinite hotel, variant 3
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content: |
+  There is a hotel with an infinite number of rooms. They are all occupied.
+
+  An **infinite number of buses**, each with an **infinite number of
+  tourists**, arrive at the hotel. The tourists ask if they there are any rooms
+  for them to stay over the night.
+
+  The hotel manager thinks for a minute, and then says: Yes, of course, I'll
+  just need to reorganize the current arrangements, and gives all the arrivals
+  a separate room. In which rooms will the newcomers stay?
+
+  Please note, after the reorganizing, no one shares a room, and the hotel is
+  still fully occupied.

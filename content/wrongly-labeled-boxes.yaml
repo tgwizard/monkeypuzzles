@@ -1,0 +1,12 @@
+title: Wrongly labeled boxes
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content: |
+  You have three boxes, one labeled nails, one labeled screws, and one labeled
+  nails and screws. All boxes have incorrect labels (but the contents are that
+  of the labels).
+
+  You can pick up one item from one of the boxes (no peeking). How do you
+  determine what is in each box?

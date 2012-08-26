@@ -1,0 +1,15 @@
+title: Guess 1, 2 or 3
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content:
+  Martin thinks of a number, 1, 2 or 3. Sophie is allowed to ask Martin one
+  question, to which he will answer yes, no, or, if he doesn't know the answer,
+  I don't know.
+
+  What question should Sophie ask Martin to uncover his number?
+
+about: |
+  Source:
+  [puzzle.dse.nl](http://www.puzzle.dse.nl/logical/index_us.html#guess_what).

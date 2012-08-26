@@ -1,0 +1,24 @@
+title: Three hats
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content: |
+  The great town wizard needs a new apprentice, and has announced a competition
+  for the post. Many applicants have tried, and only the three brightest remain
+  for the last challenge.
+
+  The wizard gives each applicant a hat, and tells them that they have either a
+  black or a white hat. The first one to figure out the color of her own hat
+  and publicly announce it wins the challenge, and becomes the wizard's
+  apprentice. Also, if any of them sees another applicant having a white hat,
+  they are supposed to say:
+
+  "I see someone with a white hat."
+
+  However, the wizard has been tricky, and given all three white hats. All
+  three of the applicants announce that they see someone with a white hat, and
+  then go quite.
+
+  After a while, one of the applicants announces: I have a white hat and
+  becomes the wizard's apprentice. How can she know the color of her hat?

@@ -1,0 +1,12 @@
+title: Weighing twelve stone balls
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content: |
+  There are twelve stone balls, where one is slightly heavier or lighter than
+  the others. You have a old-fashioned balancing scale. In as few weighings as
+  possible, how do you find the odd ball?
+
+answer: |
+  You need three weighings.

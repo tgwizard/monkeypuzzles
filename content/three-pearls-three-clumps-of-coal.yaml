@@ -1,0 +1,16 @@
+title: Three pearls, three clumps of coal
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-08-05
+
+content: |
+  There are three chest, each with two drawers. Each drawer contains an item.
+  In one chest, the two drawers contain clumps of coal. In another the drawers
+  both contain pearls. In the last, one drawer contains a clump of coal, and
+  the other a pearl.
+
+  You open a drawer and find a pearl. Which drawer should you open next to
+  maximise your chances of finding another pearl?
+
+answer: |
+  You should open the drawer in the chest you opened first.
