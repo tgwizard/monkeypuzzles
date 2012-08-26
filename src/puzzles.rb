@@ -83,5 +83,4 @@ class Puzzle
 	end
 end
 
-
 Puzzle.load 'content'

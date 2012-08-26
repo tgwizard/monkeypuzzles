@@ -32,6 +32,9 @@ end
 
 get '/' do
 	@puzzles = Puzzle.all
+	@puzzles.sort! do |a,b|
+		a.title <=> b.title
+	end
 	erb :index
 end
 
