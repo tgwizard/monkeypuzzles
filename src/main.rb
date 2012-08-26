@@ -46,6 +46,9 @@ end
 
 before '/puzzle/:slug*' do
 	@puzzle = Puzzle.find params[:slug]
+	if @puzzle.nil?
+		raise error 404
+	end
 end
 
 get '/puzzle/:slug' do
