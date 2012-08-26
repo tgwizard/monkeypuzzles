@@ -38,10 +38,6 @@ get '/' do
 	erb :index
 end
 
-get '/about' do
-	erb :about
-end
-
 get '/search' do
 	@q = params[:q]
 	@puzzles = Puzzle.search @q
