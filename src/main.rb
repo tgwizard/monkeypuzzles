@@ -46,7 +46,6 @@ get '/search' do
 end
 
 before '/puzzle/:slug*' do
-	asdf
 	@puzzle = Puzzle.find params[:slug]
 end
 
