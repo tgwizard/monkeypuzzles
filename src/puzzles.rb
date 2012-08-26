@@ -32,6 +32,42 @@ class Puzzle
     @@puzzles[slug]
   end
 
+	def self.search(q)
+		words = q.downcase.split
+
+		result = []
+		puzzles_left = @@puzzles.values.dup
+
+		accept = lambda do |&criteria|
+			puzzles_left.each do |puzzle|
+				words.each do |word|
+					if criteria.call(puzzle, word)
+						result << puzzle
+						puzzles_left.delete puzzle
+						break
+					end
+				end
+			end
+		end
+
+		# slugs
+		accept.call do |puzzle, word|
+			puzzle.slug.downcase.include? word
+		end
+
+		# titles
+		accept.call do |puzzle, word|
+			puzzle.title.downcase.include? word
+		end
+
+		# contents
+		accept.call do |puzzle, word|
+			puzzle.content_md.downcase.include? word
+		end
+
+		result
+	end
+
   def self.add(p)
     @@puzzles[p.slug] = p
   end

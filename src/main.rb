@@ -41,7 +41,7 @@ end
 
 get '/search' do
 	@q = params[:q]
-	@puzzles = []
+	@puzzles = Puzzle.search @q
 	erb :search
 end
 
