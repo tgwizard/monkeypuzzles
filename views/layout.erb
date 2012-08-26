@@ -3,26 +3,34 @@
 <head>
   <meta charset="utf-8">
   <title>monkeypuzzles</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap.css">
 	<link rel="stylesheet" type="text/css" href="/bootstrap/css/bootstrap-responsive.css">
 
 	<style type="text/javascript" src="/bootstrap/js/bootstrap.js"></style>
 </head>
 <body>
+	<div class="navbar">
+		<div class="navbar-inner">
+			<a class="brand" href="/">monkeypuzzles</a>
+			<form class="navbar-search pull-left" action="/search" method="get">
+				<input type="text" class="search-query" name="q" placeholder="Search..." />
+			</form>
+		</div>
+	</div>
 
-  <a href="/"><h1>monkeypuzzles</h1></a>
 
-  <form action="/search" method="get">
-    <input type="text" name="q" placeholder="Search..." />
-  </form>
 
-<%= yield %>
+<div class="container-fluid">
+	<%= yield %>
 
-<hr />
+	<hr />
 
-<p>
-A site by Adam Renberg and Olle Werme. <a href="<%= url '/about' %>">About</a>.
-</p>
+	<p>
+	A site by Adam Renberg and Olle Werme. <a href="<%= url '/about' %>">About</a>.
+	</p>
+</div>
 
 </body>
 </html>
