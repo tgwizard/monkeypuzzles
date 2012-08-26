@@ -1,3 +1,4 @@
+require 'yaml'
 require 'redcarpet'
 
 class Puzzle
@@ -5,10 +6,10 @@ class Puzzle
   attr_reader :content_md, :answer_md
 
   def initialize(attributes = {})
-    @slug = attributes[:slug]
-    @title = attributes[:title]
-    @content_md = attributes[:content_md]
-		@answer_md = attributes[:answer_md]
+    @slug = attributes['slug']
+    @title = attributes['title']
+    @content_md = attributes['content']
+		@answer_md = attributes['answer']
 
     @content = @@markdown.render(@content_md)
     @answer = @@markdown.render(@answer_md)
@@ -29,7 +30,17 @@ class Puzzle
   def self.add(p)
     @@puzzles[p.slug] = p
   end
+
+	def self.load(dir)
+		Dir[dir + '/*'].each do |file|
+			puts "loading puzzle #{file}"
+			data = YAML.load_file file
+			data['slug'] = File.basename file, '.yaml'
+			puzzle = Puzzle.new data
+			self.add puzzle
+		end
+	end
 end
 
-# TODO: better way to initialize all puzzles
-Puzzle.add Puzzle.new(:slug => 'asdf', :title => 'Asdf title', :content_md => 'content', :answer_md => 'answer')
+
+Puzzle.load 'content'

@@ -21,5 +21,6 @@ Then:
 	rake sinatra
 
 The code is built on [ruby](http://www.ruby-lang.org/en/), and uses the
-[sinatra](http://sinatrarb.com) framework. If more is required,
-[padrino](http://www.padrinorb.com/) is probably the way to go.
+[sinatra](http://sinatrarb.com) and
+[bootstrap](http://twitter.github.com/bootstrap) frameworks. If more is
+required, [padrino](http://www.padrinorb.com/) is probably the way to go.
