@@ -21,6 +21,7 @@ Then:
 	bundle install
 	# start the dev server
 	rake sinatra
+	# go to http://localhost:4567
 
 The code is built on [ruby](http://www.ruby-lang.org/en/), and uses the
 [sinatra](http://sinatrarb.com) and
