@@ -6,4 +6,4 @@ gem 'sinatra-contrib'
 gem 'sinatra-partial'
 gem 'shotgun'
 gem 'redcarpet'
-
+gem 'rake'
