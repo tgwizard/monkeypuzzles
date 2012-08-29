@@ -1,13 +1,10 @@
-<div class="row">
-<div class="span4">
+<section>
 
 <p>This is so awesome I don't know what to say...</p>
 
 <ul>
 <% @puzzles.each do |puzzle| %>
-	<li><a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %></a></li>
+<li><a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %></a></li>
 <% end %>
 </ul>
-
-</div>
-</div>
+</section>

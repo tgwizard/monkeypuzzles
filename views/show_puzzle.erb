@@ -1,18 +1,23 @@
-<div class="row">
-<div class="span4">
+<header>
+	<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+	<div class="ornament">z<span>y</span></div>
+	<smaller>Category: <a href="#">Maybe<span>?</span></a></smaller>
+    <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
+    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
+    <small>A somewhat eas<span>y</span></small>
+    <small>monkey riddl<span>e</span></small>
+    <smaller>By: <a href="#">Someone<span>?</span></a></smaller>
+</header>
 
-<h2><%= @puzzle.title %></h2>
+<article> 
+    <%= @puzzle.content %>
+    <span class="arrow-left"><a href="#"><i class="icon-caret-left"></i></a></span>
+    <span class="arrow-right"><a href="#"><i class="icon-caret-right"></i></a></span>
+</article>
 
-<%= @puzzle.content %>
-
+<!-- Temporary, SVG to come -->
 <% if not @puzzle.answer.nil? %>
-<p>
-<a href="<%= path_to_puzzle_answer @puzzle %>">Show answer &raquo;</a>
+<p class="answer">
+    <a href="<%= path_to_puzzle_answer @puzzle %>"><i class="icon-key"></i></a>
 </p>
 <% end %>
-
-</div>
-
-<%= partial :"partials/puzzle_metadata" %>
-
-</div>
