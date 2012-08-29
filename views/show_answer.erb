@@ -1,48 +1,12 @@
-<div class="row">
-<div class="span4">
-
-<h2><%= @puzzle.title %></h2>
-<h3>Answer</h3>
-
+<section>
+<header>
+<small>Solution for:</small>
+<h1><%= @puzzle.title %></h1>
+</header>
 <%= @puzzle.answer %>
 
 <p>
 <a href="<%= path_to_puzzle @puzzle %>">&laquo; Back to puzzle</a>
 </p>
 
-</div>
-</div>
-
-<header>
-                    <!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
-                    <div class="ornament">z<span>y</span></div>
-                    <smaller>Category: <a href="#">Logi<span>c</span></a></smaller>
-                    <h1>Thre<span>e</span><br/>Switche<span>s</span></h1>
-                    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
-                    <small>A somewhat eas<span>y</span></small>
-                    <small>monkey riddl<span>e</span></small>
-                    <smaller>By: <a href="#">Adam Renber<span>g</span></a></smaller>
-                </header>
-                
-                <article>
-                    
-                    <p>
-                        There is a square room, empty but for an old-fashioned ligth bulb. One
-                        side of the room has a door, leading in. Outside the room there are three
-                        switches, one of them (you don't know which) lights the light bulb inside
-                        the room. All three switches are in their off setting to begin with, and
-                        the light bulb is dark. You can turn on or off the switches how many times
-                        you want, but you cannot see if they affect the light bulb from the outside.
-                        You are allowed to enter the room once to see if the light bulb is shining.
-                    </p>
-                    <p>
-                        How do you determine which of the switches control the light bulb?
-                    </p>
-                    <span class="arrow-left"><a href="#"><i class="icon-caret-left"></i></a></span>
-                    <span class="arrow-right"><a href="#"><i class="icon-caret-right"></i></a></span>
-                </article>
-
-                <!-- Temporary, SVG to come -->
-                <p class="answer">
-                    <a href="#" rel="tooltip" title="Show Answer"><i class="icon-key"></i></a>
-                </p>
+</section>
