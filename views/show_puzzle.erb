@@ -1,20 +1,20 @@
 <header>
 	<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+    <!-- Ornaments will be replaced with images -->
 	<div class="ornament">z<span>y</span></div>
-	<smaller>Category: <a href="#">Maybe<span>?</span></a></smaller>
+	<smaller>Category: <a href="#">Riddl<span>e</span></a></smaller>
     <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
     <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
     <small>A somewhat eas<span>y</span></small>
     <small>monkey riddl<span>e</span></small>
-    <smaller>By: <a href="#">Someone<span>?</span></a></smaller>
+    <smaller>Author: <a href="#">Unknow<span>n</span></a></smaller>
 </header>
 
-<article> 
+<article>
     <%= @puzzle.content %>
     <span class="arrow-left"><a href="#"><i class="icon-caret-left"></i></a></span>
     <span class="arrow-right"><a href="#"><i class="icon-caret-right"></i></a></span>
 </article>
-
 <!-- Temporary, SVG to come -->
 <% if not @puzzle.answer.nil? %>
 <p class="answer">
