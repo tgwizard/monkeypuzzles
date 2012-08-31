@@ -1,0 +1,5 @@
+<ul>
+<% @puzzles.each do |puzzle| %>
+<li><a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %></a></li>
+<% end %>
+</ul>

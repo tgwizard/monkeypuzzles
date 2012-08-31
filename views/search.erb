@@ -1,16 +1,14 @@
 <div class="row">
 <div class="span4">
 
+<form action="/search" method="get">
+	<input type="text" name="q" placeholder="Search..." value="<%= @q %>" />
+</form>
+
 <h2>Search results</h2>
 
-<p>For "<%= @q %>"</p>
-
 <% if @puzzles.length > 0 %>
-<ul>
-<% @puzzles.each do |puzzle| %>
-	<li><a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %></a></li>
-<% end %>
-</ul>
+	<%= erb :"partials/list_puzzles" %>
 <% else %>
 <p>
 No puzzles found.

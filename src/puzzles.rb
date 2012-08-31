@@ -22,10 +22,11 @@ class Puzzle
 
   # class stuff
   @@puzzles = {}
+	@@puzzle_list = []
   @@markdown = markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   def self.all
-    @@puzzles.values
+    @@puzzle_list
   end
 
   def self.find(slug)
@@ -68,17 +69,17 @@ class Puzzle
 		result
 	end
 
-  def self.add(p)
-    @@puzzles[p.slug] = p
-  end
-
 	def self.load(dir)
 		Dir[dir + '/*'].each do |file|
 			puts "loading puzzle #{file}"
 			data = YAML.load_file file
 			data['slug'] = File.basename file, '.yaml'
 			puzzle = Puzzle.new data
-			self.add puzzle
+			@@puzzles[puzzle.slug] = puzzle
+		end
+
+		@@puzzle_list = @@puzzles.values.sort do |a,b|
+			a.title <=> b.title
 		end
 	end
 end

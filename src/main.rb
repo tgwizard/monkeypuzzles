@@ -31,11 +31,16 @@ helpers do
 end
 
 get '/' do
-	@puzzles = Puzzle.all
-	@puzzles.sort! do |a,b|
-		a.title <=> b.title
-	end
 	erb :index
+end
+
+get '/random' do
+	puzzle = Puzzle.all.sample
+	redirect path_to_puzzle puzzle
+end
+
+get '/list' do
+	@puzzles = Puzzle.all
 end
 
 get '/search' do
@@ -52,6 +57,9 @@ before '/puzzle/:slug*' do
 end
 
 get '/puzzle/:slug' do
+	i = Puzzle.all.index @puzzle
+	@prev_puzzle_url = path_to_puzzle Puzzle.all[(i-1 + Puzzle.all.length) % Puzzle.all.length]
+	@next_puzzle_url = path_to_puzzle Puzzle.all[(i+1 + Puzzle.all.length) % Puzzle.all.length]
 	erb :show_puzzle
 end
 

@@ -12,8 +12,12 @@
 
 <article>
     <%= @puzzle.content %>
-    <span class="arrow-left"><a href="#"><i class="icon-caret-left"></i></a></span>
-    <span class="arrow-right"><a href="#"><i class="icon-caret-right"></i></a></span>
+		<span class="arrow-left">
+			<a href="<%= @prev_puzzle_url %>"><i class="icon-caret-left"></i></a>
+		</span>
+		<span class="arrow-right">
+			<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
+		</span>
 </article>
 <!-- Temporary, SVG to come -->
 <% if not @puzzle.answer.nil? %>
