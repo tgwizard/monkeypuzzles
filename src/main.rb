@@ -41,11 +41,12 @@ end
 
 get '/list' do
 	@puzzles = Puzzle.all
+	erb :list
 end
 
 get '/search' do
 	@q = params[:q]
-	@puzzles = Puzzle.search @q
+	@puzzles = Puzzle.search @q || ""
 	erb :search
 end
 
