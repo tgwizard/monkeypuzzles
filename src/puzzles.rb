@@ -44,18 +44,20 @@ class Puzzle
 		words = q.downcase.split
 
 		result = []
-		puzzles_left = @@puzzles.values.dup
+		puzzles_left = @@puzzle_list.dup
 
 		accept = lambda do |&criteria|
+			new_result = []
 			puzzles_left.each do |puzzle|
 				words.each do |word|
 					if criteria.call(puzzle, word)
-						result << puzzle
-						puzzles_left.delete puzzle
+						new_result << puzzle
 						break
 					end
 				end
 			end
+			result += new_result
+			puzzles_left -= new_result
 		end
 
 		# slugs
@@ -66,6 +68,11 @@ class Puzzle
 		# titles
 		accept.call do |puzzle, word|
 			puzzle.title.downcase.include? word
+		end
+
+		# tags
+		accept.call do |puzzle, word|
+			puzzle.tags.include? word
 		end
 
 		# contents
