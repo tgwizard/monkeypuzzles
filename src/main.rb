@@ -44,11 +44,13 @@ get '/random' do
 end
 
 get '/list' do
+	@title = "All puzzles"
 	@puzzles = Puzzle.all
 	erb :list
 end
 
 get '/search' do
+	@title = "Search"
 	@q = params[:q]
 	@puzzles = Puzzle.search @q || ""
 	erb :search
@@ -63,17 +65,20 @@ end
 
 get '/puzzle/:slug' do
 	i = Puzzle.all.index @puzzle
+	@title = @puzzle.title
 	@prev_puzzle_url = path_to_puzzle Puzzle.all[(i-1 + Puzzle.all.length) % Puzzle.all.length]
 	@next_puzzle_url = path_to_puzzle Puzzle.all[(i+1 + Puzzle.all.length) % Puzzle.all.length]
 	erb :show_puzzle
 end
 
 get '/puzzle/:slug/answer' do
+	@title = "Answer for #{@puzzle.title}"
 	erb :show_answer
 end
 
 get '/tag/:tag' do
 	@tag = params[:tag].downcase
+	@title = "#{@tag.capitalize} puzzles"
 	if Puzzle.tags[@tag].nil?
 		raise error 404
 	end
