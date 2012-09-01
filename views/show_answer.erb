@@ -1,12 +1,16 @@
-<section>
-<header>
-<small>Solution for:</small>
-<h1><%= @puzzle.title %></h1>
-</header>
-<%= @puzzle.answer %>
+<div class="row-fluid">
+<div class="span12">
+	<header>
+		<small>Solution for:</small>
+		<h1><%= @puzzle.title %></h1>
+	</header>
 
-<p>
-<a href="<%= path_to_puzzle @puzzle %>">&laquo; Back to puzzle</a>
-</p>
+	<p>
+		<%= @puzzle.answer %>
+	</p>
 
-</section>
+	<p>
+		<a class="back-link" href="<%= path_to_puzzle @puzzle %>"><i class="icon-arrow-left"></i> Back to puzzle</a>
+	</p>
+</div>
+</div>

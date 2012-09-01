@@ -1,21 +1,20 @@
-<div class="row">
-<div class="span4">
+<div class="row-fluid">
+<div class="span12">
+	<form action="/search" method="get" class="big-search">
+		<input type="text" name="q" placeholder="Search..." value="<%= @q %>" />
+	</form>
+	<% if @q %>
+		<h3>Search results</h3>
 
-<form action="/search" method="get">
-	<input type="text" name="q" placeholder="Search..." value="<%= @q %>" />
-</form>
-
-<h2>Search results</h2>
-
-<% if @puzzles.length > 0 %>
-	<p>
-	<%= erb :"partials/list_puzzles" %>
-	</p>
-<% elsif not @q.nil? %>
-<p>
-No puzzles found.
-</p>
-<% end %>
-
+		<% if @puzzles.length > 0 %>
+		<p>
+			<%= erb :"partials/list_puzzles" %>
+		</p>
+		<% else %>
+		<p>
+		No puzzles found.
+		</p>
+		<% end %>
+	<% end %>
 </div>
 </div>

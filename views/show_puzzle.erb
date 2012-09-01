@@ -1,25 +1,22 @@
-<header>
-	<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
-    <!-- Ornaments will be replaced with images -->
-	<div class="ornament">z<span>y</span></div>
-	<smaller>Category: <a href="#">Riddl<span>e</span></a></smaller>
-    <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
-    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
-    <small>A somewhat eas<span>y</span></small>
-    <small>monkey riddl<span>e</span></small>
-    <smaller>Author: <a href="#">Unknow<span>n</span></a></smaller>
-</header>
+<div class="row-fluid">
+<div class="span12">
+	
+	<header>
+		<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+	    <!-- Ornaments will be replaced with images -->
+		<div class="ornament">z<span>y</span></div>
+		<smaller>Category: <a href="#">Riddl<span>e</span></a></smaller>
+	    <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
+	    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
+	    <small>A somewhat eas<span>y</span></small>
+	    <small>monkey riddl<span>e</span></small>
+	    <smaller>Author: <a href="#">Unknow<span>n</span></a></smaller>
+	</header>
 
-<article>
-    <%= @puzzle.content %>
-		<span class="arrow-left">
-			<a href="<%= @prev_puzzle_url %>"><i class="icon-caret-left"></i></a>
-		</span>
-		<span class="arrow-right">
-			<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
-		</span>
+	<article>
+	    <%= @puzzle.content %>
 
-		<!-- do something about this :) -->
+	    <!-- do something about this :) -->
 		<% if not @puzzle.tags.empty? %>
 			<p>
 			Tags:
@@ -42,12 +39,33 @@
 			</p>
 		<% end %>
 
-
-
-</article>
-<!-- Temporary, SVG to come -->
-<% if not @puzzle.answer.nil? %>
-<p class="answer">
-    <a href="<%= path_to_puzzle_answer @puzzle %>"><i class="icon-key"></i></a>
-</p>
-<% end %>
+		<div class="high-res-nav">
+			<span class="arrow-left">
+				<a href="<%= @prev_puzzle_url %>"><i class="icon-caret-left"></i></a>
+			</span>
+			<span class="arrow-right">
+				<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
+			</span>
+		</div>
+	</article>
+	
+	<div class="low-res-nav">
+		<% if not @puzzle.answer.nil? %>
+			<p class="answer-link">
+				<a href="<%= path_to_puzzle_answer @puzzle %>"></a>  
+			</p>
+		<% else %>
+			<p class="inactive-answer-link">
+				<a href="#"></a>	  
+			</p>
+		<% end %>
+		<span class="arrow-left">
+			<a href="<%= @prev_puzzle_url %>"><i class="icon-caret-left"></i></a>
+		</span>
+		<span class="arrow-right">
+			<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
+		</span>
+	</div>
+	
+</div>
+</div>
