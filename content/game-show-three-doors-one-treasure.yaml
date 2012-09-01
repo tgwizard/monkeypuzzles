@@ -2,12 +2,14 @@ title: "Game show: Three doors, one treasure"
 difficulty: 0
 created_at: 2012-08-05
 updated_at: 2012-08-05
+tags: [probability]
 
 content: |
   You participate in a game show, and the host presents you with three doors.
   Behind one door is one million dollars, behind the others there's nothing.
-  The host asks you to choose one door, and then he opens another door, showing
-  its empty contents. The host then asks: Do you want to choose another door?
+  The host asks you to choose one door. After you have done so, the host will
+  open another door, showing its empty contents. There is now only two closed
+  doors left. The host asks: Do you want to choose the other door?
 
   What should you do to maximise your chances of getting the million dollars?
 
