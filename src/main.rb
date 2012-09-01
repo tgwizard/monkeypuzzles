@@ -28,6 +28,9 @@ helpers do
 	def path_to_puzzle_answer(puzzle)
 		url "/puzzle/#{puzzle.slug}/answer"
 	end
+	def path_to_tag(tag)
+		url "/tag/#{tag.downcase}"
+	end
 end
 
 get '/' do
@@ -66,4 +69,13 @@ end
 
 get '/puzzle/:slug/answer' do
 	erb :show_answer
+end
+
+get '/tag/:tag' do
+	@tag = params[:tag].downcase
+	if Puzzle.tags[@tag].nil?
+		raise error 404
+	end
+	@puzzles = Puzzle.all.select {|p| p.tags.include? @tag}
+	erb :show_tag
 end

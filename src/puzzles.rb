@@ -2,13 +2,15 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
-  attr_reader :slug, :title, :content, :answer, :about
+  attr_reader :slug, :title, :content, :answer, :about, :tags
 	attr_reader :created_at, :updated_at
   attr_reader :content_md, :answer_md, :about_md
 
   def initialize(attributes = {})
     @slug = attributes['slug']
     @title = attributes['title']
+		@tags = attributes['tags'] || []
+
     @content_md = attributes['content']
 		@answer_md = attributes['answer']
 		@about_md = attributes['about']
@@ -23,6 +25,7 @@ class Puzzle
   # class stuff
   @@puzzles = {}
 	@@puzzle_list = []
+	@@tags = {}
   @@markdown = markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   def self.all
@@ -32,6 +35,10 @@ class Puzzle
   def self.find(slug)
     @@puzzles[slug]
   end
+
+	def self.tags
+		@@tags
+	end
 
 	def self.search(q)
 		words = q.downcase.split
@@ -80,6 +87,12 @@ class Puzzle
 
 		@@puzzle_list = @@puzzles.values.sort do |a,b|
 			a.title <=> b.title
+		end
+
+		@@puzzle_list.each do |puzzle|
+			puzzle.tags.each do |tag|
+				@@tags[tag] = 1 + (@@tags[tag] || 0)
+			end
 		end
 	end
 end

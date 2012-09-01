@@ -18,6 +18,19 @@
 		<span class="arrow-right">
 			<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
 		</span>
+
+		<!-- do something about this :) -->
+		<% if @puzzle.tags.length %>
+			<p>
+			Tags:
+			<ul>
+			<% @puzzle.tags.each do |tag| %>
+				<li><a href="<%= path_to_tag tag %>"><%= tag %></a></li>
+			<% end %>
+			</ul>
+			</p>
+		<% end %>
+
 </article>
 <!-- Temporary, SVG to come -->
 <% if not @puzzle.answer.nil? %>
