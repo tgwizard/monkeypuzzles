@@ -34,6 +34,7 @@ helpers do
 end
 
 get '/' do
+	@tags = Puzzle.tags.to_a.sort {|a,b| a[0] <=> b[0]}
 	erb :index
 end
 
