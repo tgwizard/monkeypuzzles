@@ -11,7 +11,7 @@
 	<p>
 	<%= erb :"partials/list_puzzles" %>
 	</p>
-<% else %>
+<% elsif not @q.nil? %>
 <p>
 No puzzles found.
 </p>
