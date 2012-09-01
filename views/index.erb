@@ -20,6 +20,12 @@ start right now with a <a href="/random">random puzzle</a>. Enjoy!</p>
 <p>Beware, this is a work in progress. Occasional hiccups are to be expected.</p>
 
 <p>
+<form action="/search" method="get" class="big-search">
+	<input type="text" name="q" placeholder="Search..." value="<%= @q %>" />
+</form>
+</p>
+
+<p>
 <!-- TODO: make it look good, and better -->
 Tags:
 <ul>
@@ -27,12 +33,6 @@ Tags:
 		<li><a href="<%= path_to_tag t[0] %>"><%= t[0] %> (<%= t[1] %>)</a></li>
 	<% end %>
 </ul>
-</p>
-
-<p>
-<form action="/search" method="get">
-	<input type="text" name="q" placeholder="Search..." value="<%= @q %>" />
-</form>
 </p>
 
 </section>
