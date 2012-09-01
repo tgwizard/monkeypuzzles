@@ -3,6 +3,7 @@ difficulty: 0
 created_at: 2012-08-05
 updated_at: 2012-08-05
 tags: [math]
+related: [infinite-hotel-variant-1, infinite-hotel-variant-3]
 
 content: |
   There is a hotel with an infinite number of rooms. They are all occupied.

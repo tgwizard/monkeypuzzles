@@ -20,7 +20,7 @@
 		</span>
 
 		<!-- do something about this :) -->
-		<% if @puzzle.tags.length %>
+		<% if not @puzzle.tags.empty? %>
 			<p>
 			Tags:
 			<ul>
@@ -30,6 +30,19 @@
 			</ul>
 			</p>
 		<% end %>
+
+		<% if not @puzzle.related.empty? %>
+			<p>
+			Related puzzles:
+			<ul>
+			<% @puzzle.related.each do |p| %>
+				<li><a href="<%= path_to_puzzle p %>"><%= p.title %></a></li>
+			<% end %>
+			</ul>
+			</p>
+		<% end %>
+
+
 
 </article>
 <!-- Temporary, SVG to come -->

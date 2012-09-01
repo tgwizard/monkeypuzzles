@@ -2,7 +2,7 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
-  attr_reader :slug, :title, :content, :answer, :about, :tags
+  attr_reader :slug, :title, :content, :answer, :about, :tags, :related
 	attr_reader :created_at, :updated_at
   attr_reader :content_md, :answer_md, :about_md
 
@@ -10,6 +10,7 @@ class Puzzle
     @slug = attributes['slug']
     @title = attributes['title']
 		@tags = attributes['tags'] || []
+		@related = attributes['related'] || []
 
     @content_md = attributes['content']
 		@answer_md = attributes['answer']
@@ -100,6 +101,12 @@ class Puzzle
 			puzzle.tags.each do |tag|
 				@@tags[tag] = 1 + (@@tags[tag] || 0)
 			end
+
+			related = []
+			puzzle.related.each do |r|
+				related << @@puzzles[r]
+			end
+			puzzle.related.replace related
 		end
 	end
 end
