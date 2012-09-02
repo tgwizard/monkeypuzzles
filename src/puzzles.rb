@@ -42,6 +42,9 @@ class Puzzle
 	end
 
 	def self.search(q)
+		q = q.strip
+		return Puzzle.all if q.length == 0
+
 		words = q.downcase.split
 
 		result = []

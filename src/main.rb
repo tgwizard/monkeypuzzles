@@ -22,6 +22,7 @@ configure :production do
 end
 
 helpers do
+	# paths
 	def path_to_puzzle(puzzle)
 		url "/puzzle/#{puzzle.slug}"
 	end
@@ -31,6 +32,10 @@ helpers do
 	def path_to_tag(tag)
 		url "/tag/#{tag.downcase}"
 	end
+
+	# other
+	include Rack::Utils
+	alias_method :h, :escape_html
 end
 
 get '/' do
@@ -51,8 +56,8 @@ end
 
 get '/search' do
 	@title = "Search"
-	@q = params[:q]
-	@puzzles = Puzzle.search @q || ""
+	@q = (params[:q] || "").strip
+	@puzzles = Puzzle.search @q
 	erb :search
 end
 
