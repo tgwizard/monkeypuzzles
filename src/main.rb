@@ -156,11 +156,18 @@ get '/atom.xml' do
 		xml.instruct! :xml, :version => '1.0'
 		xml.feed :xmlns => "http://www.w3.org/2005/Atom" do
 			xml.title "Monkeypuzzles"
-			xml.subtitle "Puzzles not even a monkey could solve"
+			xml.subtitle "Puzzles not even a monkey could solve. A collection of
+				the greatest puzzles in the world."
 			xml.link :href => url('/atom.xml'), :rel => 'self'
 			xml.link :href => url('/')
 			xml.id url('/')
 			xml.updated Time.parse(feed_created_at(puzzles).to_s).xmlschema
+			xml.author do
+				xml.name "Adam Renberg"
+			end
+			xml.author do
+				xml.name "Olle Werme"
+			end
 
 			puzzles.each do |puzzle|
 				xml.entry do
