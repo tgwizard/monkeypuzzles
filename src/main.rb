@@ -48,16 +48,11 @@ get '/random' do
 	redirect path_to_puzzle puzzle
 end
 
-get '/list' do
-	@title = "All puzzles"
-	@puzzles = Puzzle.all
-	erb :list
-end
-
 get '/search' do
 	@title = "Search"
 	@q = (params[:q] || "").strip
 	@puzzles = Puzzle.search @q
+
 	erb :search
 end
 
