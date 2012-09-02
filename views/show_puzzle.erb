@@ -9,7 +9,7 @@
 	    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
 	    <small>A somewhat eas<span>y</span></small>
 	    <small>monkey riddl<span>e</span></small>
-	    <smaller>Author: <a href="#">Unknow<span>n</span></a></smaller>
+			<smaller>Author: <%= @puzzle.author[0, @puzzle.author.length-1] %><span><%= @puzzle.author[-1, 1] %></span></a></smaller>
 	</header>
 
 	<article>

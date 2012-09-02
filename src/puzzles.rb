@@ -2,13 +2,15 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
-  attr_reader :slug, :title, :content, :answer, :about, :categories, :related
+  attr_reader :slug, :title, :content, :answer
+	attr_reader :author, :about, :categories, :related
 	attr_reader :created_at, :updated_at
   attr_reader :content_md, :answer_md, :about_md
 
   def initialize(attributes = {})
     @slug = attributes['slug']
     @title = attributes['title']
+		@author = attributes['author'] || 'Unknown'
 		@categories = attributes['categories'] || []
 		@related = attributes['related'] || []
 
