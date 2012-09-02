@@ -98,3 +98,35 @@ get '/category/:category' do
 	end
 	erb :show_category
 end
+
+get '/rss.xml' do
+	builder do |xml|
+		xml.instruct! :xml, :version => '1.0'
+		xml.rss :version => "2.0" do
+			xml.channel do
+				xml.title "Monkeypuzzles"
+				xml.description "A collection of the greatest puzzles in the world."
+				xml.link url '/'
+
+				puzzles = Puzzle.all.sort do |a,b|
+					if a.created_at != b.created_at
+						a.created_at <=> b.created_at
+					else
+						a.title <=> b.title
+					end
+				end
+
+				puzzles.each do |puzzle|
+					xml.item do
+						xml.title puzzle.title
+						xml.link path_to_puzzle(puzzle)
+						xml.pubDate Time.parse(puzzle.created_at.to_s).rfc822()
+						xml.description puzzle.content
+						xml.guid puzzle.slug
+
+					end
+				end
+			end
+		end
+	end
+end
