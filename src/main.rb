@@ -102,15 +102,17 @@ end
 get '/rss.xml' do
 	builder do |xml|
 		xml.instruct! :xml, :version => '1.0'
-		xml.rss :version => "2.0" do
+		xml.rss :version => "2.0", :"xmlns:atom" => "http://www.w3.org/2005/Atom" do
 			xml.channel do
 				xml.title "Monkeypuzzles"
 				xml.description "A collection of the greatest puzzles in the world."
 				xml.link url '/'
+				xml.tag! 'atom:link', :href => url('/rss.xml'), :rel => 'self', :type => 'application/rss+xml'
 
 				puzzles = Puzzle.all.sort do |a,b|
 					if a.created_at != b.created_at
-						a.created_at <=> b.created_at
+						# newest to oldest
+						b.created_at <=> a.created_at
 					else
 						a.title <=> b.title
 					end
@@ -122,7 +124,7 @@ get '/rss.xml' do
 						xml.link path_to_puzzle(puzzle)
 						xml.pubDate Time.parse(puzzle.created_at.to_s).rfc822()
 						xml.description puzzle.content
-						xml.guid puzzle.slug
+						xml.guid path_to_puzzle(puzzle)
 
 					end
 				end
