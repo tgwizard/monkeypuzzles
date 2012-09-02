@@ -39,7 +39,16 @@ helpers do
 end
 
 get '/' do
-	@categories = Puzzle.categories.to_a.sort {|a,b| a[0] <=> b[0]}
+	@categories = Puzzle.categories.to_a.sort do |a,b|
+		if a[0] == Puzzle::NO_CATEGORY
+			1
+		elsif b[0] == Puzzle::NO_CATEGORY
+			-1
+		else
+			a[0] <=> b[0]
+		end
+	end
+
 	erb :index
 end
 
