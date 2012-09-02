@@ -80,7 +80,11 @@ class Puzzle
 
 		# categories
 		accept.call do |puzzle, word|
-			puzzle.categories.include? word
+			ret = false
+			puzzle.categories.each do |c|
+				ret = true if c.include? word
+			end
+			ret
 		end
 
 		# contents
