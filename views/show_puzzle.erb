@@ -1,11 +1,10 @@
 <div class="row-fluid">
 <div class="span12">
-	
 	<header>
 		<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
 	    <!-- Ornaments will be replaced with images -->
 		<div class="ornament">z<span>y</span></div>
-		<smaller>Category: <a href="#">Riddl<span>e</span></a></smaller>
+			<smaller>Category: <a href="#">Riddl<span>e</span></a></smaller>
 	    <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
 	    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
 	    <small>A somewhat eas<span>y</span></small>
@@ -17,12 +16,12 @@
 	    <%= @puzzle.content %>
 
 	    <!-- do something about this :) -->
-		<% if not @puzzle.tags.empty? %>
+		<% if not @puzzle.categories.empty? %>
 			<p>
-			Tags:
+			Categories:
 			<ul>
-			<% @puzzle.tags.each do |tag| %>
-				<li><a href="<%= path_to_tag tag %>"><%= tag %></a></li>
+			<% @puzzle.categories.each do |category| %>
+				<li><a href="<%= path_to_category category %>"><%= category %></a></li>
 			<% end %>
 			</ul>
 			</p>

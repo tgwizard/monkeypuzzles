@@ -2,14 +2,14 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
-  attr_reader :slug, :title, :content, :answer, :about, :tags, :related
+  attr_reader :slug, :title, :content, :answer, :about, :categories, :related
 	attr_reader :created_at, :updated_at
   attr_reader :content_md, :answer_md, :about_md
 
   def initialize(attributes = {})
     @slug = attributes['slug']
     @title = attributes['title']
-		@tags = attributes['tags'] || []
+		@categories = attributes['categories'] || []
 		@related = attributes['related'] || []
 
     @content_md = attributes['content']
@@ -26,7 +26,7 @@ class Puzzle
   # class stuff
   @@puzzles = {}
 	@@puzzle_list = []
-	@@tags = {}
+	@@categories = {}
   @@markdown = markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   def self.all
@@ -37,8 +37,8 @@ class Puzzle
     @@puzzles[slug]
   end
 
-	def self.tags
-		@@tags
+	def self.categories
+		@@categories
 	end
 
 	def self.search(q)
@@ -74,9 +74,9 @@ class Puzzle
 			puzzle.title.downcase.include? word
 		end
 
-		# tags
+		# categories
 		accept.call do |puzzle, word|
-			puzzle.tags.include? word
+			puzzle.categories.include? word
 		end
 
 		# contents
@@ -101,8 +101,8 @@ class Puzzle
 		end
 
 		@@puzzle_list.each do |puzzle|
-			puzzle.tags.each do |tag|
-				@@tags[tag] = 1 + (@@tags[tag] || 0)
+			puzzle.categories.each do |category|
+				@@categories[category] = 1 + (@@categories[category] || 0)
 			end
 
 			related = []

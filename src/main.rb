@@ -29,8 +29,8 @@ helpers do
 	def path_to_puzzle_answer(puzzle)
 		url "/puzzle/#{puzzle.slug}/answer"
 	end
-	def path_to_tag(tag)
-		url "/tag/#{tag.downcase}"
+	def path_to_category(category)
+		url "/category/#{category.downcase}"
 	end
 
 	# other
@@ -39,7 +39,7 @@ helpers do
 end
 
 get '/' do
-	@tags = Puzzle.tags.to_a.sort {|a,b| a[0] <=> b[0]}
+	@categories = Puzzle.categories.to_a.sort {|a,b| a[0] <=> b[0]}
 	erb :index
 end
 
@@ -76,12 +76,12 @@ get '/puzzle/:slug/answer' do
 	erb :show_answer
 end
 
-get '/tag/:tag' do
-	@tag = params[:tag].downcase
-	@title = "#{@tag.capitalize} puzzles"
-	if Puzzle.tags[@tag].nil?
+get '/category/:category' do
+	@category = params[:category].downcase
+	@title = "#{@category.capitalize} puzzles"
+	if Puzzle.category[@category].nil?
 		raise error 404
 	end
-	@puzzles = Puzzle.all.select {|p| p.tags.include? @tag}
-	erb :show_tag
+	@puzzles = Puzzle.all.select {|p| p.categories.include? @category}
+	erb :show_category
 end

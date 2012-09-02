@@ -27,10 +27,10 @@ start right now with a <a href="/random">random puzzle</a>. Enjoy!</p>
 
 <p>
 <!-- TODO: make it look good, and better -->
-Tags:
+Categories:
 <ul>
-	<% @tags.each do |t| %>
-		<li><a href="<%= path_to_tag t[0] %>"><%= t[0] %> (<%= t[1] %>)</a></li>
+	<% @categories.each do |c| %>
+		<li><a href="<%= path_to_category c[0] %>"><%= c[0] %> (<%= c[1] %>)</a></li>
 	<% end %>
 </ul>
 </p>
