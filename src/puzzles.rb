@@ -2,6 +2,8 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
+	NO_CATEGORY = 'no category'
+
   attr_reader :slug, :title, :content, :answer
 	attr_reader :author, :about, :categories, :related
 	attr_reader :created_at, :updated_at
@@ -105,6 +107,9 @@ class Puzzle
 		@@puzzle_list.each do |puzzle|
 			puzzle.categories.each do |category|
 				@@categories[category] = 1 + (@@categories[category] || 0)
+			end
+			if puzzle.categories.empty?
+				@@categories[NO_CATEGORY] = 1 + (@@categories[NO_CATEGORY] || 0)
 			end
 
 			related = []

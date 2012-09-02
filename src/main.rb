@@ -82,6 +82,10 @@ get '/category/:category' do
 	if Puzzle.categories[@category].nil?
 		raise error 404
 	end
-	@puzzles = Puzzle.all.select {|p| p.categories.include? @category}
+	if @category == Puzzle::NO_CATEGORY
+		@puzzles = Puzzle.all.select {|p| p.categories.empty?}
+	else
+		@puzzles = Puzzle.all.select {|p| p.categories.include? @category}
+	end
 	erb :show_category
 end
