@@ -79,7 +79,7 @@ end
 get '/category/:category' do
 	@category = params[:category].downcase
 	@title = "#{@category.capitalize} puzzles"
-	if Puzzle.category[@category].nil?
+	if Puzzle.categories[@category].nil?
 		raise error 404
 	end
 	@puzzles = Puzzle.all.select {|p| p.categories.include? @category}
