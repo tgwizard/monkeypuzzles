@@ -158,7 +158,8 @@ get '/atom.xml' do
 			xml.title "Monkeypuzzles"
 			xml.subtitle "Puzzles not even a monkey could solve"
 			xml.link :href => url('/atom.xml'), :rel => 'self'
-			xml.link :url => url('/')
+			xml.link :href => url('/')
+			xml.id url('/')
 			xml.updated Time.parse(feed_created_at(puzzles).to_s).xmlschema
 
 			puzzles.each do |puzzle|
@@ -166,7 +167,9 @@ get '/atom.xml' do
 					xml.title puzzle.title
 					xml.link :href => path_to_puzzle(puzzle)
 					xml.updated Time.parse(puzzle.created_at.to_s).xmlschema
-					xml.content puzzle.content
+					xml.content :type => 'html' do
+						xml.text! puzzle.content
+					end
 					xml.id path_to_puzzle(puzzle)
 				end
 			end
