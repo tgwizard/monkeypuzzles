@@ -18,7 +18,7 @@ body {
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
   font-size: 100%;
   font-family: legitima; /* -webkit-font-smoothing:   antialiased; */
--webkit-font-feature-settings: "liga", "dlig";
+  -webkit-font-feature-settings: "liga", "dlig";
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
@@ -65,6 +65,9 @@ h1,h2,h3 {
   width: 100%;
   min-height: 100%;
 }
+.container {
+  min-height: 100%;
+}
 
 /* MAIN CONTENT LOVE */
 .content {
@@ -78,12 +81,12 @@ h1,h2,h3 {
 }
 
 .content a {
-  color: #006690;
+  color: #006699;
   text-decoration: underline;
 }
 
 .content a:hover {
-  color: #0088cc;
+  color: #0088aa;
   text-decoration: none;
 }
 
@@ -142,6 +145,7 @@ h1,h2,h3 {
   right: 2rem;
 }
 
+/* ZIGZAG BORDER LOVE */
 footer:before,.navbar:after {
   position: absolute;
   right: 0;
@@ -204,7 +208,7 @@ footer:before {
   cursor: default;
 }
 
-/* HEADER LOVE */
+/* PUZZLE HEADER LOVE */
 header {
   margin: 0 0 2rem;
   text-align: center;
@@ -219,8 +223,6 @@ header h1 {
 }
 
 header small {
-  display: block;
-  width: 100%;
   color: white;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
@@ -241,14 +243,17 @@ header smaller {
 header span {
   letter-spacing: 0;
 }
-
-header .ornament {
-  margin: 0 auto;
-  color: white;
-  letter-spacing: 6.6rem;
-  font-size: 1.8rem;
-  font-family: 'ornaments';
-  line-height: 1rem;
+.ornament:before, .ornament:after {
+  position: relative;
+  top: -8px;
+}
+.ornament:before {  
+  content: url(../img/ornament-left.png);
+  margin-right: -20px;
+}
+.ornament:after {
+  content: url(../img/ornament-right.png);
+  margin-left: -20px;
 }
 
 .tags,.similar {
@@ -259,9 +264,174 @@ header .ornament {
   font-size: 0.8rem;
 }
 
+.title smaller {
+  font-size: 0.8rem;
+}
+
+[class*='super_title'] {
+  font-size: 5rem;
+  line-height: 4rem;
+  margin-left: -20px;
+}
+
+.super_title2 {
+  font-size: 4rem;
+  text-transform: lowercase;
+  color: #1e160f;
+  text-shadow: 0 -1px 0 black;
+  margin-bottom: 2rem;
+}
+
+[class*='super_title'] span {
+  display: inline-block;
+  position: relative;
+}
+
+[class*='super_title'] [class*='char'] {
+  margin-right: 0px;
+}
+
+.super_title1 .char2 {
+vertical-align: top;
+margin-left: -10px;
+font-size: 137%;
+}
+
+.super_title1 .char6 {
+vertical-align: top;
+margin-left: -14px;
+display: inline-block;
+position: relative;
+top: 4px;
+-webkit-transform: rotate(9deg);
+-moz-transform: rotate(9deg);
+-ms-transform: rotate(9deg);
+-o-transform: rotate(9deg);
+transform: rotate(9deg);
+font-size: 130%;
+}
+
+.super_title1 .char5 {
+vertical-align: top;
+margin-left: -6px;
+display: inline-block;
+position: relative;
+-webkit-transform: rotate(-13deg);
+-moz-transform: rotate(-13deg);
+-ms-transform: rotate(-13deg);
+-o-transform: rotate(-13deg);
+transform: rotate(-13deg);
+font-size: 66%;
+}
+
+.super_title1 .char3 {
+vertical-align: top;
+margin-left: -1px;
+font-size: 78%;
+}
+
+.super_title1 .char1 {
+vertical-align: top;
+margin-left: 15px;
+display: inline-block;
+position: relative;
+top: 21px;
+-webkit-transform: rotate(-19deg);
+-moz-transform: rotate(-19deg);
+-ms-transform: rotate(-19deg);
+-o-transform: rotate(-19deg);
+transform: rotate(-19deg);
+font-size: 97%;
+}
+
+.super_title1 .char4 {
+vertical-align: top;
+margin-left: -2px;
+display: inline-block;
+position: relative;
+top: 2px;
+font-size: 110%;
+}
+
+.super_title2 .char4 {
+vertical-align: top;
+margin-left: -3px;
+display: inline-block;
+position: relative;
+top: -17px;
+font-size: 89%;
+}
+
+.super_title2 .char1 {
+vertical-align: top;
+margin-left: 51px;
+display: inline-block;
+position: relative;
+top: 4px;
+-webkit-transform: rotate(-11deg);
+-moz-transform: rotate(-11deg);
+-ms-transform: rotate(-11deg);
+-o-transform: rotate(-11deg);
+transform: rotate(-11deg);
+font-size: 101%;
+text-transform: uppercase;
+}
+
+.super_title2 .char2 {
+vertical-align: top;
+display: inline-block;
+position: relative;
+top: -17px;
+}
+
+.super_title2 .char3 {
+vertical-align: top;
+display: inline-block;
+position: relative;
+top: -12px;
+font-size: 172%;
+}
+
+.super_title2 .char6 {
+vertical-align: top;
+margin-left: -22px;
+display: inline-block;
+position: relative;
+top: -11px;
+}
+
+.super_title2 .char7 {
+vertical-align: top;
+margin-left: 0;
+display: inline-block;
+position: relative;
+top: -10px;
+-webkit-transform: rotate(-20deg);
+-moz-transform: rotate(-20deg);
+-ms-transform: rotate(-20deg);
+-o-transform: rotate(-20deg);
+transform: rotate(-20deg);
+font-size: 144%;
+}
+
+.super_title2 .char5 {
+vertical-align: top;
+margin-left: -6px;
+display: inline-block;
+position: relative;
+top: 8px;
+text-transform: uppercase;
+-webkit-transform: rotate(6deg);
+-moz-transform: rotate(6deg);
+-ms-transform: rotate(6deg);
+-o-transform: rotate(6deg);
+transform: rotate(6deg);
+font-size: 148%;
+}
+
 /* SEARCH LOVE */
 input::-webkit-input-placeholder {
-  color: white;
+  color: #a26330;
 }
 
 form.big-search {
@@ -292,7 +462,7 @@ a.back-link {
 footer {
   position: relative;
   display: block;
-  margin-top: -286px;
+  margin-top: -280px;
   padding: 40px;
   background-color: #1B1B1B;
 
