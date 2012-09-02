@@ -171,6 +171,9 @@ get '/atom.xml' do
 						xml.text! puzzle.content
 					end
 					xml.id path_to_puzzle(puzzle)
+					xml.author do
+						xml.name puzzle.author
+					end
 				end
 			end
 		end
