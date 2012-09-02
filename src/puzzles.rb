@@ -106,10 +106,10 @@ class Puzzle
 
 		@@puzzle_list.each do |puzzle|
 			puzzle.categories.each do |category|
-				@@categories[category] = 1 + (@@categories[category] || 0)
+				@@categories[category] = 1 + @@categories.fetch(category, 0)
 			end
 			if puzzle.categories.empty?
-				@@categories[NO_CATEGORY] = 1 + (@@categories[NO_CATEGORY] || 0)
+				@@categories[NO_CATEGORY] = 1 + @@categories.fetch(NO_CATEGORY, 0)
 			end
 
 			related = []
