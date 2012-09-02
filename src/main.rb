@@ -154,22 +154,20 @@ get '/atom.xml' do
 
 	builder do |xml|
 		xml.instruct! :xml, :version => '1.0'
-		xml.rss :xmlns => "http://www.w3.org/2005/Atom" do
-			xml.channel do
-				xml.title "Monkeypuzzles"
-				xml.subtitle "Puzzles not even a monkey could solve"
-				xml.link :href => url('/atom.xml'), :rel => 'self'
-				xml.link :url => url('/')
-				xml.updated Time.parse(feed_created_at(puzzles).to_s).xmlschema
+		xml.feed :xmlns => "http://www.w3.org/2005/Atom" do
+			xml.title "Monkeypuzzles"
+			xml.subtitle "Puzzles not even a monkey could solve"
+			xml.link :href => url('/atom.xml'), :rel => 'self'
+			xml.link :url => url('/')
+			xml.updated Time.parse(feed_created_at(puzzles).to_s).xmlschema
 
-				puzzles.each do |puzzle|
-					xml.entry do
-						xml.title puzzle.title
-						xml.link :href => path_to_puzzle(puzzle)
-						xml.updated Time.parse(puzzle.created_at.to_s).xmlschema
-						xml.content puzzle.content
-						xml.id path_to_puzzle(puzzle)
-					end
+			puzzles.each do |puzzle|
+				xml.entry do
+					xml.title puzzle.title
+					xml.link :href => path_to_puzzle(puzzle)
+					xml.updated Time.parse(puzzle.created_at.to_s).xmlschema
+					xml.content puzzle.content
+					xml.id path_to_puzzle(puzzle)
 				end
 			end
 		end
