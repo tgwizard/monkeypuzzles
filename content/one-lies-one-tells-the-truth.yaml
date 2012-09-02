@@ -1,0 +1,17 @@
+title: One lies, one always tells the truth
+created_at: 2012-09-02
+updated_at: 2012-09-02
+categories: [logic, asdf]
+
+content: |
+  As you walk along a path in a forest, the path splits in two. You do not know
+  which way to go. At the junction, two solemn guards stand, ready to help any
+  passersby.
+
+  It so happens that the guards only know the words *yes* and *no*. It also
+  happens to be that the guards are twin brothers, impossible to tell apart.
+  And, as twin brothers, the guards have developed a quite peculiar dynamic:
+  One of them always tells the truth, while the other always lies.
+
+  You have one question, which you can ask one of the guards. How do you
+  determine how to continue on your path?
