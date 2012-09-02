@@ -9,6 +9,7 @@ configure do
 	set :root, File.expand_path("..", File.dirname(__FILE__))
 	set :public_folder, 'static'
 	set :partial_template_engine, :erb
+	mime_type :woff, 'application/x-font-woff'
 end
 
 configure :production do
