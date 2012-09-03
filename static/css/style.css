@@ -1,12 +1,3 @@
-/* ornament font to be replaced with images */
-@font-face {
-  font-weight: normal;
-  font-style: normal;
-  font-family: 'ornaments';
-  src: url('../fonts/Nymphette-webfont.eot');
-  src: url('../fonts/Nymphette-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/Nymphette-webfont.woff') format('woff'), url('../fonts/Nymphette-webfont.ttf') format('truetype'), url('../fonts/Nymphette-webfont.svg#NymphetteRegular') format('svg');
-}
-
 html,body {
   height: 100%;
 }
@@ -29,11 +20,11 @@ p {
   -webkit-font-smoothing: antialiased;
 }
 
+/* sadly, font-weight too inconsistent between browsers */
 h1,h2,h3 {
   font-weight: normal;
 }
 
-/* font-weight too inconsistent between browsers */
 /* RESPONSIVENESS */
 @media (max-width: 767px) {
   body {
