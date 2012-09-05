@@ -1,4 +1,14 @@
 <div class="row-fluid">
+	<% # helper render functions for this view %>
+<% def write_nav_arrows %>
+	<span class="arrow-left">
+		<a href="<%= path_to_puzzle @puzzle.prev_puzzle %>"><i class="icon-caret-left"></i></a>
+	</span>
+	<span class="arrow-right">
+		<a href="<%= path_to_puzzle @puzzle.next_puzzle %>"><i class="icon-caret-right"></i></a>
+	</span>
+<% end %>
+
 <div class="span12">
 
 	<header>
@@ -36,12 +46,7 @@
 		<% end %>
 
 		<div class="high-res-nav">
-			<span class="arrow-left">
-				<a href="<%= @prev_puzzle_url %>"><i class="icon-caret-left"></i></a>
-			</span>
-			<span class="arrow-right">
-				<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
-			</span>
+			<% write_nav_arrows %>
 		</div>
 	</article>
 
@@ -55,12 +60,8 @@
 				<a href="#"></a>
 			</p>
 		<% end %>
-		<span class="arrow-left">
-			<a href="<%= @prev_puzzle_url %>"><i class="icon-caret-left"></i></a>
-		</span>
-		<span class="arrow-right">
-			<a href="<%= @next_puzzle_url %>"><i class="icon-caret-right"></i></a>
-		</span>
+
+		<% write_nav_arrows %>
 	</div>
 
 </div>

@@ -4,34 +4,38 @@ require 'redcarpet'
 class Puzzle
 	NO_CATEGORY = 'no category'
 
+	attr_reader :data
+
   attr_reader :slug, :title, :content, :answer
 	attr_reader :author, :about, :categories, :related
 	attr_reader :created_at, :updated_at
-  attr_reader :content_md, :answer_md, :about_md
 
-  def initialize(attributes = {})
-    @slug = attributes['slug']
-    @title = attributes['title']
-		@author = attributes['author'] || 'Unknown'
-		@categories = attributes['categories'] || []
-		@related = attributes['related'] || []
+	attr_accessor :next_puzzle, :prev_puzzle
 
-    @content_md = attributes['content']
-		@answer_md = attributes['answer']
-		@about_md = attributes['about']
-		@created_at = attributes['created_at']
-		@updated_at = attributes['updated_at']
+  def initialize(data = {})
+		@data = data
+    @slug = data['slug']
+    @title = data['title']
+		@author = data['author'] || 'Unknown'
+		@categories = data['categories'] || []
+		@related = data['related'] ? data['related'].dup : []
+		@created_at = data['created_at']
+		@updated_at = data['updated_at']
 
-    @content = @@markdown.render(@content_md)
-    @answer = @@markdown.render(@answer_md) unless @answer_md.nil?
-		@about = @@markdown.render(@about_md) unless @about_md.nil?
+    content_md = data['content']
+		answer_md = data['answer']
+		about_md = data['about']
+
+    @content = @@markdown.render(content_md)
+    @answer = @@markdown.render(answer_md) unless answer_md.nil?
+		@about = @@markdown.render(about_md) unless about_md.nil?
   end
 
   # class stuff
   @@puzzles = {}
 	@@puzzle_list = []
 	@@categories = {}
-  @@markdown = markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
+  @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   def self.all
     @@puzzle_list
@@ -121,8 +125,17 @@ class Puzzle
 				related << @@puzzles[r]
 			end
 			puzzle.related.replace related
+			if not puzzle.related.empty?
+				puts "---"
+				puts puzzle.related[0]
+				puts puzzle.data['related'][0]
+			end
 		end
+
+		@@puzzle_list.each_index do |i|
+			@@puzzle_list[i].prev_puzzle = Puzzle.all[(i-1 + Puzzle.all.length) % Puzzle.all.length]
+			@@puzzle_list[i].next_puzzle = Puzzle.all[(i+1 + Puzzle.all.length) % Puzzle.all.length]
+		end
+
 	end
 end
-
-Puzzle.load 'content'
