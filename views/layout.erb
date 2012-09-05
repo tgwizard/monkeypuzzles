@@ -25,11 +25,10 @@
 		<div class="navbar navbar-static-top navbar-inverse">
 			<div class="navbar-inner">
 				<a class="brand" href="/"><img src="/img/monkey_w.png">MonkeyPuzzles</a>
-
-				<ul class="nav pull-right">
-					<!-- A menu item or two here-->
-				</ul>
-			</div>
+				<form action="/search" method="get" class="navbar-search pull-right">
+					<input type="text" name="q" placeholder="Search..." value="<%= @q %>" class="search-query" />
+				</form>  	
+   			 </div>
 		</div>
 
 		<section role="main" class="content clearfix">

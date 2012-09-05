@@ -13,23 +13,25 @@
 
 	<article>
 	    <%= @puzzle.content %>
-
+	    <% if not @puzzle.related.empty? or not @puzzle.categories.empty? %>
+	    <hr />
+	    <% end %>
 	    <!-- do something about this :) -->
 		<% if not @puzzle.categories.empty? %>
-			<p>
+			<p class="categories">
 			Categories:
 			<%=
-				@puzzle.categories.map {|c| "<a href=\"#{path_to_category c}\">#{c}</a>"}.join ', '
-			%>.
+				@puzzle.categories.map {|c| "<a href=\"#{path_to_category c}\">#{c}</a>"}.join
+			%>
 			</p>
 		<% end %>
 
 		<% if not @puzzle.related.empty? %>
-			<p>
+			<p class="categories">
 			Related puzzles:
 			<%=
-				@puzzle.related.map {|p| "<a href=\"#{path_to_puzzle p}\">#{p.title}</a>"}.join ', '
-			%>.
+				@puzzle.related.map {|p| "<a href=\"#{path_to_puzzle p}\">#{p.title}</a>"}.join
+			%>
 			</p>
 		<% end %>
 
