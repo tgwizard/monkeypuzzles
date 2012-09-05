@@ -485,7 +485,7 @@ a.back-link {
 }
 
 
-.categories a {
+.categories a , a.tag-link{
   display: inline-block;
   padding: 3px 6px;
   margin: 2px;
@@ -495,9 +495,19 @@ a.back-link {
   white-space: nowrap;
 }
 
-.categories a:hover {
+.categories a:hover, a.tag-link:hover {
   background: #c78645;
   box-shadow: inset 1px 1px 0 0 #b67534, inset -1px -1px 0px 0 #d89756;
+}
+
+a.tag-link {
+  padding: 1px 4px;
+  margin: -3px 0;
+}
+
+a.tag-link i {
+  line-height: 0.2;
+  margin-right: 4px;
 }
 
 /* FOOTER LOVE */
