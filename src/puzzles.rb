@@ -93,7 +93,7 @@ class Puzzle
 
 		# contents
 		accept.call do |puzzle, word|
-			puzzle.content_md.downcase.include? word
+			puzzle.data['content'].downcase.include? word
 		end
 
 		result
