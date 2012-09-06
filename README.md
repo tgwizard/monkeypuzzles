@@ -27,3 +27,10 @@ The code is built on [ruby](http://www.ruby-lang.org/en/), and uses the
 [sinatra](http://sinatrarb.com) and
 [bootstrap](http://twitter.github.com/bootstrap) frameworks. If more is
 required, [padrino](http://www.padrinorb.com/) is probably the way to go.
+
+## Deployment
+
+	git pull --rebase
+	# check that everything is ok
+	git push && git push heroku
+	# done!

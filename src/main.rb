@@ -4,6 +4,7 @@ require 'sinatra'
 require 'sinatra/partial'
 
 require_relative 'puzzles.rb'
+Puzzle.load 'content'
 
 configure do
 	set :root, File.expand_path("..", File.dirname(__FILE__))
@@ -66,6 +67,13 @@ get '/search' do
 	erb :search
 end
 
+get '/all' do
+	@title = "All puzzles"
+	@puzzles = Puzzle.all
+
+	erb :all
+end
+
 before '/puzzle/:slug*' do
 	@puzzle = Puzzle.find params[:slug]
 	if @puzzle.nil?
@@ -74,10 +82,7 @@ before '/puzzle/:slug*' do
 end
 
 get '/puzzle/:slug' do
-	i = Puzzle.all.index @puzzle
 	@title = @puzzle.title
-	@prev_puzzle_url = path_to_puzzle Puzzle.all[(i-1 + Puzzle.all.length) % Puzzle.all.length]
-	@next_puzzle_url = path_to_puzzle Puzzle.all[(i+1 + Puzzle.all.length) % Puzzle.all.length]
 	erb :show_puzzle
 end
 
