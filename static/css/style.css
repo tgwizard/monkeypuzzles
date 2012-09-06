@@ -1,3 +1,7 @@
+html {
+  font: 130%/1.3 legitima, georgia, "Times New Roman", serif;
+}
+
 html,body {
   height: 100%;
 }
@@ -7,10 +11,10 @@ body {
   background: url('../img/bg.png');
   color: white;
   text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  font-family: legitima; /* -webkit-font-smoothing:    antialiased; */
   font-size: 100%;
-  font-family: legitima; /* -webkit-font-smoothing:    antialiased;
-   */
--webkit-font-feature-settings: "liga", "dlig";
+  line-height: 130%;
+  -webkit-font-feature-settings: "liga", "dlig";
   -moz-font-feature-settings: "liga=1, dlig=1";
   -ms-font-feature-settings: "liga", "dlig";
   -o-font-feature-settings: "liga", "dlig";
@@ -19,11 +23,16 @@ body {
 
 p {
   -webkit-font-smoothing: antialiased;
+  margin-bottom: 1.3rem;
 }
 
 /* sadly, font-weight too inconsistent between browsers */
 h1,h2,h3 {
   font-weight: normal;
+}
+
+li {
+  line-height: 130%;
 }
 
 hr {
@@ -37,10 +46,15 @@ hr {
 
 /* RESPONSIVENESS */
 @media (max-width: 767px) {
+  html {
+    font-size: 120%;
+  }
   body {
     padding: 0 !important;
   }
+}
 
+@media (max-width: 640px) {
   .content {
     padding: 40px 20px 320px !important;
     width: 100% !important;
@@ -55,13 +69,22 @@ hr {
   }
 }
 
-  @media (min-width: 767px) {
-    .low-res-nav span {
-      display: none;
-    }
+@media (min-width: 767px) {
+  .low-res-nav span {
+    display: none;
+  }
 }
 
-@media (max-width: 400px) {
+@media (max-width: 450px) {
+  html {
+    font-size: 110%;
+  }
+
+  .title h1 {
+    font-size: 4rem !important;
+  }
+}
+@media (max-width: 380px) {
   .title h1 {
     font-size: 3.5rem !important;
   }
@@ -87,7 +110,7 @@ hr {
   box-sizing: border-box;
   margin: 0 auto;
   padding: 40px 10px 300px;
-  width: 450px;
+  width: 600px;
 }
 
 .content a {
@@ -104,7 +127,7 @@ hr {
 .content article p:first-child:first-letter {
   float: left;
   display: block;
-  padding: 0.5rem 0.4rem 0;
+  padding: 0.6rem 0.4rem 0;
   font-size: 2.4rem;
   line-height: 1.8rem;
 }
@@ -256,16 +279,16 @@ header span {
 
 .ornament:before,.ornament:after {
   position: relative;
-  top: -8px;
+  top: -0.6rem;
 }
 
 .ornament:before {
-  margin-right: -20px;
+  margin-right: -1rem;
   content: url(../img/ornament-left.png);
 }
 
 .ornament:after {
-  margin-left: -20px;
+  margin-left: -1rem;
   content: url(../img/ornament-right.png);
 }
 
@@ -480,14 +503,9 @@ form.big-search {
   background: white;
 }
 
-a.back-link {
-  text-decoration: none;
-}
-
-
 .categories a , a.tag-link{
   display: inline-block;
-  padding: 3px 6px;
+  padding: 2px 6px;
   margin: 2px;
   border-radius: 5px;
   background: #bd8145;
@@ -500,13 +518,12 @@ a.back-link {
   box-shadow: inset 1px 1px 0 0 #b67534, inset -1px -1px 0px 0 #d89756;
 }
 
-a.tag-link {
-  padding: 1px 4px;
-  margin: -3px 0;
+a.icon-pre-link {
+  text-decoration: none;
 }
 
-a.tag-link i {
-  line-height: 0.2;
+a.icon-pre-link i {
+  line-height: 50%;
   margin-right: 4px;
 }
 
@@ -560,7 +577,7 @@ footer .copyright {
 
 /* BOOTSTRAP NAVBAR TWEAKS */
 .navbar-inverse .navbar-inner {
-  padding: 0.5rem 0.6rem 0.7rem;
+  padding: 0.4rem 0.6rem 0.6rem;
   background-color: #1B1B1B;
 
   background-image: -webkit-linear-gradient(top, #1e160f, #1c1711);
@@ -584,8 +601,12 @@ footer .copyright {
 }
 
 .navbar .brand img {
-  margin: -100px 6px;
-  width: 2rem;
+  margin: -0.2rem 0.4rem 0 0.2rem;
+  width: 1.6rem;
+}
+
+.navbar .brand {
+  font-size: 1.2rem;
 }
 
 .navbar-inverse .navbar-search .search-query::-webkit-input-placeholder {
