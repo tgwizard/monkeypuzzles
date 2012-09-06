@@ -29,6 +29,18 @@ p {
 /* sadly, font-weight too inconsistent between browsers */
 h1,h2,h3 {
   font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  text-align: center;
+}
+
+li {
+  line-height: 150%;
+}
+
+.small-text {
+  font-size: 0.75rem;
+  line-height: 130%;
 }
 
 li {
@@ -51,6 +63,10 @@ hr {
   }
   body {
     padding: 0 !important;
+  }
+
+  .small-text {
+    font-size: 0.85rem !important;
   }
 }
 
@@ -79,6 +95,12 @@ hr {
   html {
     font-size: 110%;
   }
+<<<<<<< HEAD
+=======
+  .small-text {
+    font-size: 0.9rem !important;
+  }
+>>>>>>> cleanup
 
   .title h1 {
     font-size: 4rem !important;
@@ -305,7 +327,7 @@ header span {
 }
 
 [class*='super_title'] {
-  margin-left: -20px;
+  margin-left: -2rem;
   font-size: 5rem;
   line-height: 4rem;
 }
@@ -481,7 +503,8 @@ form.big-search {
 }
 
 .big-search input[type="text"] {
-  padding: 8px 12px 4px;
+  padding: 8px 10px 4px;
+  margin: 15px 0 -5px;
   width: 100%;
   height: 50px;
   border: 0;
@@ -501,6 +524,36 @@ form.big-search {
 
 .big-search input[type="text"]:focus {
   background: white;
+}
+
+ul.centered-list {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 8px 0;
+  box-shadow: inset 1px 1px 0 0 #b67534, inset -1px -1px 0px 0 #d89756;
+  background: #c78645;
+  border-radius: 10px;
+}
+.centered-list li {
+  display: block;
+  margin: 0 1px;
+  padding: 0 10px;
+}
+
+.centered-list li:nth-child(even) {
+  background: #d1904f;
+}
+
+.centered-list a {
+  display: block;
+  margin: 0 -10px;
+  padding: 4px 12px 2px;
+  text-decoration: none;
+  font-size: 1.1em;
+}
+.centered-list a:hover {
+  background: #f1b06f;
+  background: rgba(255,255,255,0.1);
 }
 
 .categories a , a.tag-link{
@@ -546,9 +599,12 @@ footer {
   color: #555;
 }
 
-footer h3 {
+footer h1 {
   text-shadow: 1px 1px 1px #111;
-  font-size: 1.4rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  text-align: left;
 }
 
 footer ul {
@@ -601,12 +657,8 @@ footer .copyright {
 }
 
 .navbar .brand img {
-  margin: -0.2rem 0.4rem 0 0.2rem;
-  width: 1.6rem;
-}
-
-.navbar .brand {
-  font-size: 1.2rem;
+  margin: -4px 8px 0 4px;
+  width: 32px;
 }
 
 .navbar-inverse .navbar-search .search-query::-webkit-input-placeholder {
