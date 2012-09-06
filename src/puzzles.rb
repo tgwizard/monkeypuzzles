@@ -125,11 +125,7 @@ class Puzzle
 				related << @@puzzles[r]
 			end
 			puzzle.related.replace related
-			if not puzzle.related.empty?
-				puts "---"
-				puts puzzle.related[0]
-				puts puzzle.data['related'][0]
-			end
+
 		end
 
 		@@puzzle_list.each_index do |i|
