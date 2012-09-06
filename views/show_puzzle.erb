@@ -52,13 +52,13 @@
 
 	<div class="low-res-nav">
 		<% if not @puzzle.answer.nil? %>
-			<p class="answer-link">
+			<div class="answer-link">
 				<a href="<%= path_to_puzzle_answer @puzzle %>"></a>
-			</p>
+			</div>
 		<% else %>
-			<p class="inactive-answer-link">
+			<div class="inactive-answer-link">
 				<a href="#"></a>
-			</p>
+			</div>
 		<% end %>
 
 		<% write_nav_arrows %>

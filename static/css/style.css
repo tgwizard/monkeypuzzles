@@ -64,7 +64,9 @@ hr {
   body {
     padding: 0 !important;
   }
-
+  .high-res-nav {
+    display: none;
+  }
   .small-text {
     font-size: 0.85rem !important;
   }
@@ -74,10 +76,6 @@ hr {
   .content {
     padding: 40px 20px 320px !important;
     width: 100% !important;
-  }
-
-  .content article span {
-    display: none;
   }
 
   .navbar-search {
@@ -95,12 +93,10 @@ hr {
   html {
     font-size: 110%;
   }
-<<<<<<< HEAD
-=======
+
   .small-text {
     font-size: 0.9rem !important;
   }
->>>>>>> cleanup
 
   .title h1 {
     font-size: 4rem !important;
@@ -164,18 +160,18 @@ hr {
   width: 200px;
 }
 
-.high-res-nav span,.low-res-nav span {
+.high-res-nav span, .low-res-nav span {
   position: absolute;
   top: 50%;
 }
 
-.high-res-nav a,.low-res-nav a {
+.high-res-nav a, .low-res-nav a {
   display: block;
-  margin: -1.5rem;
-  padding: 1rem;
+  padding: 10px 10px 0;
+  margin: -17px auto 0;
   background: none;
   text-decoration: none;
-  font-size: 1.8rem;
+  font-size: 36px;
 
   -webkit-transition: all 0.4s;
   -moz-transition: all 0.4s;
@@ -185,19 +181,19 @@ hr {
 }
 
 .high-res-nav .arrow-left {
-  left: -4rem;
+  left: -10%;
 }
 
 .high-res-nav .arrow-right {
-  right: -4rem;
+  right: -10%;
 }
 
 .low-res-nav .arrow-left {
-  left: 2rem;
+  left: 20px;
 }
 
 .low-res-nav .arrow-right {
-  right: 2rem;
+  right: 20px;
 }
 
 /* ZIGZAG BORDER LOVE */
@@ -633,7 +629,7 @@ footer .copyright {
 
 /* BOOTSTRAP NAVBAR TWEAKS */
 .navbar-inverse .navbar-inner {
-  padding: 0.4rem 0.6rem 0.6rem;
+  padding: 6px 10px 10px;
   background-color: #1B1B1B;
 
   background-image: -webkit-linear-gradient(top, #1e160f, #1c1711);
