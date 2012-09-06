@@ -4,11 +4,11 @@
 		<input type="text" name="q" placeholder="Search..." value="<%= @q %>" />
 	</form>
 
-	<% if @q.length != 0 %>
-		<h3>Search results for "<%= h @q %>"</h3>
-	<% else %>
-		<h3>All puzzles</h3>
-	<% end %>
+	<h3>Search results
+		<% if not @q.empty? %>
+			for "<%= h @q %>"
+		<% end %>
+	</h3>
 
 	<% if @puzzles.length > 0 %>
 	<p>

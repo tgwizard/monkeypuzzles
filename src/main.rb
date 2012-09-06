@@ -67,6 +67,13 @@ get '/search' do
 	erb :search
 end
 
+get '/all' do
+	@title = "All puzzles"
+	@puzzles = Puzzle.all
+
+	erb :all
+end
+
 before '/puzzle/:slug*' do
 	@puzzle = Puzzle.find params[:slug]
 	if @puzzle.nil?
