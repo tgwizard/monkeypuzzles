@@ -1,14 +1,27 @@
 title: Guess 1, 2 or 3
 difficulty: 0
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-09
 
-content:
+content: |
   Martin thinks of a number, 1, 2 or 3. Sophie is allowed to ask Martin one
-  question, to which he will answer yes, no, or, if he doesn't know the answer,
-  I don't know.
+  question, to which he will answer "yes", "no", or, if he doesn't know the answer,
+  "I don't know".
 
   What question should Sophie ask Martin to uncover his number?
+
+answer: |
+  One solution is for Sophie to ask Martin:
+
+  "I'm thinking of 1 or 2. Is your number higher than mine?"
+
+  If Martin has 3, then he will answer "yes". If he has 1, he must answer "no".
+  And, if he has 2, he can't know if his number is higher than Sophie's, so he
+  must answer "I don't know"
+
+  Another solution is for Sophie to say:
+
+  "Say your number is x. Is the result of 1/(x-2) greater than 0?"
 
 about: |
   Source:
