@@ -61,11 +61,16 @@ class Puzzle
 		accept = lambda do |&criteria|
 			new_result = []
 			puzzles_left.each do |puzzle|
+				matches = 0
 				words.each do |word|
 					if criteria.call(puzzle, word)
-						new_result << puzzle
+						matches += 1
+					else
 						break
 					end
+				end
+				if matches == words.length
+					new_result << puzzle
 				end
 			end
 			result += new_result
