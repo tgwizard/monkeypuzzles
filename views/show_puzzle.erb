@@ -15,7 +15,7 @@
 		<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
 		<smaller class="ornament">Category: <a href="#">Riddl<span>e</span></a></smaller>
 	    <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
-	    <h1 style="line-height: 0; margin-bottom: 0.6em; color: white;"><span>.</span></h1>
+	    <h1 style="line-height: 0; margin: 0.2rem 0 1.2rem; color: white;"><span>.</span></h1>
 	    <small>A somewhat eas<span>y</span></small><br />
 	    <small>monkey riddl<span>e</span></small><br />
 	    <smaller>Author: <%= @puzzle.author[0, @puzzle.author.length-1] %><span><%= @puzzle.author[-1, 1] %></span></a></smaller>
