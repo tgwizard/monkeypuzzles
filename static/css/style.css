@@ -558,6 +558,7 @@ ul.centered-list {
 
 a.icon-pre-link {
   text-decoration: none;
+  white-space: nowrap;
 }
 
 a.icon-pre-link i {
