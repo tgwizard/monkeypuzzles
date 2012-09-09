@@ -1,0 +1,23 @@
+title: Three boxes with incorrect labels
+difficulty: 0
+created_at: 2012-08-05
+updated_at: 2012-09-09
+
+content: |
+  You have three boxes in front of you, one with *nails* in it, one with
+  *screws*, and one with both *nails and screws*. The boxes all have
+  labels describing their contents. Unfortunately, all labels are incorrect,
+  and describes one of the other boxes.
+
+  You can pick up one item from one of the boxes (no peeking). How do you
+  determine what is in each box? Put another way: From which box, with which
+  label, do you take an item?
+
+answer: |
+  If you take an item from the box labeled *nails and screws*, two things
+  could happen: You could get a nail or a screw. Since you know the label is
+  wrong, you know that this box can only contain one type of item. If you get a
+  nail, this box should be labeled *nails*, and vice versa.
+
+  And, since all boxes were incorrectly labeled, you now know that the two
+  remaining boxes should switch labels.
