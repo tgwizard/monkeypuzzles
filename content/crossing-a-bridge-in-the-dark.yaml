@@ -1,15 +1,26 @@
 title: Crossing a bridge in the dark
-difficulty: 0
+difficulty: 1
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-10
 
 content: |
-  It is dark, and four people need to cross a narrow bridge. Only two can cross
-  at a time, and to cross you need to use a torch. The group only has one
-  torch. One of the group is quite slow and takes 10 minutes to cross the
-  bridge. The others take 5, 2 and 1 minutes, respectively.
+  Four people are walking in the dark, and they have only one torch. They
+  stumble upon a long and narrow bridge, which they need to cross. To cross the
+  bridge they need the torch, and once it has been carried to the far side,
+  someone needs to bring it back to the ones who are waiting. Only two can
+  cross the bridge at the same time.
+
+  One of the group is quite slow and takes 10 minutes to cross the bridge. The
+  others take 5, 2 and 1 minutes, respectively.
 
   What is the fastest way for the group to cross the bridge?
 
 answer: |
   The fastest way to cross the bridge requires 17 minutes.
+
+  The 1 and 2 minute persons cross the bridge first, and the 1 minute person
+  carries the torch back to the starting position. This takes 2 minutes to the
+  far side, 1 minute back. Next the 10 minute and 5 minute persons walk across,
+  taking 10 minutes. The 2 minute person goes back and fetches the 1 minute
+  person. Together they cross the bridge, and now the entire group is on the
+  far side. This sums up to 17 minutes.
