@@ -1,19 +1,21 @@
 title: Weighing eight stone balls
-difficulty: 0
+difficulty: 2
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-10
+related: [weighing-twelve-stone-balls]
 
 content: |
-  There are eight stone balls, where one is slightly heavier than the others.
-  You have a old-fashioned balancing scale. In as few weighings as possible,
-  how do you find the heavier ball?
+  You have eight small stone balls, where one is slightly heavier than the
+  others. You have an old-fashioned balancing scale. In as few weighings as
+  possible, how do you find the heavier ball?
 
 answer: |
   You need two weighings.
 
   First, weigh three balls against three balls. If they balance, the heavier is
-  one of the other two, which you can find in the next weighing.  If one side
-  was heavier, then one of those three balls is heavier. For the second
-  weighing, take two of the possibly heavier balls and weigh them. If they
-  balance, the third is heavier. If they don't, then you have found the heavier
-  one.
+  one of the remaining two, which you can find in the next weighing.
+
+  Otherwise, one side was heavier in the first weighing, and one of those three
+  balls must be heavier. For the second weighing, take two of those prospects
+  and weigh them. If they balance, the one left out is heavier. If they don't
+  balance, one of them is heavier, and it is the answer.
