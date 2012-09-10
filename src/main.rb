@@ -14,12 +14,14 @@ configure do
 end
 
 configure :production do
-	not_found do
-		"404 - Not Found"
-	end
+	content_for_404 = File.read(File.join(settings.root, 'views', '404.html'))
+	content_for_500 = File.read(File.join(settings.root, 'views', '500.html'))
 
-	error do
-		"Nasty error encountered"
+	not_found do
+		content_for_404
+	end
+	error 500 do
+		content_for_500
 	end
 end
 
