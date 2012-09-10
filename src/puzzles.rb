@@ -105,13 +105,15 @@ class Puzzle
 	end
 
 	def self.load(dir)
+		puts "loading puzzles..."
 		Dir[dir + '/*'].each do |file|
-			puts "loading puzzle #{file}"
+			puts " --> #{file}"
 			data = YAML.load_file file
 			data['slug'] = File.basename file, '.yaml'
 			puzzle = Puzzle.new data
 			@@puzzles[puzzle.slug] = puzzle
 		end
+		puts "#{@@puzzles.length} puzzles loaded"
 
 		@@puzzle_list = @@puzzles.values.sort do |a,b|
 			a.title <=> b.title
