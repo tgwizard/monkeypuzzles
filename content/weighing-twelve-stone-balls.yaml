@@ -1,12 +1,56 @@
 title: Weighing twelve stone balls
-difficulty: 0
+difficulty: 4
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-10
+related: [weighing-eight-stone-balls]
 
 content: |
-  There are twelve stone balls, where one is slightly heavier or lighter than
-  the others. You have a old-fashioned balancing scale. In as few weighings as
-  possible, how do you find the odd ball?
+  You have twelve small stone balls, where one is of slightly different weight
+  than the others, either lighter or heavier - you don't know. You have an
+  old-fashioned balancing scale. In as few weighings as possible, how do you
+  find the odd ball?
 
 answer: |
   You need three weighings.
+
+  In the first weighing, weigh four balls against four balls.
+
+  If they balance, the odd ball must be one of the remaining four balls, and
+  the eight balls in the first weighing are all of regular weight. For the
+  second weighing, take two unknown balls and weigh them against two balls
+  whose weights are known. If they balance, the odd ball is one of the other
+  two balls. If they don't balance, one of the unknown balls on the scale is
+  odd. For the third weighing, take one of the two unknown balls and weigh it
+  against a regular ball. If they balance, the one left out is odd, otherwise
+  it is the one on the scale.
+
+  If the first weighing didn't balance, we have eight possibly odd balls and
+  four regular ones. In the first weighing, one side was lower, and one side
+  was higher, resulting in four balls that are possibly heavier and four balls
+  that are possibly lighter than the others.
+
+  For the second weighing, place two possibly-heavier balls and one
+  possibly-lighter ball on the left side, and two possibly-heavier balls and
+  one possibly-lighter ball on the right side.
+
+  If the scale balances, one of the remaining two unknown balls - two
+  possibly-lighter balls - is odd. Take one of them and balance it against a
+  known ball, and the answer is given.
+
+  If the scale didn't balance in the second weighing, then either the left side
+  is lower than the right side, or vice versa. If the left side is lower, then
+  one of the two possibly-heavier balls on the left side or the
+  possibly-lighter on the right side is odd. And if the right side is lower,
+  then one of the two possibly-heavier on the right side or the
+  possibly-lighter on the left side is odd.
+
+  In either case we have two possibly-heavier balls and one possibly-lighter
+  balls remaining that could be odd. For the third weighing, take the
+  possibly-lighter ball and one possibly-heavier ball and place them on the
+  left side, and two regular balls on the right side. If the scale balances,
+  the ball left out is odd. If the scale doesn't balance, then the
+  possibly-heavier ball is odd if the left side is lower than the right side,
+  and the possibly-lighter ball is odd if the left side is higher.
+
+  (If anyone knows of a better way to present the answer to this puzzle, please
+  contact us. Surely this can't be the best way to do it...)
