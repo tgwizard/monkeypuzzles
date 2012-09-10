@@ -1,21 +1,46 @@
 title: Pirates sharing treasure
-difficulty: 0
+difficulty: 3
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-10
 categories: [game theory]
 
 content: |
-  Five pirates have found a treasure chest of one hundred coins, and are now in
-  the process of dividing the treasure among them. As democratic pirates, they
-  decide that the oldest of them will come up with a way to share, and then the
-  will all vote to accept or reject the plan. If at least half of them vote no,
-  the oldest pirate is thrown overboard, and the process is restarted with the
-  next-to-oldest coming up with the plan. And so on.
+  Five pirates have found a treasure chest containing one hundred coins, and
+  are now in the process of dividing the treasure among themselves. In their
+  usual democratic fashion they decide that the oldest of them will decide on
+  how split up the treasure. After he has made his decision they will all vote
+  to accept or reject his plan.
 
-  Perfectly logical and rational, as many pirates are, each of them seek to
-  maximise the amount of coins he will get.
+  If at least half of them vote to reject the plan, the oldest pirate gets
+  thrown overboard, and the process is restarted with the next-to-oldest coming
+  up with the plan, and so on.
 
-  How should the oldest pirate propose they divide the treasure?
+  Given that the pirates are all trying maximise the amount of treasure they
+  get, how should the oldest pirate propose they share it?
+
+  Keep in mind that they, as proper pirates, are all perfectly logical and
+  rational. And getting no coins is just as bad as getting thrown overboard.
 
 answer: |
-  From oldest to youngest: 97, 0, 1, 0, 2.
+  One solution is to work our way from smaller groups to increasingly larger
+  ones. If there's only one pirate he will obviously get all the coins
+  himself.
+
+  If there are two pirates then the younger pirate can always vote to throw
+  the older one overboard. The youngest ends up with all the coins.
+
+  If there are three pirates, the next-oldest knows that if the oldest pirate's
+  proposal is rejected, he will end up with nothing, as in the previous
+  example. The oldest pirate knows this as well, so he gives one coin to the
+  next-oldest, and 99 to himself. The youngest will get nothing and vote no,
+  but he will be in a minority.
+
+  With four pirates, the youngest knows that if he doesn't accept the oldest's
+  proposal, he will get nothing. The oldest needs at least three pirates to
+  vote with him, so he gives one to the youngest and two to the the
+  next-youngest. The division would be, from oldest to youngest: 97, 0, 2, 1.
+  (If he were to give just one to the next-youngest, the next-youngest could
+  just as well reject as accept the plan).
+
+  This can be continued indefinitely. In a group of five the division of coins
+  would be: 97, 0, 1, 0, 2.
