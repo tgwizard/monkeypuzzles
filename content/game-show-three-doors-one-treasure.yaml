@@ -1,17 +1,43 @@
 title: "Game show: Three doors, one treasure"
-difficulty: 0
+difficulty: 1
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-10
 categories: [probability, threes]
 
 content: |
-  You participate in a game show, and the host presents you with three doors.
-  Behind one door is one million dollars, behind the others there's nothing.
-  The host asks you to choose one door. After you have done so, the host will
-  open another door, showing its empty contents. There is now only two closed
-  doors left. The host asks: Do you want to choose the other door?
+  You participate in a game show, and in the final contest the host presents
+  you with three doors. Behind one door is one million dollars. The other two
+  hide sacks of potatoes.
+
+  The host asks you to choose one door. After you have
+  done so, the host will open one door - always one of the doors you didn't
+  choose, and always one hiding a sack of potatoes.
+
+  Now there are only two doors left - the one you've chosen, and one more. The
+  host asks you:
+
+  "Do you want to switch doors?"
 
   What should you do to maximise your chances of getting the million dollars?
 
 answer: |
-  You should switch doors.
+  You should switch doors. This can be tricky to see, but the simple thought
+  experiment below will prove it.
+
+  The million dollars can either be behind the left, center or the right door.
+  Lets assume it is behind the left door.
+
+  First, say that you never switch doors. Then you will get the million
+  dollars if you pick the left door, and a sack of potatoes if you pick the
+  center or right doors. You have a one in three chance of getting the million
+  dollars.
+
+  Second, say that you always switch doors. If you pick the left door, you will
+  switch away from the million dollars and get a sack of potatoes. If you pick
+  the center door, the host will open the right door - the host always opens
+  a door hiding a sack of potatoes - and you will switch to the million
+  dollars. The same happens if you pick the right door. This gives you a two
+  in three chance of getting the million dollars.
+
+  The is also true if we place the million dollars behind the center or the
+  right doors.
