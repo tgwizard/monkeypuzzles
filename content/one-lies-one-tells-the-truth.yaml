@@ -1,6 +1,7 @@
 title: One lies, one always tells the truth
+difficulty: 1
 created_at: 2012-09-02
-updated_at: 2012-09-02
+updated_at: 2012-09-10
 categories: [logic]
 
 content: |
@@ -13,5 +14,19 @@ content: |
   And, as twin brothers, the guards have developed a quite peculiar dynamic:
   One of them always tells the truth, while the other always lies.
 
-  You have one question, which you can ask one of the guards. How do you
+  You have one question, which you can ask only one of the guards. How do you
   determine how to continue on your path?
+
+answer: |
+  Since you don't know who of the guards will tell the truth and who will lie,
+  you need to ask a question to which both will answer the same. One such
+  question is:
+
+  Would your brother say that I should continue on the left path?
+
+  Assume that the left path is correct. The liar will answer no, because his
+  brother would have answered yes. The truth-teller would also answer no, since
+  *his* brother would have lied and answered no.
+
+  It would be the other way around, with both guards answering yes, if the
+  right path were correct.
