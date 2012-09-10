@@ -1,11 +1,20 @@
 title: Ten piles of coins
-difficulty: 0
+difficulty: 1
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-10
+categories: [common sense]
 
 content: |
   There are ten piles of coins, and ten coins in each pile. Each coin in each
   pile weighs 1 gram, except for one pile where the coins weigh 1.1 grams.
 
-  You have a digital scale, and you are allowed one try to weigh any number of
-  the coins from the piles. Which pile has the heavier coins?
+  You have a digital scale, and you are allowed one attempt at using it. You
+  can take any number of coins from any number of piles. How do you determine
+  which pile has the heavier coins?
+
+answer: |
+  You take one coin from the first pile, two coins from the second pile, and so
+  on until the ninth pile, from which you take nine coins. When you put these
+  on the scale, look at the first number after the decimal point. If it shows a
+  one, then you know that the coins in the first pile weighs more, and so on.
+  If it shows a zero, then pile ten is the answer.
