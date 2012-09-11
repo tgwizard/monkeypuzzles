@@ -1,0 +1,26 @@
+title: Three pearls in three lockers
+difficulty: 1
+created_at: 2012-08-05
+updated_at: 2012-09-11
+categories: [probability, threes]
+related: [game-show-three-doors-one-treasure]
+
+content: |
+  There are three lockers, each with two drawers. Each drawer contains one item
+  - a pearl, or a clump of coal.  In one locker both drawers contain pearls, in
+  another both lockers contain clumps of coal. In the third locker one drawer
+  contains a pearl, and the other contains a clump of coal.
+
+  You do not know which locker is which. You open one drawer and find a pearl.
+  If you are allowed to open one more drawer, which one should you open to
+  maximise your chances of finding another pearl?
+
+answer: |
+  You should open the other drawer in the same locker as the first drawer you
+  opened.
+
+  To see why, look at it like this: If you open a drawer with a pearl in it,
+  the probability that it is in the locker with two pearls is two in three, and
+  one in three that it is in the locker with only one pearl. Since you are most
+  likely in the two-pearl-locker, opening the other drawer in the same locker
+  gives you the best chance of finding another pearl.
