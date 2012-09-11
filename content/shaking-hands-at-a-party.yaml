@@ -1,12 +1,37 @@
 title: Shaking hands at a party
-difficulty: 0
+difficulty: 2
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-11
+categories: [graph theory]
 
 content: |
-  Five couples attend a party, where you are part of a couple. Everyone shakes
-  hands with those they didn't know before; everyone knows their partner.
-  Afterwards you ask everyone how many they shook hands with, and you get nine
-  different answers.
+  Rebecca and her partner attend an evening party together with four other
+  couples. During the initial mingling, everyone greets and shakes hands with
+  those they hadn't met before.
 
-  How many did you shake hands with?
+  Later in the evening Rebecca asks all nine other party-goers how many people
+  they shook hands with, and she gets nine different answers.
+
+  How many people did Rebecca shake hands with?
+
+  Please note that everyone had met their partner prior to the party, and that
+  no one shook hands with themselves.
+
+answer: |
+  Since their are ten people, and eight potentially unknown prior to the party,
+  the nine different answers Rebecca gets has to be 0, 1, 2, 3, 4, 5, 6, 7 and
+  8.
+
+  The person with 8 handshakes shook hands with everyone but herself and her
+  partner. Number 0 must therfore be her partner.
+
+  Number 7 shook hands with everyone besides herself, her partner and number 0.
+  Number 1 only shook hands with number 8, so 7 and 1 must be partners.
+
+  This can be continued, with 6 and 2 being partners, as well as 5 and 3.
+
+  Rebecca must be partner with number 4 - the only one who is left - and she
+  must herself have shook hands with 4 people: Number 8, 7, 6 and 5.
+
+  The easiest way to arrive at this answer is to draw it as a graph, with each
+  person as a node, and each handshake as an edge between the participants.
