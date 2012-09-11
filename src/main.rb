@@ -28,13 +28,13 @@ end
 helpers do
 	# paths
 	def path_to_puzzle(puzzle)
-		url "/puzzle/#{puzzle.slug}"
+		url "/puzzles/#{puzzle.slug}"
 	end
 	def path_to_puzzle_answer(puzzle)
-		url "/puzzle/#{puzzle.slug}/answer"
+		url "/puzzles/#{puzzle.slug}/answer"
 	end
 	def path_to_category(category)
-		url "/category/#{category.downcase}"
+		url "/categorys/#{category.downcase}"
 	end
 
 	# other
@@ -69,31 +69,31 @@ get '/search' do
 	erb :search
 end
 
-get '/all' do
+get '/puzzles' do
 	@title = "All puzzles"
 	@puzzles = Puzzle.all
 
 	erb :all
 end
 
-before '/puzzle/:slug*' do
+before '/puzzles/:slug*' do
 	@puzzle = Puzzle.find params[:slug]
 	if @puzzle.nil?
 		raise error 404
 	end
 end
 
-get '/puzzle/:slug' do
+get '/puzzles/:slug' do
 	@title = @puzzle.title
 	erb :show_puzzle
 end
 
-get '/puzzle/:slug/answer' do
+get '/puzzles/:slug/answer' do
 	@title = "Answer for #{@puzzle.title}"
 	erb :show_answer
 end
 
-get '/category/:category' do
+get '/categories/:category' do
 	@category = params[:category].downcase
 	@title = "#{@category.capitalize} puzzles"
 	if Puzzle.categories[@category].nil?
