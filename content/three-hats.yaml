@@ -1,14 +1,14 @@
 title: Three hats
-difficulty: 0
+difficulty: 1
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-11
 categories: [threes]
-related: [devils-gate]
+related: [blue-eyes, devils-gate]
 
 content: |
   The great town wizard needs a new apprentice, and has announced a competition
   for the post. Many applicants have tried, and only the three brightest remain
-  for the last challenge.
+  for the final challenge.
 
   The wizard gives each applicant a hat, and tells them that they have either a
   black or a white hat. The first one to figure out the color of her own hat
@@ -18,9 +18,36 @@ content: |
 
   "I see someone with a white hat."
 
-  However, the wizard has been tricky, and given all three white hats. All
-  three of the applicants announce that they see someone with a white hat, and
-  then go quite.
+  However, the wizard, devious as she is, has given white hats to all three
+  applicants. So, predictably, they all immediately announce that they see
+  someone with a white hat, and then nothing happens for a while.
 
-  After a while, one of the applicants announces: I have a white hat and
-  becomes the wizard's apprentice. How can she know the color of her hat?
+  But, after a few minutes of silence, the most clever of the applicants
+  announces: I have a white hat! She becomes the wizard's apprentice, and
+  everyone lives happily ever after.
+
+  How can she know the color of her hat?
+
+answer: |
+  We can figure out the answer by walking through the four possible cases: No
+  white hats, one white hat, two white hats, or, the case that actually took
+  place, three white hats. Lets call the apprentices Aaron, Berta and Carlos.
+
+  If there are no white hats, then no one will say the've seen a white hat.
+  Since they all said that they can see a white hat, this isn't the case.
+
+  If there is only one white hat, given to Aaron, then Berta and Carlos will
+  immediately say that they see a white hat. Aaron will know that it must be
+  his hat that they see, and so he will know the color of his own hat. This
+  doesn't happen - they all see at least one white hat.
+
+  If there are two white hats, given to Aaron and Berta, they will all see at
+  least one white hat, and say so. Carlos won't know anything more, but Aaron
+  and Berta can reason further. Since Aaron knows that Berta sees a white hat,
+  it must be his hat, since Carlos' hat is black. The same goes for Berta. The
+  quickest thinker of Aaron and Berta would claim to know their hat's color
+  almost immediately, and the competition would be over.
+
+  But this doesn't happen - no one immediately wins. Since the winner would
+  know her color almost immediately in all these cases, they must all have
+  white hats. The quickest of them will know, and win.
