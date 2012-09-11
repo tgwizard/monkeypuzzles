@@ -1,20 +1,40 @@
 title: Infinite hotel, variant 3
-difficulty: 0
+difficulty: 2
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-11
 categories: [math]
 related: [infinite-hotel-variant-1, infinite-hotel-variant-2]
 
 content: |
-  There is a hotel with an infinite number of rooms. They are all occupied.
+  The well-renowned hotel of Bilzebab is famous for having an infinite number
+  of rooms, and, being such a famous and well-renowned hotel, the hotel is
+  fully booked.
 
-  An *infinite number of buses*, each with an *infinite number of
-  tourists*, arrive at the hotel. The tourists ask if they there are any rooms
-  for them to stay over the night.
+  An *infinite number of buses*, each with an *infinite number of tourists*,
+  arrive at the hotel and ask if there are any rooms available for them.
 
-  The hotel manager thinks for a minute, and then says: Yes, of course, I'll
-  just need to reorganize the current arrangements, and gives all the arrivals
-  a separate room. In which rooms will the newcomers stay?
+  Bilzebab is also famous for having a smart and quick-thinking manager. The
+  manager thinks for a minute, and then says:
 
-  Please note, after the reorganizing, no one shares a room, and the hotel is
-  still fully occupied.
+  "Yes, of course, I'll just reorganize the current arrangements, and you will
+  all get a room".
+
+  In which rooms will the newcomers stay?
+
+  Please note: After the manager has reorganized the room arrangements, no one
+  will share a room, no one will be thrown out, and the hotel will still be
+  fully occupied.
+
+  Each person, including the one already with rooms, will have to be given a
+  specific, calculable, new room number. Saying "go to room infinity plus 1" is
+  not valid.
+
+answer: |
+  The solution to this is best described by picturing a matrix, with an
+  infinite number of columns and rows. Each row is a bus, and each cell on a
+  row is a person in that bus. We can consider the people already in the hotel
+  as a zeroth bus - row one in the matrix.
+
+  We can now go in diagonals over the matrix, north-east to south-west,
+  starting in the upper left corner. Person (1,1) will get room 1, person (1,2)
+  will get room two, person (2,1) room three, and so on.
