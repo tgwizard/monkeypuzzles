@@ -1,19 +1,19 @@
 title: The mirrored clock
-difficulty: 0
+difficulty: 1
 created_at: 2012-08-05
-updated_at: 2012-08-05
+updated_at: 2012-09-11
 
 content: |
   A girl leaves her home in the morning for school. She looks for the time on
   an old-fashioned, analog clock, through a mirror. Unfortunately there are no
   digits on the clock, so she mistakes the mirror image for the actual time.
-  (She sees no difference between the two clock arms). She rides her bike to
-  school, which takes 20 minutes. When she arrives and looks at the school
-  clock, it shows a time two-and-a-half hours later than the mirror image.
+  She rides her bike to school, which takes twenty minutes. When she arrives
+  and looks at the school clock, it shows a time two-and-a-half hours later
+  than the mirror image she saw at home.
 
   What was the time when she left home? What was the mirror image? And when did
   she arrive?
 
 answer: |
-  When she looks at the clock it is 12.10, and she sees 10.00. So, 20 minutes
-  of travelling time the time is 12.30, which is 2.5 hours later than 10.00.
+  When she looks at the clock it is 12.10, and she sees 10.00. So, after twenty
+  minutes of travelling the time is 12.30, which is 2.5 hours later than 10.00.
