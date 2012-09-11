@@ -6,23 +6,48 @@ categories: [logic]
 related: [three-hats]
 
 content: |
-  On an island in the middle of the ocean lives several people of a
-  peculiar sort: They are all logicians. And they don't communicate with
-  each other. 100 of them have blue eyes, and one of them, the guru, has
-  green eyes. The rest have brown eyes. No one knows their own eye color
-  (and no one will tell anyone their eye color).
+  On an island in the middle of the ocean lives several people of a peculiar
+  sort: They are all logicians. One hundred of them have blue eyes, while the
+  others have brown eyes. The leader of the group, known as the guru, has green
+  eyes. It so happens that no one on this island knows the color of their own
+  eyes.
 
-  It so happens to be that at midnight on every night a ferry arrives at
-  the island, and leaves shortly thereafter with anyone who knows their own
-  eye color.
+  At midnight every night a ferry arrives at the island, and leaves shortly
+  thereafter with anyone who can tell the ferryman their eye color.
 
-  One day the guru stands up and says, so that everyone hears:
+  One day, the guru stands up and says, so that everyone hears:
 
   "I can see at least one person with blue eyes."
 
-  What will happen? Who will leave the island, and when?
+  What will happen? Will anyone leave the island? Who, and when?
+
+  Please not that no one will tell anyone else their eye color, or communicate
+  it in some other. As soon as someone knows their eye color she will leave the
+  island with the next ferry - they all want to leave this weird place, after
+  all. During any given day, all islanders will see each other, and notice any
+  absences.
+
+answer: |
+  It is easier to figure out what would happen if there were fewer people with
+  blue eyes.
+
+  We know that there is at least one blue-eyed person - the guru says so. If
+  this were the case, the blue-eyed person would see that everyone else has
+  brown (or green) eyes, and so she would know that she must have blue eyes.
+  She would leave on the first midnight.
+
+  If there were two blue-eyed people, they would both see the other, and know
+  that either there is only one blue-eyed person (the other), or there are two,
+  and their own eyes are blue. They can't know, but, if there were only one
+  with blue eyes, she would leave the first night, as in the previous example.
+  Since this doesn't happen, they know that they both have blue eyes. They
+  would leave on the second night.
+
+  This process can be continued (inductively) with larger groups of blue-eyed
+  people. If there were one hundred blue eyed people they would all leave on
+  the hundredth night.
 
 about: |
-  There are several variations of this puzzle, where the blue eyes version
-  has been popularized by Randall Munroe on
-  [xkcd.com/blue_eyes.html](http://xkcd.com/blue_eyes.html).
+  There are several variations of this puzzle, with different names, including
+  Josephine's Problem and The Muddy Children Problem. The most popular version
+  might be [Blue Eyes](http://xkcd.com/blue_eyes.html) by Randall Munroe.
