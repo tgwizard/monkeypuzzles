@@ -129,6 +129,9 @@ class Puzzle
 
 			related = []
 			puzzle.related.each do |r|
+				if not @@puzzles.has_key? r
+					raise ArgumentError, "Related puzzle '#{r}' for #{puzzle.slug} not found"
+				end
 				related << @@puzzles[r]
 			end
 			puzzle.related.replace related
