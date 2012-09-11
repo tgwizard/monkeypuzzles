@@ -34,7 +34,7 @@ helpers do
 		url "/puzzles/#{puzzle.slug}/answer"
 	end
 	def path_to_category(category)
-		url "/categorys/#{category.downcase}"
+		url "/categories/#{category.downcase}"
 	end
 
 	# other
