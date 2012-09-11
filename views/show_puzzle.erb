@@ -45,6 +45,10 @@
 			</p>
 		<% end %>
 
+		<% if not @puzzle.about.nil? %>
+			<%= @puzzle.about %>
+		<% end %>
+
 		<div class="high-res-nav">
 			<% write_nav_arrows %>
 		</div>
