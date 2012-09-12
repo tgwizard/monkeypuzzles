@@ -6,6 +6,7 @@ require 'sinatra/partial'
 require_relative 'puzzles.rb'
 Puzzle.load 'content'
 
+# general configuration
 configure do
 	set :root, File.expand_path("..", File.dirname(__FILE__))
 	set :public_folder, 'static'
@@ -13,6 +14,7 @@ configure do
 	mime_type :woff, 'application/x-font-woff'
 end
 
+# error handling
 configure :production do
 	content_for_404 = File.read(File.join(settings.root, 'views', '404.html'))
 	content_for_500 = File.read(File.join(settings.root, 'views', '500.html'))
@@ -22,6 +24,19 @@ configure :production do
 	end
 	error 500 do
 		content_for_500
+	end
+end
+
+# google analytics
+configure :development do
+	set :tracking_script, "<!-- tracking scripts go here in production -->"
+end
+configure :production do
+	set :tracking_script, File.read(File.join(settings.root, 'views', 'google_analytics.html'))
+end
+helpers do
+	def tracking_script
+		settings.tracking_script
 	end
 end
 
