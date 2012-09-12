@@ -2,7 +2,7 @@
 
 A website of puzzles. Ruby on rails is big... and seems clumsy. Moving to
 Sinatra. The site can be seen live at
-[monkeypuzzles.herokuapp.com](http://monkeypuzzles.herokuapp.com/).  A proper
+[monkeypuzzles.org](http://monkeypuzzles.org).  A proper
 domain name will be acquired later.
 
 ## Setup and Coding
