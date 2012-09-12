@@ -101,6 +101,13 @@ class Puzzle
 			puzzle.data['content'].downcase.include? word
 		end
 
+		# about
+		accept.call do |puzzle, word|
+			if puzzle.data.has_key? 'about'
+				puzzle.data['about'].downcase.include? word
+			end
+		end
+
 		result
 	end
 
