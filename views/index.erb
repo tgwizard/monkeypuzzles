@@ -22,7 +22,7 @@ are to be expected.</p>
 <p class="categories">
 Categories:
 <%=
-	@categories.map {|c| "<a href=\"#{path_to_category c[0]}\">#{c[0]} (#{c[1]})</a>"}.join
+	@categories.map {|c| "<a href=\"#{path_to_category c}\">#{c.title} (#{c.num})</a>"}.join
 %>
 </p>
 

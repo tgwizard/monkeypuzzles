@@ -31,7 +31,7 @@
 			<p class="categories">
 			Categories:
 			<%=
-				@puzzle.categories.map {|c| "<a href=\"#{path_to_category c}\">#{c}</a>"}.join
+				@puzzle.categories.map {|c| "<a href=\"#{path_to_category c}\">#{c.title}</a>"}.join
 			%>
 			</p>
 		<% end %>

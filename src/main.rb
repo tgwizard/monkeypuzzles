@@ -49,7 +49,7 @@ helpers do
 		url "/puzzles/#{puzzle.slug}/answer"
 	end
 	def path_to_category(category)
-		url "/categories/#{category.downcase}"
+		url "/categories/#{category.slug}"
 	end
 
 	# other
@@ -58,16 +58,7 @@ helpers do
 end
 
 get '/' do
-	@categories = Puzzle.categories.to_a.sort do |a,b|
-		if a[0] == Puzzle::NO_CATEGORY
-			1
-		elsif b[0] == Puzzle::NO_CATEGORY
-			-1
-		else
-			a[0] <=> b[0]
-		end
-	end
-
+	@categories = Category.all
 	erb :index
 end
 
@@ -108,17 +99,19 @@ get '/puzzles/:slug/answer' do
 	erb :show_answer
 end
 
-get '/categories/:category' do
-	@category = params[:category].downcase
-	@title = "#{@category.capitalize} puzzles"
-	if Puzzle.categories[@category].nil?
+get '/categories' do
+	"TODO: "
+end
+
+get '/categories/:slug' do
+	@category = Category.find params[:slug]
+	if @category.nil?
 		raise error 404
 	end
-	if @category == Puzzle::NO_CATEGORY
-		@puzzles = Puzzle.all.select {|p| p.categories.empty?}
-	else
-		@puzzles = Puzzle.all.select {|p| p.categories.include? @category}
-	end
+
+	@title = "#{@category.title} puzzles"
+
+	@puzzles = @category.puzzles
 	erb :show_category
 end
 

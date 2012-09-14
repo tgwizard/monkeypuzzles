@@ -2,7 +2,6 @@ require 'yaml'
 require 'redcarpet'
 
 class Puzzle
-	NO_CATEGORY = 'no category'
 
 	attr_reader :data
 
@@ -17,7 +16,18 @@ class Puzzle
     @slug = data['slug']
     @title = data['title']
 		@author = data['author'] || 'Unknown'
-		@categories = data['categories'] || []
+		if data.has_key? 'categories'
+			@categories = data['categories'].map do |c|
+				c = Category.get_or_new :title => c
+				c.puzzles << self
+				c
+			end
+		else
+			c = Category.get_or_new :title => Category::NO_CATEGORY
+			c.puzzles << self
+			@categories = []
+		end
+
 		@related = data['related'] ? data['related'].dup : []
 		@created_at = data['created_at']
 		@updated_at = data['updated_at']
@@ -31,10 +41,13 @@ class Puzzle
 		@about = @@markdown.render(about_md) unless about_md.nil?
   end
 
+	def <=>(other)
+		self.title <=> other.title
+	end
+
   # class stuff
   @@puzzles = {}
 	@@puzzle_list = []
-	@@categories = {}
   @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   def self.all
@@ -44,10 +57,6 @@ class Puzzle
   def self.find(slug)
     @@puzzles[slug]
   end
-
-	def self.categories
-		@@categories
-	end
 
 	def self.search(q)
 		q = q.strip
@@ -91,7 +100,7 @@ class Puzzle
 		accept.call do |puzzle, word|
 			ret = false
 			puzzle.categories.each do |c|
-				ret = true if c.include? word
+				ret = true if c.title.include? word
 			end
 			ret
 		end
@@ -105,9 +114,10 @@ class Puzzle
 		accept.call do |puzzle, word|
 			if puzzle.data.has_key? 'about'
 				puzzle.data['about'].downcase.include? word
+			else
+				false
 			end
 		end
-
 		result
 	end
 
@@ -119,21 +129,19 @@ class Puzzle
 			data['slug'] = File.basename file, '.yaml'
 			puzzle = Puzzle.new data
 			@@puzzles[puzzle.slug] = puzzle
+			@@puzzle_list << puzzle
 		end
 		puts "#{@@puzzles.length} puzzles loaded"
 
-		@@puzzle_list = @@puzzles.values.sort do |a,b|
-			a.title <=> b.title
-		end
+
+		self.post_load_process
+	end
+
+	def self.post_load_process
+		@@puzzle_list.sort!
+		Category.all.sort!
 
 		@@puzzle_list.each do |puzzle|
-			puzzle.categories.each do |category|
-				@@categories[category] = 1 + @@categories.fetch(category, 0)
-			end
-			if puzzle.categories.empty?
-				@@categories[NO_CATEGORY] = 1 + @@categories.fetch(NO_CATEGORY, 0)
-			end
-
 			related = []
 			puzzle.related.each do |r|
 				if not @@puzzles.has_key? r
@@ -150,5 +158,56 @@ class Puzzle
 			@@puzzle_list[i].next_puzzle = Puzzle.all[(i+1 + Puzzle.all.length) % Puzzle.all.length]
 		end
 
+	end
+end
+
+class Category
+	NO_CATEGORY = 'no category'
+	attr_reader :slug, :title, :content
+	attr_reader :puzzles
+
+	def initialize(data)
+		@title = data[:title]
+		@slug = @title.downcase.strip.gsub(' ', '-').gsub(/[^\w-]/, '')
+		@content = "There are no spoons"
+		@puzzles = []
+	end
+
+	def num
+		@puzzles.length
+	end
+
+	def <=>(other)
+		if self.title == NO_CATEGORY
+			1
+		elsif other.title == NO_CATEGORY
+			-1
+		else
+			self.title <=> other.title
+		end
+	end
+
+	# class stuff
+	@@categories = {}
+	@@category_list = []
+
+	def self.all
+		@@category_list
+	end
+
+	def self.find(slug)
+		@@categories[slug]
+	end
+
+	def self.get_or_new(data)
+		title = data[:title]
+		c = @@category_list.find {|x| x.title == title}
+		if c.nil?
+			c = Category.new data
+			@@categories[c.slug] = c
+			@@category_list << c
+		end
+		puts "Returning category #{c.title}"
+		c
 	end
 end
