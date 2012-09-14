@@ -3,7 +3,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/partial'
 
-require_relative 'puzzles.rb'
+require_relative 'content.rb'
 Puzzle.load 'content'
 
 # general configuration
