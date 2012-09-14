@@ -16,19 +16,11 @@ class Puzzle
     @slug = data['slug']
     @title = data['title']
 		@author = data['author'] || 'Unknown'
-		if data.has_key? 'categories'
-			@categories = data['categories'].map do |c|
-				c = Category.get_or_new :title => c
-				c.puzzles << self
-				c
-			end
-		else
-			c = Category.get_or_new :title => Category::NO_CATEGORY
-			c.puzzles << self
-			@categories = []
-		end
 
-		@related = data['related'] ? data['related'].dup : []
+		# these need to be set elsewhere
+		@categories = []
+		@related = []
+
 		@created_at = data['created_at']
 		@updated_at = data['updated_at']
 
@@ -46,16 +38,14 @@ class Puzzle
 	end
 
   # class stuff
-  @@puzzles = {}
-	@@puzzle_list = []
   @@markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML)
 
   def self.all
-    @@puzzle_list
+    Content.puzzle_list
   end
 
   def self.find(slug)
-    @@puzzles[slug]
+    Content.puzzle_hash[slug]
   end
 
 	def self.search(q)
@@ -65,7 +55,7 @@ class Puzzle
 		words = q.downcase.split
 
 		result = []
-		puzzles_left = @@puzzle_list.dup
+		puzzles_left = self.all.dup
 
 		accept = lambda do |&criteria|
 			new_result = []
@@ -120,45 +110,6 @@ class Puzzle
 		end
 		result
 	end
-
-	def self.load(dir)
-		puts "loading puzzles..."
-		Dir[dir + '/*'].each do |file|
-			puts " --> #{file}"
-			data = YAML.load_file file
-			data['slug'] = File.basename file, '.yaml'
-			puzzle = Puzzle.new data
-			@@puzzles[puzzle.slug] = puzzle
-			@@puzzle_list << puzzle
-		end
-		puts "#{@@puzzles.length} puzzles loaded"
-
-
-		self.post_load_process
-	end
-
-	def self.post_load_process
-		@@puzzle_list.sort!
-		Category.all.sort!
-
-		@@puzzle_list.each do |puzzle|
-			related = []
-			puzzle.related.each do |r|
-				if not @@puzzles.has_key? r
-					raise ArgumentError, "Related puzzle '#{r}' for #{puzzle.slug} not found"
-				end
-				related << @@puzzles[r]
-			end
-			puzzle.related.replace related
-
-		end
-
-		@@puzzle_list.each_index do |i|
-			@@puzzle_list[i].prev_puzzle = Puzzle.all[(i-1 + Puzzle.all.length) % Puzzle.all.length]
-			@@puzzle_list[i].next_puzzle = Puzzle.all[(i+1 + Puzzle.all.length) % Puzzle.all.length]
-		end
-
-	end
 end
 
 class Category
@@ -188,26 +139,107 @@ class Category
 	end
 
 	# class stuff
-	@@categories = {}
-	@@category_list = []
-
 	def self.all
-		@@category_list
+		Content.category_list
 	end
 
 	def self.find(slug)
-		@@categories[slug]
+		Content.category_hash[slug]
+	end
+end
+
+class Content
+	@@puzzle_hash = {}
+	@@puzzle_list = []
+	@@category_hash = {}
+	@@category_list = []
+
+	# accessors
+	def self.puzzle_list
+		@@puzzle_list
+	end
+	def self.puzzle_hash
+		@@puzzle_hash
+	end
+	def self.category_list
+		@@category_list
+	end
+	def self.category_hash
+		@@category_hash
 	end
 
-	def self.get_or_new(data)
+	def self.load(dir)
+		self.load_puzzles(dir)
+		self.sort_contents
+		self.fix_puzzle_categories
+		self.fix_puzzle_related_objects
+		self.fix_puzzle_next_prev_objects
+	end
+
+	def self.load_puzzles(dir)
+		puts "loading puzzles..."
+
+		Dir[dir + '/*'].each do |file|
+			puts " --> #{file}"
+
+			data = YAML.load_file file
+			data['slug'] = File.basename file, '.yaml'
+
+			puzzle = Puzzle.new data
+			@@puzzle_hash[puzzle.slug] = puzzle
+			@@puzzle_list << puzzle
+		end
+
+		puts "#{@@puzzle_list.length} puzzles loaded"
+	end
+
+	def self.sort_contents
+		@@puzzle_list.sort!
+		@@category_list.sort!
+	end
+
+	def self.fix_puzzle_categories
+		@@puzzle_list.each do |puzzle|
+			if puzzle.data.has_key? 'categories'
+				puzzle.data['categories'].each do |category_name|
+					category = Content.category_get_or_new :title => category_name
+					category.puzzles << puzzle
+					puzzle.categories << category
+				end
+			else
+				category = Content.category_get_or_new :title => Category::NO_CATEGORY
+				category.puzzles << puzzle
+			end
+		end
+	end
+
+	def self.fix_puzzle_related_objects
+		@@puzzle_list.each do |puzzle|
+			next if not puzzle.data.has_key? 'related'
+			puzzle.data['related'].each do |r|
+				if not @@puzzle_hash.has_key? r
+					raise ArgumentError, "Related puzzle '#{r}' for #{puzzle.slug} not found"
+				end
+				puzzle.related << @@puzzle_hash[r]
+			end
+		end
+	end
+
+	def self.fix_puzzle_next_prev_objects
+		@@puzzle_list.each_index do |i|
+			@@puzzle_list[i].prev_puzzle = @@puzzle_list[(i-1 + @@puzzle_list.length) % @@puzzle_list.length]
+			@@puzzle_list[i].next_puzzle = @@puzzle_list[(i+1 + @@puzzle_list.length) % @@puzzle_list.length]
+		end
+	end
+
+	def self.category_get_or_new(data)
 		title = data[:title]
 		c = @@category_list.find {|x| x.title == title}
 		if c.nil?
 			c = Category.new data
-			@@categories[c.slug] = c
+			@@category_hash[c.slug] = c
 			@@category_list << c
 		end
-		puts "Returning category #{c.title}"
 		c
 	end
 end

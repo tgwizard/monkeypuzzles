@@ -4,7 +4,7 @@ require 'sinatra'
 require 'sinatra/partial'
 
 require_relative 'content.rb'
-Puzzle.load 'content'
+Content.load 'content'
 
 # general configuration
 configure do
