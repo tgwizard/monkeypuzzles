@@ -5,6 +5,7 @@ class Puzzle
 
 	attr_reader :data
 
+	attr_reader :id
   attr_reader :slug, :title, :content, :answer
 	attr_reader :author, :about, :categories, :related
 	attr_reader :created_at, :updated_at
@@ -13,6 +14,10 @@ class Puzzle
 
   def initialize(data = {})
 		@data = data
+		if not data.has_key? 'id'
+			raise ArgumentError, "No id for puzzle #{data['slug']}"
+		end
+		@id = data['id'].to_i
     @slug = data['slug']
     @title = data['title']
 		@author = data['author'] || 'Unknown'
@@ -178,19 +183,34 @@ class Content
 
 	def self.load_puzzles(dir)
 		puts "loading puzzles..."
+		ids = {}
 
 		Dir[dir + '/*'].each do |file|
-			puts " --> #{file}"
+			print " --> "
 
 			data = YAML.load_file file
 			data['slug'] = File.basename file, '.yaml'
+			slug = data['slug']
+			id = data['id']
+
+
+			print "%-5s %s" % ["[#{id}]", file]
+
+			if ids.has_key? id
+				raise ArgumentError, "Duplicate ids for puzzles #{slug} and #{ids[id]}"
+			end
+			ids[id] = slug
 
 			puzzle = Puzzle.new data
 			@@puzzle_hash[puzzle.slug] = puzzle
 			@@puzzle_list << puzzle
+
+			print " done!\n"
+
+
 		end
 
-		puts "#{@@puzzle_list.length} puzzles loaded"
+		puts "#{@@puzzle_list.length} puzzles loaded, max id is #{ids.keys.max}"
 	end
 
 	def self.sort_contents
