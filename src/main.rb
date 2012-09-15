@@ -2,6 +2,7 @@ require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/partial'
+require 'json'
 
 require_relative 'content.rb'
 Content.load 'content'

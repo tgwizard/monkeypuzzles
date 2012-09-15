@@ -5,6 +5,7 @@ GEM
     builder (3.0.0)
     daemons (1.1.9)
     eventmachine (0.12.10)
+    json (1.7.5)
     rack (1.4.1)
     rack-protection (1.2.0)
       rack
@@ -38,6 +39,7 @@ PLATFORMS
 
 DEPENDENCIES
   builder
+  json
   rake
   redcarpet
   shotgun
