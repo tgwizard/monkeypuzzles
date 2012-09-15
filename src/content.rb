@@ -175,9 +175,10 @@ class Content
 
 	def self.load(dir)
 		self.load_puzzles(dir)
-		self.sort_contents
 		self.fix_puzzle_categories
 		self.fix_puzzle_related_objects
+
+		self.sort_contents
 		self.fix_puzzle_next_prev_objects
 	end
 
