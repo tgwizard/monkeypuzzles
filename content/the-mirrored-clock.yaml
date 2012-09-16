@@ -15,6 +15,20 @@ content: |
   What was the time when she left home? What was the mirror image? And when did
   she arrive?
 
+  Note: There can be different answers, depending on whether she sees the
+  length difference of the two clock arms (hour and minute) or not. There is at
+  least one answer if she can see the length difference, and another answer if
+  she can't.
+
 answer: |
+  If she can't see the length difference, the following works fine:
+
   When she looks at the clock it is 12.10, and she sees 10.00. So, after twenty
   minutes of travelling the time is 12.30, which is 2.5 hours later than 10.00.
+
+  If she can see the length difference, the following works:
+
+  When see looks at the clock it is 19.05, and she sees 16.55. Twenty minutes
+  later the tame is 19.25, which is 2.5 hours later than 16.55.
+
+  This also works if she can't see the length difference.

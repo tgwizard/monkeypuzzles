@@ -7,8 +7,8 @@ categories: [threes]
 
 content: |
   Martin thinks of a number, 1, 2 or 3. Sophie is allowed to ask Martin one
-  question, to which he will answer "yes", "no", or, if he doesn't know the answer,
-  "I don't know".
+  yes-or-no question, to which he will answer "yes", "no", or, if he doesn't
+  know the answer, "I don't know".
 
   What question should Sophie ask Martin to uncover his number?
 
