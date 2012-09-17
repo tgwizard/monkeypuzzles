@@ -9,7 +9,7 @@ helpers do
 	end
 
 	def user
-		User.first(:email => session[:user_email])
+		@current_user ||= User.first(:email => session[:user_email])
 	end
 end
 
