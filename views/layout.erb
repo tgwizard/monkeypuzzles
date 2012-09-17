@@ -35,6 +35,7 @@
 		<p>
 		<% if login? %>
 			Hi <%= user.email %>! <a class="logout" href="#">Logout</a>
+			<img src="<%= user.gravatar_url %>" />
 		<% else %>
 			<a class="login" href="#">Login</a>
 		<% end %>
