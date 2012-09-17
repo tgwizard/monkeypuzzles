@@ -11,3 +11,6 @@
 /log/*.log
 /tmp
 .DS_STORE
+
+# Dev files
+dev.db

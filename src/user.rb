@@ -1,14 +1,16 @@
 require 'digest/md5'
 
 class User
-	attr_reader :email, :gravatar_url
-	def initialize(data)
-		@email = data[:email]
-		@gravatar_url = "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@email.strip.downcase)}"
-	end
+	include DataMapper::Resource
+	attr_reader :email
 
-	def self.get(data)
-		User.new data
+	property :id, Serial
+	property :email, String, :required => true, :unique => true, :length => 256
+	property :idp, Enum[:persona], :required => true
+	property :created_at, DateTime, :writer => :private, :default => lambda {|r,p| Time.now}
+
+	def gravatar_url
+		"http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(@email.strip.downcase)}"
 	end
 end
 

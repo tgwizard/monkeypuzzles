@@ -19,9 +19,17 @@ Then:
 	gem install bundler
 	# install all dependencies from the Gemfile
 	bundle install
-	# start the dev server
+	# start the dev server, after each change
 	rake sinatra
 	# go to http://localhost:4567
+
+You can also start the dev server with `shotgun`, like this:
+
+	rake shotgun
+	# go to http://localhost:4567
+
+With shotgun, the server reloads on each request. This might make it easier to
+develop, but it is unfortunately quite slow.
 
 The code is built on [ruby](http://www.ruby-lang.org/en/), and uses the
 [sinatra](http://sinatrarb.com) and

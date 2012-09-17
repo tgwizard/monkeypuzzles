@@ -3,12 +3,13 @@ require 'nestful'
 require_relative 'user.rb'
 
 helpers do
+	# FIXME: cookie-stealing?
 	def login?
-		!session[:user].nil?
+		!session[:user_email].nil?
 	end
 
 	def user
-		session[:user]
+		User.first(:email => session[:user_email])
 	end
 end
 
@@ -25,7 +26,7 @@ post "/auth/login" do
 		data = Nestful.post verify_url, :format => :json, :params => verify_params
 		#data = {"status" => "error"}
 		if data["status"] == "okay"
-			session[:user] = User.get(:email => data["email"])
+			session[:user_email] = User.first_or_create(:email => data["email"], :idp => :persona).email
 			return data.to_json
 		end
 	end
@@ -33,6 +34,6 @@ post "/auth/login" do
 end
 
 post "/auth/logout" do
-	session[:user] = nil
+	session[:user_email] = nil
 	return {:status => "ok"}.to_json
 end

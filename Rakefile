@@ -13,6 +13,10 @@ task :test do
 end
 
 desc "Start the dev server with shotgun"
-task :sinatra do
+task :shotgun do
 	sh "shotgun --debug -p 4567 ./src/main.rb"
+end
+
+task :sinatra do
+	sh "bundle exec rackup config.ru -p 4567"
 end

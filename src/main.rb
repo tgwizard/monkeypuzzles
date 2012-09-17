@@ -3,6 +3,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'sinatra/partial'
 require 'json'
+require 'data_mapper'
 
 enable :sessions
 
@@ -12,6 +13,12 @@ configure do
 	set :public_folder, 'static'
 	set :partial_template_engine, :erb
 	mime_type :woff, 'application/x-font-woff'
+end
+
+# database configuration
+DataMapper::Logger.new($stdout, :debug)
+configure :development do
+	DataMapper.setup :default, "sqlite://#{File.join(settings.root, 'dev.db')}"
 end
 
 # error handling
@@ -39,6 +46,10 @@ helpers do
 		settings.tracking_script
 	end
 end
+
+require_relative 'user.rb'
+
+DataMapper.auto_upgrade!
 
 require_relative 'content.rb'
 Content.load 'content'
