@@ -4,8 +4,7 @@ require 'sinatra'
 require 'sinatra/partial'
 require 'json'
 
-require_relative 'content.rb'
-Content.load 'content'
+enable :sessions
 
 # general configuration
 configure do
@@ -40,6 +39,9 @@ helpers do
 		settings.tracking_script
 	end
 end
+
+require_relative 'content.rb'
+Content.load 'content'
 
 helpers do
 	# paths
@@ -116,4 +118,5 @@ get '/categories/:slug' do
 	erb :show_category
 end
 
+require_relative 'auth.rb'
 require_relative 'feeds.rb'
