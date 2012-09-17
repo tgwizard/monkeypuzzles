@@ -11,6 +11,22 @@ domain name will be acquired later.
 sandbox each project with their own ruby and gem versions. But it is (probably)
 not required.
 
+Sqlite is used for development, and bindings for it can be installed like this,
+according to the [DataMapper startup
+guide](http://datamapper.org/getting-started.html):
+
+	# Debian / Ubuntu
+	sudo apt-get install libsqlite3-dev
+
+	# RedHat / Fedora
+	sudo yum install sqlite-devel
+
+	# MacPorts
+	sudo port install sqlite3
+
+	# HomeBrew
+	sudo brew install sqlite
+
 Then:
 
 	git clone git@github.com:tgwizard/monkeypuzzles.git
