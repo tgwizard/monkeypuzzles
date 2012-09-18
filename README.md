@@ -51,6 +51,9 @@ The development sqlite database is stored in `dev.db`. Datamapper migrations
 don't work that well with sqlite, so it might need to be removed from time to
 time. You might need to clear your browser's cache after that.
 
+[monkeypuzzles.org/status](http://monkeypuzzles.org/status) gives some overview
+of the system status - including database content.
+
 When logging in, [mockmyid.com](http://mockmyid.com) is a good way to get a
 fake email.
 
