@@ -1,8 +1,8 @@
 require 'rubygems'
 require 'bundler/setup'
 require 'sinatra'
-require 'sinatra/partial'
 require 'json'
+require 'sinatra/json'
 require 'data_mapper'
 
 require_relative 'config.rb'
@@ -87,6 +87,18 @@ get '/categories/:slug' do
 
 	@puzzles = @category.puzzles
 	erb :show_category
+end
+
+get '/status' do
+	status = {}
+	status[:status] = 'ok'
+	status[:num_puzzles] =  Puzzle.all.length
+	status[:num_categories] = Category.all.length
+
+	status[:num_users] = User.all.length
+	status[:num_db_rows] = status[:num_users]
+
+	json status
 end
 
 require_relative 'auth.rb'
