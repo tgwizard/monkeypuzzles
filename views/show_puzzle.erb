@@ -81,6 +81,7 @@
 	<% if login? %>
 	<div class="post_comments" style="margin-top: 20px">
 		<form method="post" action="<%= path_to_puzzle @puzzle %>/comments">
+			<%= csrf_tag %>
 			<textarea name="content"></textarea>
 			<input type="submit" value="Post comment" />
 		</form>

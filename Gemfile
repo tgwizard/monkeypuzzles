@@ -10,6 +10,7 @@ gem 'builder'
 gem 'json'
 gem 'nestful'
 gem 'data_mapper'
+gem 'rack_csrf'
 
 group :development do
 	gem 'shotgun'

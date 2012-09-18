@@ -1,6 +1,7 @@
 # general configuration
-enable :sessions
 configure do
+	enable :sessions
+	use Rack::Csrf, :raise => true
 	set :root, File.expand_path("..", File.dirname(__FILE__))
 	set :public_folder, 'static'
 	set :partial_template_engine, :erb

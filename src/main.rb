@@ -4,6 +4,7 @@ require 'sinatra'
 require 'json'
 require 'sinatra/json'
 require 'data_mapper'
+require 'rack/csrf'
 
 require_relative 'config.rb'
 
@@ -32,6 +33,14 @@ helpers do
 	# other
 	include Rack::Utils
 	alias_method :h, :escape_html
+
+	# csrf
+	def csrf_token
+		Rack::Csrf.csrf_token(env)
+	end
+	def csrf_tag
+		Rack::Csrf.csrf_tag(env)
+	end
 end
 
 get '/' do

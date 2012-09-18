@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 	navigator.id.watch({
 		loggedInEmail: currentUser,
 		onlogin: function(assertion) {
@@ -9,7 +9,7 @@
 				url: '/auth/login',
 				data: {assertion: assertion},
 				success: function(res, status, xhr) { console.log("login succeeded, reloading"); window.location.reload(); },
-				error: function(res, status, xhr) { console.log("failure"); console.log(res); alert("login failure " + res); }
+				error: function(res, status, xhr) { console.log("login failure"); }
 			});
 		},
 		onlogout: function() {
@@ -18,7 +18,7 @@
 				type: 'POST',
 				url: '/auth/logout',
 				success: function(res, status, xhr) { console.log("logout succeeded, reloading"); window.location.reload(); },
-				error: function(res, status, xhr) { console.log("failure"); console.log(res); alert("logout failure " + res); }
+				error: function(res, status, xhr) { console.log("logout failure"); }
 			});
 		}
 	});
@@ -33,4 +33,4 @@
 			return false;
 		});
 	});
-})();
+})(jQuery);

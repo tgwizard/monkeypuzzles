@@ -75,6 +75,8 @@ GEM
       rack
     rack-test (0.6.1)
       rack (>= 1.0)
+    rack_csrf (2.4.0)
+      rack (>= 0.9)
     rake (0.9.2.2)
     redcarpet (2.1.1)
     shotgun (0.9)
@@ -110,6 +112,7 @@ DEPENDENCIES
   dm-sqlite-adapter
   json
   nestful
+  rack_csrf
   rake
   redcarpet
   shotgun
