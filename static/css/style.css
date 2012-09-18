@@ -31,7 +31,7 @@ h1,h2,h3 {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   text-align: center;
-  font-family: legitima;
+  font-family: legitima, georgia, "Times New Roman", serif;;
 }
 
 li {
