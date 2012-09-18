@@ -49,7 +49,7 @@ develop, but it is unfortunately quite slow.
 
 The development sqlite database is stored in `dev.db`. Datamapper migrations
 don't work that well with sqlite, so it might need to be removed from time to
-time. You might need to clear your cache after that.
+time. You might need to clear your browser's cache after that.
 
 When logging in, [mockmyid.com](http://mockmyid.com) is a good way to get a
 fake email.
