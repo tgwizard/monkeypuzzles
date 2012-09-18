@@ -97,6 +97,30 @@ post '/puzzles/:slug/comments' do
 	json :status => 'ok', :url => path_to_puzzle(@puzzle)
 end
 
+post '/puzzles/:slug/like' do
+	if not login?
+		return json :status => 'error', :error => 'Not logged in'
+	end
+
+	action = params[:action]
+
+	case action
+	when 'like'
+		puts "Liking puzzle #{@puzzle.id}, #{user}"
+		like = Like.first_or_create(:puzzle_id => @puzzle.id, :user => user, :action => :like)
+	when 'unlike'
+		puts "Unliking puzzle"
+		like = Like.first(:puzzle_id => @puzzle.id, :user => user)
+		like.destroy if like
+	else
+		return json :status => 'error', :error => "Unknown action #{action}"
+	end
+
+	@puzzle.reset_likes!
+
+	json :status => 'ok', :action => action, :num_likes => @puzzle.num_likes
+end
+
 get '/puzzles/:slug/answer' do
 	@title = "Answer for #{@puzzle.title}"
 	erb :show_answer
@@ -124,9 +148,11 @@ get '/status' do
 	status[:num_puzzles] =  Puzzle.all.length
 	status[:num_categories] = Category.all.length
 
-	status[:num_users] = User.all.length
-	status[:num_comments] = Comment.all.length
-	status[:num_db_rows] = status[:num_users] + status[:num_comments]
+	status[:num_users] = User.count
+	status[:num_comments] = Comment.count
+	status[:num_likes] = Like.count
+	status[:num_db_rows] = status[:num_users] + status[:num_comments] +
+		status[:num_likes]
 
 	json status
 end

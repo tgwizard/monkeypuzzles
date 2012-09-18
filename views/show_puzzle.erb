@@ -68,6 +68,20 @@
 		<% write_nav_arrows %>
 	</div>
 
+	<div class="likes">
+		<p>
+		<span class="num-likes"><%= @puzzle.num_likes %></span> likes.
+		<% if login? %>
+			<a class="like" href="<%= path_to_puzzle @puzzle %>/like" data-action="like"
+				<%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
+			<a class="unlike" href="<%= path_to_puzzle @puzzle %>/like" data-action="unlike"
+				<%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
+		<% else %>
+			You can't like because you aren't logged in. TODO: login-on-like.
+		<% end %>
+		</p>
+	</div>
+
 	<div class="comments">
 		<p>Number of comments: <%= @puzzle.comments.length %>.</p>
 		<% @puzzle.comments.each do |comment| %>
