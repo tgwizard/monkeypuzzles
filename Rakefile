@@ -18,5 +18,5 @@ task :shotgun do
 end
 
 task :sinatra do
-	sh "bundle exec rackup config.ru -p 4567"
+	sh "bundle exec thin --debug --rackup config.ru -p 4567 start"
 end
