@@ -1,0 +1,20 @@
+<form>
+	<p><%= user.email %> verified via
+	<a href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>.</p>
+	<% if user.username_set? %>
+		<p>Your username is <%= user.username %>.</p>
+	<% else %>
+		<label for="settings_username">Username</label>
+		<input type="text" id="settings_username" name="username" placeholder="Username"
+			value="<%= user.username %>" />
+		<span class="help-block">
+			Enter a username, or you will be known as
+			<em><%= user.anonymous_username %></em>. Once set, the username is final.
+		<span>
+	<% end %>
+	<label class="checkbox">
+		<input type="checkbox" name="use_gravatar" <%= user.use_gravatar ? 'checked="checked"' : '' %>>
+		Use this gravatar image
+	</label>
+	<img src="<%= user.gravatar_url %>" />
+</form>

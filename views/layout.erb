@@ -28,31 +28,25 @@
 				<ul class="nav pull-right">
 					<li><a href="/random"><i class="icon-random"></i> Random</a></li>
 					<li><a href="/puzzles"><i class="icon-list-ul"></i> List all</a></li>
-					
 					<% if login? %>
-					<!--Hi <%= user.email %>! <a class="logout" href="#">Logout</a>
-						<img src="<%= user.gravatar_url %>" />
-						<p>
-						<!--<%= user.id %> - created_at: <%= user.created_at %>, login_at: <%= user.login_at %>
-						</p>-->
-					
 					<li class="dropdown pull-right">
 					  <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
-					    <img src="<%= user.gravatar_url %>">
+							<%= user.username %>
+							<img src="<%= user.image_url %>" />
 					    <b class="caret"></b>
 					  </a>
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-					  	<li><a href="#">Settings</a></li>
+					  	<li><a class="settings-link" href="#">Settings</a></li>
 					  	<li><a class="logout" href="#">Logout</a></li>
 					  </ul>
 					</li>
-						
 					<% else %>
-						<li><a class="login" href="#"><i class="icon-user"></i> Login</a></li>											<% end %>
-					
+						<li><a class="login" href="#"><i class="icon-user"></i> Login</a></li>
+					<% end %>
 				</ul>
    			</div>
 		</div>
+
 
 		<section role="main" class="content clearfix">
 
@@ -62,6 +56,18 @@
 
 	</div>
 
+	<div class="modal hide fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+			<h3>User settings</h3>
+		</div>
+		<div class="modal-body">
+		</div>
+		<div class="modal-footer">
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+			<button class="btn btn-primary">Save changes</button>
+		</div>
+	</div>
 
 	<footer>
 		<div class="container">

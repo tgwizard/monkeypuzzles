@@ -689,5 +689,10 @@ footer .copyright {
 
 .dropdown img {
 	width: 30px;
-	border-radius: 3px;	
+	border-radius: 3px;
+}
+
+/* TODO: set this proper */
+.modal {
+	color: #000;
 }

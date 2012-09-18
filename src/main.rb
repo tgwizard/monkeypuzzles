@@ -81,9 +81,7 @@ get '/puzzles/:slug' do
 end
 
 post '/puzzles/:slug/comments' do
-	if not login?
-		return json :status => 'error', :error => 'Not logged in'
-	end
+	require_login!
 
 	content = params[:content].strip
 
@@ -98,10 +96,7 @@ post '/puzzles/:slug/comments' do
 end
 
 post '/puzzles/:slug/like' do
-	if not login?
-		return json :status => 'error', :error => 'Not logged in'
-	end
-
+	require_login!
 	action = params[:action]
 
 	case action
