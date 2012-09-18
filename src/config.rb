@@ -12,6 +12,9 @@ DataMapper::Logger.new($stdout, :debug)
 configure :development do
 	DataMapper.setup :default, "sqlite://#{File.join(settings.root, 'dev.db')}"
 end
+configure :production do
+	DataMapper.setup :default, ENV['DATABASE_URL']
+end
 
 # error handling
 configure :production do
