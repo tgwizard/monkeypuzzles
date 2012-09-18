@@ -25,7 +25,7 @@
 
 	$(document).ready(function() {
 		$('a.login').click(function() {
-			navigator.id.request();
+			navigator.id.request({siteName: 'monkeypuzzles'});
 			return false;
 		});
 		$('a.logout').click(function() {
