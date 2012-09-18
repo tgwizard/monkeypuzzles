@@ -81,10 +81,20 @@ get '/puzzles/:slug' do
 end
 
 post '/puzzles/:slug/comments' do
-	content = params[:content]
+	if not login?
+		return json :status => 'error', :error => 'Not logged in'
+	end
+
+	content = params[:content].strip
+
+	if content.empty?
+		return json :status => 'error', :error => 'Content is empty'
+	end
+
 	Comment.create(:puzzle_id => @puzzle.id, :content => content, :user => user)
 	@puzzle.reset_comments!
-	redirect path_to_puzzle(@puzzle)
+
+	json :status => 'ok', :url => path_to_puzzle(@puzzle)
 end
 
 get '/puzzles/:slug/answer' do
