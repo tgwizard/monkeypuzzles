@@ -36,7 +36,9 @@
 			<% if login? %>
 				Hi <%= user.email %>! <a class="logout" href="#">Logout</a>
 				<img src="<%= user.gravatar_url %>" />
-				<%= user.id %> - <%= user.created_at %>
+				<p>
+				<%= user.id %> - created_at: <%= user.created_at %>, login_at: <%= user.login_at %>
+				</p>
 			<% else %>
 				<a class="login" href="#">Login</a>
 			<% end %>

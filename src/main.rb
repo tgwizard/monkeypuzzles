@@ -12,7 +12,9 @@ Content.load 'content'
 
 require_relative 'user.rb'
 
+require_relative 'migrations.rb'
 DataMapper.auto_upgrade!
+DataMapper.finalize
 
 helpers do
 	# paths
