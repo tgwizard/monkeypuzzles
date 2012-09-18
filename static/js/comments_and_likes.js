@@ -32,7 +32,7 @@
 				success: function(res, status, xhr) {
 					if (res.status == 'ok') {
 						console.log("like succeeded");
-						console.log(res);
+
 						var container = tag.closest('.likes');
 						container.find('.num-likes').html(res.num_likes);
 						container.find('.like').toggle(res.action != 'like');

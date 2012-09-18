@@ -39,9 +39,6 @@ class Puzzle
 		@num_likes = nil
 	end
 	def user_likes?(user)
-		puts "Checking likes #{user.email}"
-		a = !user.nil? && Like.count(:puzzle_id => @id, :user => user, :action => :like) > 0
-		puts a
-		return a
+		!user.nil? && Like.count(:puzzle_id => @id, :user => user, :action => :like) > 0
 	end
 end

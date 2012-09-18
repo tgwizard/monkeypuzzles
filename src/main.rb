@@ -106,10 +106,8 @@ post '/puzzles/:slug/like' do
 
 	case action
 	when 'like'
-		puts "Liking puzzle #{@puzzle.id}, #{user}"
 		like = Like.first_or_create(:puzzle_id => @puzzle.id, :user => user, :action => :like)
 	when 'unlike'
-		puts "Unliking puzzle"
 		like = Like.first(:puzzle_id => @puzzle.id, :user => user)
 		like.destroy if like
 	else
