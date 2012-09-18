@@ -11,6 +11,7 @@ require_relative 'content.rb'
 Content.load 'content'
 
 require_relative 'user.rb'
+require_relative 'content_meta.rb'
 
 require_relative 'migrations.rb'
 DataMapper.auto_upgrade!
@@ -70,6 +71,13 @@ get '/puzzles/:slug' do
 	erb :show_puzzle
 end
 
+post '/puzzles/:slug/comments' do
+	content = params[:content]
+	Comment.create(:puzzle_id => @puzzle.id, :content => content, :user => user)
+	@puzzle.reset_comments!
+	redirect path_to_puzzle(@puzzle)
+end
+
 get '/puzzles/:slug/answer' do
 	@title = "Answer for #{@puzzle.title}"
 	erb :show_answer
@@ -98,7 +106,8 @@ get '/status' do
 	status[:num_categories] = Category.all.length
 
 	status[:num_users] = User.all.length
-	status[:num_db_rows] = status[:num_users]
+	status[:num_comments] = Comment.all.length
+	status[:num_db_rows] = status[:num_users] + status[:num_comments]
 
 	json status
 end
