@@ -47,6 +47,13 @@ You can also start the dev server with `shotgun`, like this:
 With shotgun, the server reloads on each request. This might make it easier to
 develop, but it is unfortunately quite slow.
 
+The development sqlite database is stored in `dev.db`. Datamapper migrations
+don't work that well with sqlite, so it might need to be removed from time to
+time.
+
+When logging in, [mockmyid.com](http://mockmyid.com) is a good way to get a
+fake email.
+
 The code is built on [ruby](http://www.ruby-lang.org/en/), and uses the
 [sinatra](http://sinatrarb.com), [DataMapper](http://datamapper.org) and
 [bootstrap](http://twitter.github.com/bootstrap) frameworks.
