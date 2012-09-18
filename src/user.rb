@@ -2,7 +2,6 @@ require 'digest/md5'
 
 class User
 	include DataMapper::Resource
-	attr_reader :email
 
 	property :id, Serial
 	property :email, String, :required => true, :unique => true, :length => 256
