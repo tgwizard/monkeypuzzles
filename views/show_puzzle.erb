@@ -86,7 +86,7 @@
 		<p>Number of comments: <%= @puzzle.comments.length %>.</p>
 		<% @puzzle.comments.each do |comment| %>
 			<div class="comment" style="margin-left: 20px; margin-bottom: 5px; padding: 5px; border: 1px solid gray">
-				<p>Comment by <%= comment.user.email %> on <%= comment.created_at %></p>
+				<p>Comment by <%= comment.user.display_username %> on <%= comment.created_at %></p>
 				<p><%= h comment.content %></p>
 			</div>
 		<% end %>

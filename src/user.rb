@@ -22,6 +22,10 @@ class User
 		!self.username.nil?
 	end
 
+	def display_username
+		username_set? ? @username : anonymous_username
+	end
+
 	def image_url
 		if use_gravatar
 			gravatar_url
