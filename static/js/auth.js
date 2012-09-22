@@ -2,7 +2,7 @@
 
 	showSettings = function(options) {
 		$('#modal').modal({
-			remote: '/settings'
+			remote: '/user/settings'
 		});
 	};
 	saveSettings = function(e) {
@@ -13,7 +13,7 @@
 		var use_gravatar = modal.find('[name="use_gravatar"]').is(':checked');
 		$.ajax({
 			type: 'POST',
-			url: '/settings',
+			url: '/user/settings',
 			data: {username: username, use_gravatar: use_gravatar},
 			success: function(res) {
 				if (res.status == 'ok') {

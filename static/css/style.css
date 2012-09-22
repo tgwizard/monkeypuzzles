@@ -10,7 +10,9 @@ body {
   background: #CC8C4C;
   background: url('../img/bg.png');
   color: white;
-  
+}
+
+body, label {
   font: 100%/1.3 legitima, georgia, "Times New Roman", serif;
 
   -webkit-font-feature-settings: "liga", "dlig";
@@ -679,6 +681,7 @@ footer .copyright {
   background: white;
 }
 .dropdown .dropdown-toggle{
+	color: #222222;
 	padding: 3px 6px 3px 3px!important;
 	margin-top: 2px;
 	border-radius: 5px;
@@ -687,12 +690,37 @@ footer .copyright {
 	box-shadow: inset 0 1px 1px 0 white, inset 0 -1px 1px 0 #ddd;
 }
 
+.navbar-inverse .nav .dropdown-toggle div {
+  color: #333;
+	float: left;
+	padding: 5px 10px 5px 5px;
+}
+
 .dropdown img {
 	width: 30px;
 	border-radius: 3px;
 }
 
 /* TODO: set this proper */
-.modal {
+.modal,
+.modal .help-block, .modal .help-inlin {
 	color: #000;
 }
+
+.modal .gravatar-row {
+	width: 100%;
+	clear: both;
+}
+
+.modal .gravatar-row .gravatar-img{
+	float: left;
+	width: 90px;
+	height: 90px;
+}
+
+.modal .gravatar-row .gravatar-text{
+	float: left;
+	width: 420px;
+	margin-left: 15px;
+}
+

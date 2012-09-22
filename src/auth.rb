@@ -53,12 +53,12 @@ post "/auth/logout" do
 	return {:status => "ok"}.to_json
 end
 
-get "/settings" do
+get "/user/settings" do
 	require_login!
 	erb :settings, :layout => false
 end
 
-post "/settings" do
+post "/user/settings" do
 	require_login!
 
 	if user.username.nil?
