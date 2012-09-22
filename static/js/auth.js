@@ -10,9 +10,7 @@
 		console.log("will save settings");
 		e.preventDefault();
 		var username = modal.find('[name="username"]').val();
-		console.log(username);
 		var use_gravatar = modal.find('[name="use_gravatar"]').is(':checked');
-		console.log(use_gravatar);
 		$.ajax({
 			type: 'POST',
 			url: '/settings',
@@ -30,7 +28,6 @@
 
 	onLoginSuccess = function(res, status, xhr) {
 		console.log("login succeeded");
-		console.log(res);
 		if (res.show_settings) {
 			console.log("showing settings");
 			showSettings({newUser: true});
@@ -41,7 +38,7 @@
 	};
 
 	navigator.id.watch({
-		loggedInEmail: currentUser,
+		loggedInUser: currentUser,
 		onlogin: function(assertion) {
 			// TODO: perhaps show progress screen or something while verifying login
 			console.log("login initiated");
