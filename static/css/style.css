@@ -524,6 +524,7 @@ ul.centered-list {
   display: block;
   margin: 0 1px;
   padding: 0 0.4rem;
+	clear: both;
 }
 
 .centered-list li:nth-child(even) {
@@ -540,6 +541,11 @@ ul.centered-list {
 .centered-list a:hover {
   background: #f1b06f;
   background: rgba(255,255,255,0.1);
+}
+
+.centered-list li .meta-data {
+	float: right;
+	color: #fff;
 }
 
 .categories a , a.tag-link{
@@ -722,5 +728,28 @@ footer .copyright {
 	float: left;
 	width: 420px;
 	margin-left: 15px;
+}
+
+.comments {
+	clear: both;
+}
+.comments .comment {
+	min-height: 200px;
+	clear: both;
+}
+
+.comments .comment .meta-data {
+	float: left;
+	width: 100px;
+	padding-right: 15px;
+	border-right: 2px solid white;
+}
+.comments .comment .text {
+	float: left;
+	width: 410px;
+	padding-left: 15px;
+}
+.comments .comment .text textarea {
+	width: 100%;
 }
 

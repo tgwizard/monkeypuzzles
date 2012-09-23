@@ -28,8 +28,12 @@ class Puzzle
 	def comments
 		@comments ||= Comment.all(:puzzle_id => @id, :order => [:created_at.asc])
 	end
+	def num_comments
+		@num_comments ||= Comment.count(:puzzle_id => @id)
+	end
 	def reset_comments!
 		@comments = nil
+		@num_comments = nil
 	end
 
 	def num_likes

@@ -35,9 +35,9 @@ post "/auth/login" do
 		return json :status => "error", :error => "Assertion verification failed"
 	end
 
-	if user = User.first(:email => data["email"])
-		show_settings = false
-	else
+	user = User.first(:email => data["email"])
+	show_settings = false
+	if not user
 		user = User.create(:email => data["email"], :identity_provider => :persona)
 		show_settings = true
 	end

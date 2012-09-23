@@ -1,5 +1,16 @@
-<ul class="centered-list small-text">
+<ul class="centered-list small-text puzzle-list">
 <% @puzzles.each do |puzzle| %>
-<li><a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %></a></li>
+	<li>
+	<a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %>
+	<div class="meta-data" style="float: right;">
+		<% if puzzle.num_likes > 0 %>
+		<span><%= puzzle.num_likes %> likes</span>
+		<% end %>
+		<% if puzzle.num_comments > 0 %>
+		<span><%= puzzle.num_comments %> comments</span>
+		<% end %>
+	</div>
+</a>
+	</li>
 <% end %>
 </ul>

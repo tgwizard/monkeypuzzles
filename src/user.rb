@@ -19,11 +19,11 @@ class User
 	end
 
 	def username_set?
-		!self.username.nil?
+		!username.nil?
 	end
 
 	def display_username
-		username_set? ? @username : anonymous_username
+		username_set? ? username : anonymous_username
 	end
 
 	def image_url
