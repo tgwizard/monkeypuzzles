@@ -1,144 +1,144 @@
 <!doctype html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title><% if not @title.nil? %><%= @title %> - Monkeypuzzles<% else %>Monkeypuzzles, puzzles not even a monkey could solve<% end %></title>
-	<meta name="description" content="A collection of the greatest puzzles in the world.">
-	<meta name="author" content="Adam Renberg and Olle Werme">
-	<meta name="viewport" content="width=device-width">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title><% if not @title.nil? %><%= @title %> - Monkeypuzzles<% else %>Monkeypuzzles, puzzles not even a monkey could solve<% end %></title>
+  <meta name="description" content="A collection of the greatest puzzles in the world.">
+  <meta name="author" content="Adam Renberg and Olle Werme">
+  <meta name="viewport" content="width=device-width">
 
-	<link rel="alternate" type="application/atom+xml" title="Atom feed for all puzzles" href="/atom.xml" />
-	<link rel="alternate" type="application/rss+xml" title="RSS feed for all puzzles" href="/rss.xml" />
+  <link rel="alternate" type="application/atom+xml" title="Atom feed for all puzzles" href="/atom.xml" />
+  <link rel="alternate" type="application/rss+xml" title="RSS feed for all puzzles" href="/rss.xml" />
 
-	<link rel="stylesheet" href="/css/bootstrap.css">
-	<link rel="stylesheet" href="/css/font-awesome.css">
-	<link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/font-awesome.css">
+  <link rel="stylesheet" href="/css/style.css">
 
-	<meta name="_csrf" content="<%= csrf_token %>">
+  <meta name="_csrf" content="<%= csrf_token %>">
 
-	<%= tracking_script %>
+  <%= tracking_script %>
 </head>
 
 <body>
-	<div class="container-fluid">
-		<div class="navbar navbar-static-top navbar-inverse">
-			<div class="navbar-inner">
-				<a class="brand" href="/"><img src="/img/monkey_w.png">MonkeyPuzzles</a>
-				<ul class="nav pull-right">
-					<li><a href="/random"><i class="icon-random"></i> Random</a></li>
-					<li><a href="/puzzles"><i class="icon-list-ul"></i> List all</a></li>
-					<% if login? %>
-					<li class="dropdown pull-right">
-					  <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
-							<div><%= user.display_username %></div>
-							<img src="<%= user.image_url %>" />
-					    <b class="caret"></b>
-					  </a>
-					  <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-					  	<li><a class="settings-link" href="#">Settings</a></li>
-					  	<li><a class="logout" href="#">Logout</a></li>
-					  </ul>
-					</li>
-					<% else %>
-						<li><a class="login" href="#"><i class="icon-user"></i> Login</a></li>
-					<% end %>
-				</ul>
-   			</div>
-		</div>
+  <div class="container-fluid">
+    <div class="navbar navbar-static-top navbar-inverse">
+      <div class="navbar-inner">
+        <a class="brand" href="/"><img src="/img/monkey_w.png">MonkeyPuzzles</a>
+        <ul class="nav pull-right">
+          <li><a href="/random"><i class="icon-random"></i> Random</a></li>
+          <li><a href="/puzzles"><i class="icon-list-ul"></i> List all</a></li>
+          <% if login? %>
+          <li class="dropdown pull-right">
+            <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
+              <div><%= user.display_username %></div>
+              <img src="<%= user.image_url %>" />
+              <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a class="settings-link" href="#">Settings</a></li>
+              <li><a class="logout" href="#">Logout</a></li>
+            </ul>
+          </li>
+          <% else %>
+            <li><a class="login" href="#"><i class="icon-user"></i> Login</a></li>
+          <% end %>
+        </ul>
+        </div>
+    </div>
 
 
-		<section role="main" class="content clearfix">
+    <section role="main" class="content clearfix">
 
-			<%= yield %>
+      <%= yield %>
 
-		</section>
+    </section>
 
-	</div>
+  </div>
 
-	<div class="modal hide fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-header">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-			<h3>User settings</h3>
-		</div>
-		<div class="modal-body">
-		</div>
-		<div class="modal-footer">
-			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			<button class="btn btn-primary">Save changes</button>
-		</div>
-	</div>
+  <div class="modal hide fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+      <h3>User settings</h3>
+    </div>
+    <div class="modal-body">
+    </div>
+    <div class="modal-footer">
+      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      <button class="btn btn-primary">Save changes</button>
+    </div>
+  </div>
 
-	<footer>
-		<div class="container">
-		<div class="row-fluid">
-			<div class="span6 about">
-				<h1>About this <wbr>monkey site</h1>
-				<p>We aim to collect and present all good puzzles here, to share with
-				the world in a funny and beautiful manner. The credit for the puzzles
-				goes to their respective authors, which we unfortunately in most cases
-				are unaware of. If you know of a good puzzle, or have more information
-				on the ones already here, please don't hesitate to contact us at <a
-					href="mailto:tgwizard@gmail.com">tgwizard@gmail.com</a>.</p>
+  <footer>
+    <div class="container">
+    <div class="row-fluid">
+      <div class="span6 about">
+        <h1>About this <wbr>monkey site</h1>
+        <p>We aim to collect and present all good puzzles here, to share with
+        the world in a funny and beautiful manner. The credit for the puzzles
+        goes to their respective authors, which we unfortunately in most cases
+        are unaware of. If you know of a good puzzle, or have more information
+        on the ones already here, please don't hesitate to contact us at <a
+          href="mailto:tgwizard@gmail.com">tgwizard@gmail.com</a>.</p>
 
-				<p>The source for this site is available on <a
-					href="https://github.com/tgwizard/monkeypuzzles"><i
-						class="icon-github"></i> github</a>. Bug reports, comments,
-				contributions - they are all welcome.</p>
-			</div>
-			<div class="span3 links">
-				<h1>Sitemap</h1>
-				<ul>
-					<li><a href="/"><i class="icon-home"></i> Start page</a></li>
-					<li><a href="/puzzles"><i class="icon-list-ul"></i> List all puzzles</a></li>
-					<li><a href="/search"><i class="icon-search"></i> Search</a></li>
-					<li><a href="/random"><i class="icon-random"></i> Random puzzle</a></li>
-					<li>&nbsp;</li>
-					<li><a href="/atom.xml"><i class="icon-rss"></i> Atom</a> | <a href="/rss.xml"><i class="icon-rss"></i> RSS</a></li>
-					<li>&nbsp;</li>
-					<li><a href="https://github.com/tgwizard/monkeypuzzles"><i class="icon-github"></i> Repository on github</a></li>
-				</ul>
+        <p>The source for this site is available on <a
+          href="https://github.com/tgwizard/monkeypuzzles"><i
+            class="icon-github"></i> github</a>. Bug reports, comments,
+        contributions - they are all welcome.</p>
+      </div>
+      <div class="span3 links">
+        <h1>Sitemap</h1>
+        <ul>
+          <li><a href="/"><i class="icon-home"></i> Start page</a></li>
+          <li><a href="/puzzles"><i class="icon-list-ul"></i> List all puzzles</a></li>
+          <li><a href="/search"><i class="icon-search"></i> Search</a></li>
+          <li><a href="/random"><i class="icon-random"></i> Random puzzle</a></li>
+          <li>&nbsp;</li>
+          <li><a href="/atom.xml"><i class="icon-rss"></i> Atom</a> | <a href="/rss.xml"><i class="icon-rss"></i> RSS</a></li>
+          <li>&nbsp;</li>
+          <li><a href="https://github.com/tgwizard/monkeypuzzles"><i class="icon-github"></i> Repository on github</a></li>
+        </ul>
 
-			</div>
-			<div class="span3 share">
-				<h1>Share</h1>
-				<ul>
-					<li><a href="#"><i class="icon-facebook"></i> Like us on Facebook<!-- LOL! --></a></li>
-					<li><a href="#"><i class="icon-twitter"></i> Follow us on Twitter</a></li>
-					<li>&nbsp;</li>
-					<li><a href="#"><i class="icon-envelope-alt"></i> Share by mail</a></li>
-				</ul>
-			</div>
-		</div>
-		<div class="row copyright">
-			<div class="span12">
-				<p>Another yet to be completed site &copy; <a href="#">Adam Renberg</a> and <a href="#">Olle Werme</a>.</p>
-			</div>
-		</div>
-	</div>
-	</footer>
+      </div>
+      <div class="span3 share">
+        <h1>Share</h1>
+        <ul>
+          <li><a href="#"><i class="icon-facebook"></i> Like us on Facebook<!-- LOL! --></a></li>
+          <li><a href="#"><i class="icon-twitter"></i> Follow us on Twitter</a></li>
+          <li>&nbsp;</li>
+          <li><a href="#"><i class="icon-envelope-alt"></i> Share by mail</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="row copyright">
+      <div class="span12">
+        <p>Another yet to be completed site &copy; <a href="#">Adam Renberg</a> and <a href="#">Olle Werme</a>.</p>
+      </div>
+    </div>
+  </div>
+  </footer>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
-	<script type="text/javascript" src="/js/basic.js"></script>
-	<script type="text/javascript" src="/js/comments_and_likes.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/basic.js"></script>
+  <script type="text/javascript" src="/js/comments_and_likes.js"></script>
 
-	<script type="text/javascript" src="https://login.persona.org/include.js"></script>
-	<script type="text/javascript">
-		var currentUser = <%= login? ? user.email.to_json : 'null' %>;
-	</script>
-	<script type="text/javascript" src="/js/auth.js"></script>
+  <script type="text/javascript" src="https://login.persona.org/include.js"></script>
+  <script type="text/javascript">
+    var currentUser = <%= login? ? user.email.to_json : 'null' %>;
+  </script>
+  <script type="text/javascript" src="/js/auth.js"></script>
 
-	<script type="text/javascript" src="//use.typekit.net/jwu3hij.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  <script type="text/javascript" src="//use.typekit.net/jwu3hij.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
-	<script type="text/javascript" src="/js/jquery.lettering-0.6.1.min.js"></script>
-	<script type="text/javascript" src="/js/bootstrap.min.js"></script>
-	<script>
-	  $(document).ready(function() {
-	    $(".super_title1").lettering();
-	    $(".super_title2").lettering();
-	  });
-	</script>
+  <script type="text/javascript" src="/js/jquery.lettering-0.6.1.min.js"></script>
+  <script type="text/javascript" src="/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $(".super_title1").lettering();
+      $(".super_title2").lettering();
+    });
+  </script>
 
 </body>
 </html>

@@ -1,16 +1,16 @@
 <div class="row-fluid">
 <div class="span12">
-	<header>
-		<smaller>Solution for</smaller>
-		<h1><%= @puzzle.title %></h1>
-	</header>
+  <header>
+    <smaller>Solution for</smaller>
+    <h1><%= @puzzle.title %></h1>
+  </header>
 
-	<p>
-		<%= @puzzle.answer %>
-	</p>
+  <p>
+    <%= @puzzle.answer %>
+  </p>
 
-	<p>
-		<a class="icon-pre-link" href="<%= path_to_puzzle @puzzle %>"><i class="icon-arrow-left"></i> Back to puzzle</a>
-	</p>
+  <p>
+    <a class="icon-pre-link" href="<%= path_to_puzzle @puzzle %>"><i class="icon-arrow-left"></i> Back to puzzle</a>
+  </p>
 </div>
 </div>

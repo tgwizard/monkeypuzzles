@@ -1,6 +1,6 @@
 <h3>About</h3>
 <% if not @puzzle.about.nil? %>
-	<%= @puzzle.about %>
+  <%= @puzzle.about %>
 <% end %>
 <p>Created on <%= @puzzle.created_at %></p>
 <% if @puzzle.updated_at != @puzzle.created_at %>

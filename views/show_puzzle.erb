@@ -1,119 +1,119 @@
 <div class="row-fluid">
-	<% # helper render functions for this view %>
+  <% # helper render functions for this view %>
 <% def write_nav_arrows %>
-	<span class="arrow-left">
-		<a href="<%= path_to_puzzle @puzzle.prev_puzzle %>"><i class="icon-caret-left"></i></a>
-	</span>
-	<span class="arrow-right">
-		<a href="<%= path_to_puzzle @puzzle.next_puzzle %>"><i class="icon-caret-right"></i></a>
-	</span>
+  <span class="arrow-left">
+    <a href="<%= path_to_puzzle @puzzle.prev_puzzle %>"><i class="icon-caret-left"></i></a>
+  </span>
+  <span class="arrow-right">
+    <a href="<%= path_to_puzzle @puzzle.next_puzzle %>"><i class="icon-caret-right"></i></a>
+  </span>
 <% end %>
 
 <div class="span12">
 
-	<header>
-		<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
-		<smaller class="ornament">Category: <a href="#">Riddl<span>e</span></a></smaller>
-	    <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
-	    <h1 style="line-height: 0; margin: 0.2rem 0 1.2rem; color: white;"><span>.</span></h1>
-	    <small>A somewhat eas<span>y</span></small><br />
-	    <small>monkey riddl<span>e</span></small><br />
-	    <smaller>Author: <%= @puzzle.author[0, @puzzle.author.length-1] %><span><%= @puzzle.author[-1, 1] %></span></a></smaller>
-	</header>
+  <header>
+    <!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+    <smaller class="ornament">Category: <a href="#">Riddl<span>e</span></a></smaller>
+      <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
+      <h1 style="line-height: 0; margin: 0.2rem 0 1.2rem; color: white;"><span>.</span></h1>
+      <small>A somewhat eas<span>y</span></small><br />
+      <small>monkey riddl<span>e</span></small><br />
+      <smaller>Author: <%= @puzzle.author[0, @puzzle.author.length-1] %><span><%= @puzzle.author[-1, 1] %></span></a></smaller>
+  </header>
 
-	<article>
-	    <%= @puzzle.content %>
-	    <% if not @puzzle.related.empty? or not @puzzle.categories.empty? %>
-	    <hr />
-	    <% end %>
+  <article>
+      <%= @puzzle.content %>
+      <% if not @puzzle.related.empty? or not @puzzle.categories.empty? %>
+      <hr />
+      <% end %>
 
-		<% if not @puzzle.categories.empty? %>
-			<p class="categories">
-			Categories:
-			<%=
-				@puzzle.categories.map {|c| "<a href=\"#{path_to_category c}\">#{c.title}</a>"}.join
-			%>
-			</p>
-		<% end %>
+    <% if not @puzzle.categories.empty? %>
+      <p class="categories">
+      Categories:
+      <%=
+        @puzzle.categories.map {|c| "<a href=\"#{path_to_category c}\">#{c.title}</a>"}.join
+      %>
+      </p>
+    <% end %>
 
-		<% if not @puzzle.related.empty? %>
-			<p class="categories">
-			Related puzzles:
-			<%=
-				@puzzle.related.map {|p| "<a href=\"#{path_to_puzzle p}\">#{p.title}</a>"}.join
-			%>
-			</p>
-		<% end %>
+    <% if not @puzzle.related.empty? %>
+      <p class="categories">
+      Related puzzles:
+      <%=
+        @puzzle.related.map {|p| "<a href=\"#{path_to_puzzle p}\">#{p.title}</a>"}.join
+      %>
+      </p>
+    <% end %>
 
-		<% if not @puzzle.about.nil? %>
-			<%= @puzzle.about %>
-		<% end %>
+    <% if not @puzzle.about.nil? %>
+      <%= @puzzle.about %>
+    <% end %>
 
-		<div class="high-res-nav">
-			<% write_nav_arrows %>
-		</div>
-	</article>
+    <div class="high-res-nav">
+      <% write_nav_arrows %>
+    </div>
+  </article>
 
-	<div class="low-res-nav">
-		<% if not @puzzle.answer.nil? %>
-			<div class="answer-link">
-				<a href="<%= path_to_puzzle_answer @puzzle %>"></a>
-			</div>
-		<% else %>
-			<div class="inactive-answer-link">
-				<a href="#" onclick="javascript:return false"></a>
-			</div>
-		<% end %>
+  <div class="low-res-nav">
+    <% if not @puzzle.answer.nil? %>
+      <div class="answer-link">
+        <a href="<%= path_to_puzzle_answer @puzzle %>"></a>
+      </div>
+    <% else %>
+      <div class="inactive-answer-link">
+        <a href="#" onclick="javascript:return false"></a>
+      </div>
+    <% end %>
 
-		<% write_nav_arrows %>
-	</div>
+    <% write_nav_arrows %>
+  </div>
 
-	<div class="likes">
-		<p>
-		<span class="num-likes"><%= @puzzle.num_likes %></span> likes.
-		<% if login? %>
-			<a class="like" href="<%= path_to_puzzle @puzzle %>/like" data-action="like"
-				<%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
-			<a class="unlike" href="<%= path_to_puzzle @puzzle %>/like" data-action="unlike"
-				<%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
-		<% else %>
-			You can't like because you aren't logged in. TODO: login-on-like.
-		<% end %>
-		</p>
-	</div>
+  <div class="likes">
+    <p>
+    <span class="num-likes"><%= @puzzle.num_likes %></span> likes.
+    <% if login? %>
+      <a class="like" href="<%= path_to_puzzle @puzzle %>/like" data-action="like"
+        <%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
+      <a class="unlike" href="<%= path_to_puzzle @puzzle %>/like" data-action="unlike"
+        <%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
+    <% else %>
+      You can't like because you aren't logged in. TODO: login-on-like.
+    <% end %>
+    </p>
+  </div>
 
-	<div class="comments">
-		<p>Number of comments: <%= @puzzle.num_comments %>.</p>
-		<% @puzzle.comments.each do |comment| %>
-			<div class="comment">
-				<div class="meta-data">
-					<img src="<%= comment.user.image_url %>" class="img-polaroid" style="float: left"/>
-					<p><%= comment.user.display_username %><br/><%= comment.created_at.strftime '%Y-%m-%d %H:%M' %></p>
-				</div>
-				<div class="text">
-					<p><%= h comment.content %></p>
-				</div>
-			</div>
-		<% end %>
+  <div class="comments">
+    <p>Number of comments: <%= @puzzle.num_comments %>.</p>
+    <% @puzzle.comments.each do |comment| %>
+      <div class="comment">
+        <div class="meta-data">
+          <img src="<%= comment.user.image_url %>" class="img-polaroid" style="float: left"/>
+          <p><%= comment.user.display_username %><br/><%= comment.created_at.strftime '%Y-%m-%d %H:%M' %></p>
+        </div>
+        <div class="text">
+          <p><%= h comment.content %></p>
+        </div>
+      </div>
+    <% end %>
 
-		<% if login? %>
-		<div class="comment post-comment">
-			<form method="post" class="comment" action="<%= path_to_puzzle @puzzle %>/comments">
-				<div class="meta-data">
-					<img src="<%= user.image_url %>" class="img-polaroid" style="float: left"/>
-					<p><%= user.display_username %></p>
-				</div>
-				<%= csrf_tag %>
-				<div class="text">
-					<textarea name="content"></textarea>
-					<input type="submit" value="Post comment" />
-				</div>
-			</form>
-		</div>
-		<% else %>
-		<p>You can't comment - you are not logged in! TODO: still allow comments, but force login before.</p>
-		<% end %>
-	</div>
+    <% if login? %>
+    <div class="comment post-comment">
+      <form method="post" class="comment" action="<%= path_to_puzzle @puzzle %>/comments">
+        <div class="meta-data">
+          <img src="<%= user.image_url %>" class="img-polaroid" style="float: left"/>
+          <p><%= user.display_username %></p>
+        </div>
+        <%= csrf_tag %>
+        <div class="text">
+          <textarea name="content"></textarea>
+          <input type="submit" value="Post comment" />
+        </div>
+      </form>
+    </div>
+    <% else %>
+    <p>You can't comment - you are not logged in! TODO: still allow comments, but force login before.</p>
+    <% end %>
+  </div>
 
 
 </div>

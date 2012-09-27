@@ -2,18 +2,18 @@
 <div class="span12">
 <header class="title">
 
-	<!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
-	<!--<smaller class="ornament">Category: <a href="#">Monkey har<span>d</span></a></smaller>-->
-		<h1 class="super_title1">Monkey</h1>
-		<h1 class="super_title2">puzzles</h1>
+  <!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+  <!--<smaller class="ornament">Category: <a href="#">Monkey har<span>d</span></a></smaller>-->
+    <h1 class="super_title1">Monkey</h1>
+    <h1 class="super_title2">puzzles</h1>
     <!--<smaller>Puzzles not even a monkey could solv<span>e</span></smaller>-->
 </header>
 <section>
 
 <p>Here there be puzzles. Choose a puzzle by category, browse through them <a
-	href="/puzzles" class="icon-pre-link"><i class="icon-list-ul"></i>all</a>, or
+  href="/puzzles" class="icon-pre-link"><i class="icon-list-ul"></i>all</a>, or
 start right now with a <a href="/random" class="icon-pre-link"><i
-		class="icon-random"></i>random puzzle</a>. Enjoy!</p>
+    class="icon-random"></i>random puzzle</a>. Enjoy!</p>
 
 <p>Beta disclaimer: Beware, this is a work in progress. Urls and links have not
 yet been finalized. External references are not recommended. Occasional hiccups
@@ -22,7 +22,7 @@ are to be expected.</p>
 <p class="categories">
 Categories:
 <%=
-	@categories.map {|c| "<a href=\"#{path_to_category c}\">#{c.title} (#{c.num})</a>"}.join
+  @categories.map {|c| "<a href=\"#{path_to_category c}\">#{c.title} (#{c.num})</a>"}.join
 %>
 </p>
 

@@ -1,35 +1,35 @@
 <form>
-	<p>You are logged in as <a href="mailto:<%= user.email %>"><%= user.email
-		%></a>, verified via <a
-		href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>. You email
-	address will never be displayed on the site or shared with third parties. It
-	will only be used for identification and, optionally, for a gravatar
-	image.</p>
+  <p>You are logged in as <a href="mailto:<%= user.email %>"><%= user.email
+    %></a>, verified via <a
+    href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>. You email
+  address will never be displayed on the site or shared with third parties. It
+  will only be used for identification and, optionally, for a gravatar
+  image.</p>
 
-	<% if user.username_set? %>
-		<p>You have chosen <em><%= user.username %></em> as your username. This is
-		what will be displayed as the source of the comments you make.</p>
-	<% else %>
-		<label for="settings_username">Username:
-			<input type="text" id="settings_username" name="username" />
-		</label>
-		<span class="help-block">
-			<p>
-			Enter a username, or you will be known as
-			<em><%= user.anonymous_username %></em>. Once set, the username is final.
-			</p>
-		<span>
-	<% end %>
+  <% if user.username_set? %>
+    <p>You have chosen <em><%= user.username %></em> as your username. This is
+    what will be displayed as the source of the comments you make.</p>
+  <% else %>
+    <label for="settings_username">Username:
+      <input type="text" id="settings_username" name="username" />
+    </label>
+    <span class="help-block">
+      <p>
+      Enter a username, or you will be known as
+      <em><%= user.anonymous_username %></em>. Once set, the username is final.
+      </p>
+    <span>
+  <% end %>
 
-	<div class="gravatar-row">
-		<div class="gravatar-img">
-			<img src="<%= user.gravatar_url %>" class="img-polaroid" style="float: left"/>
-		</div>
-		<div class="gravatar-text">
-			<label class="checkbox">
-				<input type="checkbox" name="use_gravatar" <%= user.use_gravatar ? 'checked="checked"' : '' %>>
-				Use this gravatar image. <a target="_new" href="https://gravatar.com/emails">Setup gravatar images</a>.
-			</label>
-		</div>
-	</div>
+  <div class="gravatar-row">
+    <div class="gravatar-img">
+      <img src="<%= user.gravatar_url %>" class="img-polaroid" style="float: left"/>
+    </div>
+    <div class="gravatar-text">
+      <label class="checkbox">
+        <input type="checkbox" name="use_gravatar" <%= user.use_gravatar ? 'checked="checked"' : '' %>>
+        Use this gravatar image. <a target="_new" href="https://gravatar.com/emails">Setup gravatar images</a>.
+      </label>
+    </div>
+  </div>
 </form>

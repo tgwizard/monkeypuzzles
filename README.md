@@ -15,34 +15,34 @@ Sqlite is used for development, and bindings for it can be installed like this,
 according to the [DataMapper startup
 guide](http://datamapper.org/getting-started.html):
 
-	# Debian / Ubuntu
-	sudo apt-get install libsqlite3-dev
+  # Debian / Ubuntu
+  sudo apt-get install libsqlite3-dev
 
-	# RedHat / Fedora
-	sudo yum install sqlite-devel
+  # RedHat / Fedora
+  sudo yum install sqlite-devel
 
-	# MacPorts
-	sudo port install sqlite3
+  # MacPorts
+  sudo port install sqlite3
 
-	# HomeBrew
-	sudo brew install sqlite
+  # HomeBrew
+  sudo brew install sqlite
 
 Then:
 
-	git clone git@github.com:tgwizard/monkeypuzzles.git
-	cd monkeypuzzles
-	# install bundler if not already installed
-	gem install bundler
-	# install all dependencies from the Gemfile
-	bundle install
-	# start the dev server, after each change
-	rake sinatra
-	# go to http://localhost:4567
+  git clone git@github.com:tgwizard/monkeypuzzles.git
+  cd monkeypuzzles
+  # install bundler if not already installed
+  gem install bundler
+  # install all dependencies from the Gemfile
+  bundle install
+  # start the dev server, after each change
+  rake sinatra
+  # go to http://localhost:4567
 
 You can also start the dev server with `shotgun`, like this:
 
-	rake shotgun
-	# go to http://localhost:4567
+  rake shotgun
+  # go to http://localhost:4567
 
 With shotgun, the server reloads on each request. This might make it easier to
 develop, but it is unfortunately quite slow.
@@ -63,7 +63,7 @@ The code is built on [ruby](http://www.ruby-lang.org/en/), and uses the
 
 ## Deployment
 
-	git pull --rebase
-	# check that everything is ok
-	git push && git push heroku
-	# done!
+  git pull --rebase
+  # check that everything is ok
+  git push && git push heroku
+  # done!
