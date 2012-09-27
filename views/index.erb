@@ -19,6 +19,13 @@ start right now with a <a href="/random" class="icon-pre-link"><i
 yet been finalized. External references are not recommended. Occasional hiccups
 are to be expected.</p>
 
+
+<h2>Top <%= @top_liked.length %> puzzles</h2>
+<%= erb :"partials/list_puzzles", :locals => {:puzzles => @top_liked} %>
+
+<h2><%= @top_liked.length %> most commented puzzles</h2>
+<%= erb :"partials/list_puzzles", :locals => {:puzzles => @most_commented} %>
+
 <p class="categories">
 Categories:
 <%=

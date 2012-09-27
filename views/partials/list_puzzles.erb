@@ -1,5 +1,5 @@
 <ul class="centered-list small-text puzzle-list">
-<% @puzzles.each do |puzzle| %>
+<% puzzles.each do |puzzle| %>
   <li>
   <a href="<%= path_to_puzzle puzzle %>"><%= puzzle.title %>
   <div class="meta-data" style="float: right;">
