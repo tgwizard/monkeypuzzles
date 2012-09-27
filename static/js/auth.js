@@ -74,6 +74,12 @@
 			showSettings({newUser: false});
 			e.preventDefault();
 		});
-		$("#modal .btn-primary").click(saveSettings);
+		$("#modal .btn-primary").click(function(e) {
+      $(this).closest("#modal").find("form").submit();
+      e.preventDefault();
+    });
+    $("#modal").on('shown', function() {
+      $("#modal").find("form").on('submit', saveSettings);
+    });
 	});
 })(jQuery);
