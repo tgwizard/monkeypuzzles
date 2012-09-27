@@ -61,7 +61,7 @@ end
 post "/user/settings" do
   require_login!
 
-  if user.username.nil?
+  if not user.username_set?
     username = params[:username]
     username = username.strip if username
     user.username = username if username.length > 0
@@ -71,6 +71,10 @@ post "/user/settings" do
   if user.save
     json :status => 'ok'
   else
-    json :status => 'error', :error => user.errors
+    status = {:status => 'error', :error => []}
+    user.errors.each do |e|
+      status[:error] << e
+    end
+    json status
   end
 end

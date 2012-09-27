@@ -7,7 +7,8 @@ class User
   property :email, String, :required => true, :unique => true, :length => 256
   property :identity_provider, Enum[:persona], :required => true
 
-  property :username, String, :required => false, :unique => true, :length => 32
+  property :username, String, :required => false, :unique => true,
+    :length => 32, :format => /^[a-zA-Z0-9\-_]{2,}$/
   property :use_gravatar, Boolean, :required => true, :default => true
 
 
