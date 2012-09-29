@@ -11,7 +11,7 @@
   </h3>
 
   <% if @puzzles.length > 0 %>
-    <%= erb :"partials/list_puzzles" %>
+    <%= erb :"partials/list_puzzles", :locals => {:puzzles => @puzzles} %>
   <% else %>
   <p>
   No puzzles found.
