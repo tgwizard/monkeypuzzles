@@ -43,6 +43,14 @@ helpers do
   end
 end
 
+before '**' do
+  if request.host == "www.monkeypuzzles.org"
+    new_url = request.url.gsub("http://www.monkeypuzzles.org", "http://monkeypuzzles.org")
+    puts "Redirecting from #{request.url} to #{new_url}"
+    redirect new_url, 301
+  end
+end
+
 get '/' do
   @categories = Category.all
   @top_liked = Puzzle.all.sort {|a,b| b.num_likes <=> a.num_likes}.
