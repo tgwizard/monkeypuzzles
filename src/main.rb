@@ -45,6 +45,7 @@ end
 
 before '**' do
   if request.host == "www.monkeypuzzles.org"
+    request.session_options[:skip] = true
     new_url = request.url.gsub("http://www.monkeypuzzles.org", "http://monkeypuzzles.org")
     puts "Redirecting from #{request.url} to #{new_url}"
     redirect new_url, 301
