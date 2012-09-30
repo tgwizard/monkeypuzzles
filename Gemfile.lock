@@ -71,6 +71,9 @@ GEM
     nestful (0.0.8)
       activesupport (>= 3.0.0.beta)
     rack (1.4.1)
+    rack-canonical-host (0.0.8)
+      addressable
+      rack (~> 1.0)
     rack-protection (1.2.0)
       rack
     rack-test (0.6.1)
@@ -112,6 +115,7 @@ DEPENDENCIES
   dm-sqlite-adapter
   json
   nestful
+  rack-canonical-host
   rack_csrf
   rake
   redcarpet

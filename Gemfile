@@ -11,6 +11,7 @@ gem 'json'
 gem 'nestful'
 gem 'data_mapper'
 gem 'rack_csrf'
+gem 'rack-canonical-host'
 
 group :development do
   gem 'shotgun'
