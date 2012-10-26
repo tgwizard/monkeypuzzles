@@ -49,6 +49,12 @@ hr {
     background-image:      -o-linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,0.75), rgba(255,255,255,0));  
 }
 
+.number {
+	font-family: "Courier new", Courier, monospace;
+	font-weight: bold;
+	color: #a04907;
+}
+
 /* RESPONSIVENESS */
 @media (max-width: 767px) {
   body {
