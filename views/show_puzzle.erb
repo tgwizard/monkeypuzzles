@@ -95,6 +95,29 @@
         </div>
       </div>
     <% end %>
+  <div class="comments container-fluid">
+	<% @puzzle.comments.each do |comment| %>
+	<div class="comment row-fluid">
+		<div class="meta-data span3">
+			<div class="profile-picture">
+			  <img src="<%= comment.user.image_url %>" />
+			</div>
+			<p class="username"><%= comment.user.display_username %></p>
+		</div>
+		<div class="span9">
+		    <div class="container-fluid">
+		        <div class="row-fluid">
+			       	<div class="span12 timestamp">
+			       		<span class="pull-right"><%= comment.created_at.strftime '%Y-%m-%d %H:%M' %><span>
+			       	</div>
+			        <div class="text span12">
+			        	<p><%= h comment.content %></p>
+			        </div>
+		        </div>
+		    </div>
+		</div>
+	</div>
+	<% end %>
 
     <% if login? %>
     <div class="comment post-comment">

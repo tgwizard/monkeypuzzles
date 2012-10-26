@@ -52,6 +52,11 @@ hr {
 .number {
 	font-family: "Courier new", Courier, monospace;
 	font-weight: bold;
+}
+
+.colored-number {
+	font-family: "Courier new", Courier, monospace;
+	font-weight: bold;
 	color: #a04907;
 }
 
@@ -715,7 +720,7 @@ footer .copyright {
 
 /* TODO: set this proper */
 .modal,
-.modal .help-block, .modal .help-inlin {
+.modal .help-block, .modal .help-inline {
 	color: #000;
 }
 
@@ -725,37 +730,71 @@ footer .copyright {
 }
 
 .modal .gravatar-row .gravatar-img{
-	float: left;
 	width: 90px;
 	height: 90px;
 }
 
 .modal .gravatar-row .gravatar-text{
-	float: left;
 	width: 420px;
 	margin-left: 15px;
 }
 
-.comments {
-	clear: both;
-}
+/* COMMENT LOVE */
 .comments .comment {
-	min-height: 200px;
-	clear: both;
+	margin: 1em auto;
 }
 
 .comments .comment .meta-data {
-	float: left;
 	width: 100px;
-	padding-right: 15px;
-	border-right: 2px solid white;
 }
+
+.comments .comment .meta-data .profile-picture {
+	display: block;
+	padding: 4px;
+	width: 80px; 
+	background: white;
+	border-radius: 8px;
+}
+
+.comments .comment .meta-data .profile-picture img {
+	display: block;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+	margin: 0 auto;
+	width: 80px;
+	border-radius: 5px;
+}
+
 .comments .comment .text {
-	float: left;
-	width: 410px;
-	padding-left: 15px;
+	position: relative;
+	padding: 0.8em;
+	background: #ba7943;
+	border-radius: 10px;
+	min-height: 100px;
 }
-.comments .comment .text textarea {
-	width: 100%;
+.comments .comment .text .triangle {
+	display: block;	
+	width: 0px;
+	height: 0px;
+	border-style: solid;
+	border-width: 0 20px 20px 0;
+	border-color: transparent #ba7943 transparent transparent;
+	position: absolute;
+	top: 20px;
+	left: -20px;
+}
+
+.comments .comment .timestamp {
+	font-family: "Courier New", Courier, monospace;
+	font-size: 0.6em;
+	min-height: 20px;
+	padding: 0 1em;
+	color: #6a2903;
+}
+.comments .comment .username {
+	display: block;
+	margin: 0.4em 0;
 }
 
