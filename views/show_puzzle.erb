@@ -82,19 +82,8 @@
     </p>
   </div>
 
-  <div class="comments">
-    <p>Number of comments: <%= @puzzle.num_comments %>.</p>
-    <% @puzzle.comments.each do |comment| %>
       <div class="comment">
-        <div class="meta-data">
-          <img src="<%= comment.user.image_url %>" class="img-polaroid" style="float: left"/>
-          <p><%= comment.user.display_username %><br/><%= comment.created_at.strftime '%Y-%m-%d %H:%M' %></p>
-        </div>
-        <div class="text">
           <p><%= h comment.content %></p>
-        </div>
-      </div>
-    <% end %>
   <div class="comments container-fluid">
 	<% @puzzle.comments.each do |comment| %>
 	<div class="comment row-fluid">
