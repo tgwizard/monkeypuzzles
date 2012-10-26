@@ -120,13 +120,10 @@
 	</div>
 	<% end %>
 
-    <% if login? %>
-    <div class="comment post-comment">
-      <form method="post" class="comment" action="<%= path_to_puzzle @puzzle %>/comments">
-        <div class="meta-data">
-          <img src="<%= user.image_url %>" class="img-polaroid" style="float: left"/>
-          <p><%= user.display_username %></p>
-        </div>
+  
+ <% if login? %>
+    <div class="post-comment">
+      <form method="post" action="<%= path_to_puzzle @puzzle %>/comments">
         <%= csrf_tag %>
         <div class="text">
           <textarea name="content"></textarea>
@@ -137,6 +134,7 @@
     <% else %>
     <p>You can't comment - you are not logged in! TODO: still allow comments, but force login before.</p>
     <% end %>
+
   </div>
 
 
