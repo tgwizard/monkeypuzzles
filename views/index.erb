@@ -20,10 +20,10 @@ yet been finalized. External references are not recommended. Occasional hiccups
 are to be expected.</p>
 
 
-<h2>Top <span class="number"><%= @top_liked.length %></span> puzzles</h2>
+<h2>Top <span class="colored-number"><%= @top_liked.length %></span> puzzles</h2>
 <%= erb :"partials/list_puzzles", :locals => {:puzzles => @top_liked} %>
 
-<h2><span class="number"><%= @most_commented.length %></span> most commented puzzles</h2>
+<h2><span class="colored-number"><%= @most_commented.length %></span> most commented puzzles</h2>
 <%= erb :"partials/list_puzzles", :locals => {:puzzles => @most_commented} %>
 
 <p class="categories">
