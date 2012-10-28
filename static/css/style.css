@@ -740,61 +740,48 @@ footer .copyright {
 }
 
 /* COMMENT LOVE */
-.comments .comment {
-	margin: 1em auto;
+
+.comments {
+	background: rgba(58,24,2,0.12);
+	border-radius: 10px;
+	margin-bottom: 1em;
 }
 
-.comments .comment .meta-data {
-	width: 100px;
+.comment {
+	padding: 0.8em;
+	box-sizing: border-box;
+	border-top: 1px solid #aa6c3b;
+}
+.comment:first-child {
+	border: none;
 }
 
-.comments .comment .meta-data .profile-picture {
+.comment .profile-picture {
 	display: block;
 	padding: 4px;
-	width: 80px; 
+	width: 70px; 
 	background: white;
 	border-radius: 8px;
 }
 
-.comments .comment .meta-data .profile-picture img {
+.comment .profile-picture img {
 	display: block;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
 	box-sizing: border-box;
-	margin: 0 auto;
-	width: 80px;
+	width: 70px;
 	border-radius: 5px;
 }
 
-.comments .comment .text {
-	position: relative;
-	padding: 0.8em;
-	background: #ba7943;
-	border-radius: 10px;
-	min-height: 100px;
-}
-.comments .comment .text .triangle {
-	display: block;	
-	width: 0px;
-	height: 0px;
-	border-style: solid;
-	border-width: 0 20px 20px 0;
-	border-color: transparent #ba7943 transparent transparent;
-	position: absolute;
-	top: 20px;
-	left: -20px;
-}
-
-.comments .comment .timestamp {
+.comment .timestamp {
 	font-family: "Courier New", Courier, monospace;
 	font-size: 0.6em;
 	min-height: 20px;
 	padding: 0 1em;
 	color: #6a2903;
 }
-.comments .comment .username {
-	display: block;
-	margin: 0.4em 0;
-}
 
+.comment a.username {
+	text-decoration: none;
+}
