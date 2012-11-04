@@ -77,7 +77,7 @@
       <a class="unlike" href="<%= path_to_puzzle @puzzle %>/like" data-action="unlike"
         <%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
     <% else %>
-      You can't like because you aren't logged in. TODO: login-on-like.
+      <a class="login" href="#">Login</a> to like.
     <% end %>
     </p>
   </div>
@@ -116,7 +116,7 @@
       </form>
     </div>
     <% else %>
-    <p>You can't comment - you are not logged in! TODO: still allow comments, but force login before.</p>
+    <p><a class="login" href="#">Login</a> to comment.</p>
     <% end %>
 
   </div>
