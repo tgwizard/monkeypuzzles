@@ -97,7 +97,11 @@
 					<%= h comment.content %>
 				</p>
 				<p>
-					<span class="pull-right timestamp"><%= comment.created_at.strftime '%Y-%m-%d %H:%M' %><span>
+        <span class="pull-right timestamp">
+          <time datetime="<%= comment.created_at %>">
+          <%= comment.created_at.strftime '%Y-%m-%d %H:%M' %>
+          </time>
+        <span>
 				</p>
 			
 		</div>
