@@ -1,0 +1,129 @@
+<div class="row-fluid">
+  <% # helper render functions for this view %>
+<% def write_nav_arrows %>
+  <span class="arrow-left">
+    <a href="<%= url_for(:puzzles, :show, :slug => @puzzle.prev_puzzle.slug) %>"><i class="icon-caret-left"></i></a>
+  </span>
+  <span class="arrow-right">
+    <a href="<%= url_for(:puzzles, :show, :slug => @puzzle.next_puzzle.slug) %>"><i class="icon-caret-right"></i></a>
+  </span>
+<% end %>
+
+<div class="span12">
+
+  <header>
+    <!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+    <smaller class="ornament">Category: <a href="#">Riddl<span>e</span></a></smaller>
+      <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
+      <h1 style="line-height: 0; margin: 0.2rem 0 1.2rem; color: white;"><span>.</span></h1>
+      <small>A somewhat eas<span>y</span></small><br />
+      <small>monkey riddl<span>e</span></small><br />
+      <smaller>Author: <%= @puzzle.author[0, @puzzle.author.length-1] %><span><%= @puzzle.author[-1, 1] %></span></a></smaller>
+  </header>
+
+  <article>
+      <%= @puzzle.content %>
+      <% if not @puzzle.related.empty? or not @puzzle.categories.empty? %>
+      <hr />
+      <% end %>
+
+    <% if not @puzzle.categories.empty? %>
+      <p class="categories">
+      Categories:
+      <%=
+        @puzzle.categories.map {|c| "<a href=\"#{url_for(:categories, :show, :slug => c.slug)}\">#{c.title}</a>"}.join
+      %>
+      </p>
+    <% end %>
+
+    <% if not @puzzle.related.empty? %>
+      <p class="categories">
+      Related puzzles:
+      <%=
+        @puzzle.related.map {|p| "<a href=\"#{url_for(:puzzles, :show, :slug => p.slug)}\">#{p.title}</a>"}.join
+      %>
+      </p>
+    <% end %>
+
+    <% if not @puzzle.about.nil? %>
+      <%= @puzzle.about %>
+    <% end %>
+
+    <div class="high-res-nav">
+      <% write_nav_arrows %>
+    </div>
+  </article>
+
+  <div class="low-res-nav">
+    <% if not @puzzle.answer.nil? %>
+      <div class="answer-link">
+        <a href="<%= url_for(:puzzles, :show_answer, :slug => @puzzle.slug) %>"></a>
+      </div>
+    <% else %>
+      <div class="inactive-answer-link">
+        <a href="#" onclick="javascript:return false"></a>
+      </div>
+    <% end %>
+
+    <% write_nav_arrows %>
+  </div>
+
+  <div class="likes">
+    <p>
+    <span class="num-likes"><%= @puzzle.num_likes %></span> likes.
+    <% if login? %>
+      <a class="like" href="<%= path_to_puzzle @puzzle %>/like" data-action="like"
+        <%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
+      <a class="unlike" href="<%= path_to_puzzle @puzzle %>/like" data-action="unlike"
+        <%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
+    <% else %>
+      <a class="login" href="#">Login</a> to like.
+    <% end %>
+    </p>
+  </div>
+
+<div class="comments container-fluid">
+	<% @puzzle.comments.each do |comment| %>
+	<div class="comment row-fluid">
+		<div class="span2 profile-picture">
+
+				<img src="<%= comment.user.image_url %>" />
+
+		</div>
+		<div class="span10 text">
+
+				<p>
+					<a href="#" class="username"><%= comment.user.display_username %>: </a>
+					<%= h comment.content %>
+				</p>
+				<p>
+        <span class="pull-right timestamp">
+          <time datetime="<%= comment.created_at %>">
+          <%= comment.created_at.strftime '%Y-%m-%d %H:%M' %>
+          </time>
+        <span>
+				</p>
+
+		</div>
+	</div
+	<% end %>
+</div>
+
+ <% if login? %>
+    <div class="post-comment">
+      <form method="post" action="<%= path_to_puzzle @puzzle %>/comments">
+        <%= csrf_tag %>
+        <div class="text">
+          <textarea name="content"></textarea>
+          <input type="submit" value="Post comment" />
+        </div>
+      </form>
+    </div>
+    <% else %>
+    <p><a class="login" href="#">Login</a> to comment.</p>
+    <% end %>
+
+  </div>
+
+</div>
+</div>
