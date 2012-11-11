@@ -20,10 +20,8 @@ MonkeyPuzzles.controllers :auth do
     user = User.where(:email => data["email"]).first
     show_settings = false
     if not user
-      puts "asdfasdf"
       user = User.new(:email => data["email"])
       if !user.save
-        # TODO: return something other than 200
         puts "Error creating user: ", user.errors.full_messages
         raise error 500, user.errors.full_messages
       end
@@ -34,9 +32,6 @@ MonkeyPuzzles.controllers :auth do
 
     #user.update_login!
     session[:user_id] = user.id
-
-    puts "saved to session"
-    puts session[:user_id]
 
     render :status => "ok", :show_settings => show_settings
   end

@@ -5,7 +5,9 @@ class User < ActiveRecord::Base
   has_many :like
 
   validates :email, :uniqueness => {:case_sensitive => false}, :presence => true
-  #validates :username, :uniqueness => {:case_sensitive => false}, :presence => false
+  validates_uniqueness_of :username,
+    :case_sensitive => false,
+    :allow_nil => true, :allow_blank => true
 
   def anonymous_username
     "anonymous-#{self.id}"
