@@ -1,0 +1,8 @@
+<header>
+  <smaller>Categor<span>y</span></smaller>
+  <h1><%= @category.title %></span></h1>
+</header>
+
+<article>
+  <%= partial :"puzzles/list", :locals => {:puzzles => @puzzles} %>
+</article>

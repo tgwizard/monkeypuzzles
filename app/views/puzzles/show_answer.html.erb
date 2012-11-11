@@ -1,0 +1,16 @@
+<div class="row-fluid">
+<div class="span12">
+  <header>
+    <smaller>Solution for</smaller>
+    <h1><%= @puzzle.title %></h1>
+  </header>
+
+  <p>
+    <%= @puzzle.answer %>
+  </p>
+
+  <p>
+  <a class="icon-pre-link" href="<%= url_for(:puzzles, :show, :slug => @puzzle.slug) %>"><i class="icon-arrow-left"></i> Back to puzzle</a>
+  </p>
+</div>
+</div>
