@@ -4,7 +4,12 @@ MonkeyPuzzles.helpers do
   end
 
   def user
-    @current_user ||= User.find(session[:user_id]) if !session[:user_id].nil?
+    if !session[:user_id].nil?
+      begin
+        @current_user ||= User.find(session[:user_id])
+      rescue ActiveRecord::RecordNotFound
+      end
+    end
   end
 
   def require_login!
