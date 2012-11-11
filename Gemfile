@@ -14,7 +14,6 @@ gem 'nestful'
 # Component requirements
 gem 'haml'
 gem 'activerecord', :require => "active_record"
-gem 'sqlite3'
 
 # Test requirements
 
@@ -29,7 +28,12 @@ gem 'padrino', '0.10.7'
 #   gem 'padrino-' + g, '0.10.7'
 # end
 
-# Production requirement
+# Development requirements
+group :development, :test do
+  gem 'sqlite3'
+end
+
+# Production requirements
 group :production do
   gem 'pg'
 end
