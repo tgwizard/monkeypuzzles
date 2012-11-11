@@ -1,3 +1,4 @@
+require 'rack/csrf'
 class MonkeyPuzzles < Padrino::Application
   use ActiveRecord::ConnectionAdapters::ConnectionManagement
   register Padrino::Rendering
@@ -5,6 +6,7 @@ class MonkeyPuzzles < Padrino::Application
   register Padrino::Helpers
 
   enable :sessions
+  use Rack::Csrf, :raise => true
 
   ##
   # Caching support

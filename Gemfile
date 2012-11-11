@@ -9,6 +9,7 @@ gem 'rake'
 gem 'sinatra-flash', :require => 'sinatra/flash'
 gem 'redcarpet'
 gem 'rack-canonical-host'
+gem 'rack_csrf'
 gem 'nestful'
 
 # Component requirements
