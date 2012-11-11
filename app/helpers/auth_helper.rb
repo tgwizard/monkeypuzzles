@@ -1,10 +1,10 @@
 MonkeyPuzzles.helpers do
   def login?
-    false
+    !user.nil?
   end
 
   def user
-    @current_user = nil
+    @current_user ||= User.find(session[:user_id]) if !session[:user_id].nil?
   end
 
   def require_login!
