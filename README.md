@@ -14,9 +14,9 @@ We use [padrino](http://padrinorb.com) and
 [bootstrap](http://twitter.github.com/bootstrap).
 
 
-Sqlite is used for development, and bindings for it can be installed like this,
-according to the [DataMapper startup
-guide](http://datamapper.org/getting-started.html):
+sqlite3 is used for development, and bindings for it can be installed like this
+(according to the [DataMapper startup
+guide](http://datamapper.org/getting-started.html)):
 
 ~~~ bash
 # Debian / Ubuntu
@@ -50,7 +50,7 @@ padrino s
 of the system status - including database content.
 
 When logging in, [mockmyid.com](http://mockmyid.com) is a good way to get a
-fake email.
+fake email (although it doesn't seem to work most of the time).
 
 ## Deployment
 
