@@ -58,6 +58,6 @@ fake email.
 git pull --rebase
 # check that everything is ok
 git push && git push heroku master
-heroku rake ar:migrate
+heroku run rake ar:migrate
 # done!
 ~~~
