@@ -1,0 +1,13 @@
+<h1>All Categories</h1>
+
+<ul class="centered-list small-text puzzle-list">
+<% @categories.each do |c| %>
+  <li>
+  <a href="<%= url_for(:categories, :show, :slug => c.slug) %>"><%= c.title %>
+  <div class="meta-data" style="float: right;">
+    <span><span class="colored-number"><%= c.num %></span> puzzles</span>
+  </div>
+</a>
+  </li>
+<% end %>
+</ul>

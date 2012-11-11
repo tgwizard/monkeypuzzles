@@ -6,7 +6,8 @@ MonkeyPuzzles.controllers :categories do
   # end
 
   get :index do
-    "TODO: All categories"
+    @categories = Category.all
+    render "categories/index"
   end
 
   get :show, :map => "categories/:slug" do
