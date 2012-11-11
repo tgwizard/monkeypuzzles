@@ -72,9 +72,9 @@
     <p>
     <span class="num-likes"><%= @puzzle.num_likes %></span> likes.
     <% if login? %>
-      <a class="like" href="<%= path_to_puzzle @puzzle %>/like" data-action="like"
+      <a class="like" href="<%= url_for(:puzzles, :like, :slug => @puzzle.slug) %>" data-action="like"
         <%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
-      <a class="unlike" href="<%= path_to_puzzle @puzzle %>/like" data-action="unlike"
+      <a class="unlike" href="<%= url_for(:puzzles, :like, :slug => @puzzle.slug) %>" data-action="unlike"
         <%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
     <% else %>
       <a class="login" href="#">Login</a> to like.
@@ -86,44 +86,39 @@
 	<% @puzzle.comments.each do |comment| %>
 	<div class="comment row-fluid">
 		<div class="span2 profile-picture">
-
-				<img src="<%= comment.user.image_url %>" />
-
+      <img src="<%= comment.user.image_url %>" />
 		</div>
 		<div class="span10 text">
-
-				<p>
-					<a href="#" class="username"><%= comment.user.display_username %>: </a>
-					<%= h comment.content %>
-				</p>
-				<p>
-        <span class="pull-right timestamp">
-          <time datetime="<%= comment.created_at %>">
-          <%= comment.created_at.strftime '%Y-%m-%d %H:%M' %>
-          </time>
-        <span>
-				</p>
-
+      <p>
+        <a href="#" class="username"><%= comment.user.display_username %>: </a>
+        <%= h comment.content %>
+      </p>
+      <p>
+      <span class="pull-right timestamp">
+        <time datetime="<%= comment.created_at %>">
+        <%= comment.created_at.strftime '%Y-%m-%d %H:%M' %>
+        </time>
+      <span>
+      </p>
 		</div>
-	</div
+  </div>
 	<% end %>
 </div>
 
- <% if login? %>
-    <div class="post-comment">
-      <form method="post" action="<%= path_to_puzzle @puzzle %>/comments">
-        <%= csrf_tag %>
-        <div class="text">
-          <textarea name="content"></textarea>
-          <input type="submit" value="Post comment" />
-        </div>
-      </form>
-    </div>
-    <% else %>
-    <p><a class="login" href="#">Login</a> to comment.</p>
-    <% end %>
-
+<% if login? %>
+  <div class="post-comment">
+    <form method="post" class="comment" action="<%= url_for(:puzzles, :comments, :slug => @puzzle.slug) %>">
+      <div class="text">
+        <textarea name="content"></textarea>
+        <input type="submit" value="Post comment" />
+      </div>
+    </form>
   </div>
+  <% else %>
+  <p><a class="login" href="#">Login</a> to comment.</p>
+  <% end %>
+
+</div>
 
 </div>
 </div>

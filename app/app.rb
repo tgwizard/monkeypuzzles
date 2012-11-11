@@ -59,9 +59,11 @@ class MonkeyPuzzles < Padrino::Application
 
 
   get "/" do
-    @top_liked = Puzzle.all[0..5]
-    @most_commented = Puzzle.all
     @categories = Category.all
+    @top_liked = Puzzle.all.sort {|a,b| b.num_likes <=> a.num_likes}.
+      take(5).take_while {|a| a.num_likes > 0}
+    @most_commented = Puzzle.all.sort {|a,b| b.num_comments <=> a.num_comments}.
+      take(5).take_while {|a| a.num_comments > 0}
     render 'index'
   end
 

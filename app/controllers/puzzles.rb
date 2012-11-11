@@ -25,4 +25,47 @@ MonkeyPuzzles.controllers :puzzles do
     render "puzzles/show_answer"
   end
 
+  post :like, :map => '/puzzles/:slug/like', :provides => :json do
+    require_login!
+    puzzle = Puzzle.find params[:slug]
+    raise error 404 if puzzle.nil?
+    action = params[:action]
+
+    case action
+    when 'like'
+      like = Like.where(:puzzle_id => puzzle.id, :user_id => user.id).first
+      if !like
+        like = Like.new(:puzzle_id => puzzle.id, :user_id => user.id)
+        if !like.save
+          raise error 500, "Can't save like: #{like.errors.full_messages}"
+        end
+      end
+    when 'unlike'
+      like = Like.where(:puzzle_id => puzzle.id, :user_id => user.id).destroy_all
+    else
+      raise error 401, "Unknown action #{action}"
+    end
+
+    puzzle.reset_likes!
+
+    render :status => 'ok', :action => action, :num_likes => puzzle.num_likes
+  end
+
+  post :comments, :map => "puzzles/:slug/comments", :provides => :json do
+    require_login!
+    puzzle = Puzzle.find params[:slug]
+    raise error 404 if puzzle.nil?
+
+    content = params[:content].strip
+
+    c = Comment.new(:puzzle_id => puzzle.id, :content => content, :user_id => user)
+    if !c.save
+      raise error 401, c.errors.full_messages
+    end
+
+    puzzle.reset_comments!
+
+    render :status => 'ok', :url => url_for(:puzzles, :show, :slug => puzzle.slug)
+  end
+
 end
