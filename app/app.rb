@@ -37,6 +37,8 @@ class MonkeyPuzzles < Padrino::Application
   # layout  :my_layout            # Layout can be in views/layouts/foo.ext or views/foo.ext (default :application)
   #
 
+  mime_type :woff, 'application/x-font-woff'
+
   ##
   # You can configure for a specified environment like:
   #
