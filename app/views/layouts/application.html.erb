@@ -16,10 +16,9 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 
   <meta name="_csrf" content="<%= csrf_token %>">
-  <script>
-    // this is for the FOUT
-    document.getElementsByTagName('html')[0].setAttribute('class', 'wf-loading');
-  </script>
+
+  <script type="text/javascript" src="//use.typekit.net/jwu3hij.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <%= tracking_script %>
 </head>
@@ -132,9 +131,6 @@
   </script>
   <script type="text/javascript" src="https://login.persona.org/include.js"></script>
   <script type="text/javascript" src="/javascripts/auth.js"></script>
-
-  <script type="text/javascript" src="//use.typekit.net/jwu3hij.js"></script>
-  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 
   <script type="text/javascript" src="/javascripts/jquery.lettering-0.6.1.min.js"></script>
   <script type="text/javascript" src="/javascripts/bootstrap.min.js"></script>
