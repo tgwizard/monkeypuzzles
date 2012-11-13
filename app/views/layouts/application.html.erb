@@ -16,6 +16,10 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 
   <meta name="_csrf" content="<%= csrf_token %>">
+  <script>
+    // this is for the FOUT
+    document.getElementsByTagName('html')[0].setAttribute('class', 'wf-loading');
+  </script>
 
   <%= tracking_script %>
 </head>
