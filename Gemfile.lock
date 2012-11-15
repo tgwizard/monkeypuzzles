@@ -30,6 +30,7 @@ GEM
     multi_json (1.3.7)
     nestful (0.0.8)
       activesupport (>= 3.0.0.beta)
+    newrelic_rpm (3.5.2.17)
     padrino (0.10.7)
       padrino-admin (= 0.10.7)
       padrino-cache (= 0.10.7)
@@ -96,6 +97,7 @@ DEPENDENCIES
   activerecord
   haml
   nestful
+  newrelic_rpm
   padrino (= 0.10.7)
   pg
   rack-canonical-host

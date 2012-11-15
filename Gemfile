@@ -17,6 +17,7 @@ gem 'haml'
 gem 'activerecord', :require => "active_record"
 
 # Test requirements
+gem 'newrelic_rpm'
 
 # Padrino Stable Gem
 gem 'padrino', '0.10.7'
