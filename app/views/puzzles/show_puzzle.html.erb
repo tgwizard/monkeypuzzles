@@ -111,7 +111,17 @@
     <% form_tag url_for(:puzzles, :comments, :slug => @puzzle.slug), :method => 'post', :class => 'comment' do %>
       <%= csrf_tag %>
       <!-- TODO: do this better -->
-      <%= flash[:comment] %>
+      <% if flash[:comment] %>
+        <div class="alert alert-block alert-error">
+          <button type="button" class="close" data-dismiss="alert">×</button>
+          <h4>Please fix these errors, <%= user.display_username %>!</h4>
+          <ul>
+            <% flash[:comment].each do |error| %>
+              <li><%= error %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
       <div class="text">
         <%= text_area_tag :content, :value => params[:content] %>
         <input type="submit" value="Post comment" />
