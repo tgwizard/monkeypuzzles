@@ -20,7 +20,7 @@ gem 'activerecord', :require => "active_record"
 gem 'newrelic_rpm'
 
 # Padrino Stable Gem
-gem 'padrino', '0.10.7'
+gem 'padrino'
 
 # Or Padrino Edge
 # gem 'padrino', :git => 'git://github.com/padrino/padrino-framework.git'
