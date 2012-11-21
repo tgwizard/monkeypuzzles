@@ -10,10 +10,13 @@
 </header>
 <section>
 
-<p>Here there be puzzles. Choose a puzzle by category, browse through them <a
-  href="<%= url_for(:puzzles, :index) %>" class="icon-pre-link"><i class="icon-list-ul"></i>all</a>, or
-start right now with a <a href="<%= url_for(:random) %>" class="icon-pre-link"><i
-    class="icon-random"></i>random puzzle</a>. Enjoy!</p>
+<p>Here there be puzzles. Choose a puzzle by
+<a href="<%= url_for(:categories, :index) %>"
+  class="icon-pre-link"><i class="icon-list-ul"></i>category</a>, browse through
+them <a href="<%= url_for(:puzzles, :index) %>" class="icon-pre-link"><i
+      class="icon-list-ul"></i>all</a>, or start right now with a <a href="<%=
+        url_for(:random) %>" class="icon-pre-link"><i
+          class="icon-random"></i>random puzzle</a>. Enjoy!</p>
 
 <p>Beta disclaimer: Beware, this is a work in progress. Urls and links have not
 yet been finalized. External references are not recommended. Occasional hiccups
