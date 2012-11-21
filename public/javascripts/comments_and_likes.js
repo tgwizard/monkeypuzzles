@@ -1,4 +1,5 @@
 (function($) {
+  $(document).ready(function() {
 		$('a.like, a.unlike').click(function() {
 			var tag = $(this);
 			var url = $(this).attr('href');
