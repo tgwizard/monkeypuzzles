@@ -107,12 +107,16 @@
 
 <% if login? %>
   <div class="post-comment">
-    <form method="post" class="comment" action="<%= url_for(:puzzles, :comments, :slug => @puzzle.slug) %>">
+    <a name="post-comment"></a>
+    <% form_tag url_for(:puzzles, :comments, :slug => @puzzle.slug), :method => 'post', :class => 'comment' do %>
+      <%= csrf_tag %>
+      <!-- TODO: do this better -->
+      <%= flash[:comment] %>
       <div class="text">
-        <textarea name="content"></textarea>
+        <%= text_area_tag :content, :value => params[:content] %>
         <input type="submit" value="Post comment" />
       </div>
-    </form>
+    <% end %>
   </div>
   <% else %>
   <p><a class="login" href="#">Login</a> to comment.</p>

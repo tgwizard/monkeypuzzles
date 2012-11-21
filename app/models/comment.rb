@@ -1,6 +1,7 @@
 class Comment < ActiveRecord::Base
   attr_accessible :content, :puzzle_id, :user_id
   belongs_to :user
+  validates :content, :presence => true
 end
 
 class Puzzle

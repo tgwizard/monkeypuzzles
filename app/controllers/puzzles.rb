@@ -58,14 +58,13 @@ MonkeyPuzzles.controllers :puzzles do
 
     content = params[:content].strip
 
-    c = Comment.new(:puzzle_id => puzzle.id, :content => content, :user_id => user)
+    c = Comment.new(:puzzle_id => puzzle.id, :content => content, :user_id => user.id)
     if !c.save
-      raise error 401, c.errors.full_messages
+      flash[:comment] = c.errors.full_messages
+      redirect url_for(:puzzles, :show, :slug => puzzle.slug) + '#post-comment'
+    else
+      puzzle.reset_comments!
+      redirect url_for(:puzzles, :show, :slug => puzzle.slug)
     end
-
-    puzzle.reset_comments!
-
-    render :status => 'ok', :url => url_for(:puzzles, :show, :slug => puzzle.slug)
   end
-
 end
