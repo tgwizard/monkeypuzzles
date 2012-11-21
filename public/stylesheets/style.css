@@ -643,7 +643,7 @@ footer .copyright {
 
 /* BOOTSTRAP NAVBAR TWEAKS */
 .navbar-inverse .navbar-inner {
-  padding: 6px 10px 10px;
+  padding: 6px 10px 3px;
   background-color: #1B1B1B;
 
   background-image: -webkit-linear-gradient(top, #1e160f, #1c1711);
