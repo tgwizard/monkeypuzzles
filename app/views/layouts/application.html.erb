@@ -44,36 +44,42 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-    <div class="navbar navbar-static-top navbar-inverse">
-      <div class="navbar-inner">
+  <div class="navbar navbar-static-top navbar-inverse">
+    <div class="navbar-inner">
+      <div class="container-fluid">
+        <a class="btn btn-navbar collapsed" data-target=".nav-collapse" data-toggle="collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
         <a class="brand" href="/"><img src="/images/monkey_w.png">MonkeyPuzzles</a>
-        <ul class="nav pull-right">
-          <li><a href="<%= url_for(:random) %>"><i class="icon-random"></i> Random</a></li>
-          <li><a href="<%= url_for(:puzzles, :index) %>"><i class="icon-list-ul"></i> List all</a></li>
-          <% if login? %>
-          <li class="dropdown pull-right">
-            <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
-              <img src="<%= user.image_url %>" /></a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><a class="settings-link" href="#">Settings</a></li>
-              <li><a class="logout" href="#">Logout</a></li>
-            </ul>
-          </li>
-          <% else %>
-            <li><a class="login" href="#"><i class="icon-user"></i> Login</a></li>
-          <% end %>
-        </ul>
+        <div class="nav-collapse collapse">
+          <ul class="nav pull-right">
+            <li><a href="<%= url_for(:random) %>"><i class="icon-random"></i> Random</a></li>
+            <li><a href="<%= url_for(:puzzles, :index) %>"><i class="icon-list-ul"></i> List all</a></li>
+            <% if login? %>
+            <li class="dropdown pull-right">
+              <a class="dropdown-toggle" role="button" data-toggle="dropdown" data-target="#" href="#">
+                <img src="<%= user.image_url %>" /></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                <li><a class="settings-link" href="#">Settings</a></li>
+                <li><a class="logout" href="#">Logout</a></li>
+              </ul>
+            </li>
+            <% else %>
+              <li><a class="login" href="#"><i class="icon-user"></i> Login</a></li>
+            <% end %>
+          </ul>
         </div>
+      </div>
     </div>
-
-
+  </div>
+  <div class="container-fluid">
     <section role="main" class="content clearfix">
 
       <%= yield %>
 
     </section>
-
   </div>
 
   <div class="modal hide fade" id="modal" tabindex="-1" role="dialog" aria-hidden="true">
