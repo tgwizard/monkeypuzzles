@@ -62,7 +62,7 @@ class MonkeyPuzzles < Padrino::Application
   end
 
 
-  get "/" do
+  get :index, :map => "/" do
     @categories = Category.all
     @top_liked = Puzzle.all.sort {|a,b| b.num_likes <=> a.num_likes}.
       take(5).take_while {|a| a.num_likes > 0}
@@ -82,5 +82,9 @@ class MonkeyPuzzles < Padrino::Application
   get :random do
     puzzle = Puzzle.all.sample
     redirect url_for(:puzzles, :show, :slug => puzzle.slug)
+  end
+
+  get :no_route_found, :map => /\/.+/, :priority => :low do
+    not_found
   end
 end
