@@ -57,8 +57,8 @@ class MonkeyPuzzles < Padrino::Application
     render 'errors/404'
   end
 
-  error 505 do
-    render 'errors/505'
+  error 500 do
+    render 'errors/500'
   end
 
 
