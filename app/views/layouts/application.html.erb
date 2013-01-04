@@ -19,13 +19,13 @@
 
   <!-- twitter -->
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:url" content="<%= request.url %>">
+  <meta name="twitter:url" content="<%= get_meta_og_url %>">
   <meta name="twitter:title" content="<%= make_title(@title) %>">
   <meta name="twitter:image" content="<%= uri "/images/monkey_w.png" %>">
   <meta name="twitter:site" content="@monkeypuzzles">
 
   <!-- facebook -->
-  <meta name="og:url" content="<%= request.url %>">
+  <meta name="og:url" content="<%= get_meta_og_url %>">
   <meta name="og:title" content="<%= make_title(@title) %>">
   <meta name="og:image" content="<%= uri "/images/monkey_w.png" %>">
   <meta name="og:site_name" content="Monkeypuzzles">

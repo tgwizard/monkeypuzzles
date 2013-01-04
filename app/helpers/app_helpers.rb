@@ -22,6 +22,14 @@ MonkeyPuzzles.helpers do
     end
   end
 
+  def get_meta_og_url
+    @meta_og_url || uri(request.path_info)
+  end
+
+  def set_meta_og_url(url)
+    @meta_og_url = url
+  end
+
   def get_meta_og_type
     @meta_og_type || "website"
   end
