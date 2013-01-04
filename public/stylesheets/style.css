@@ -762,7 +762,7 @@ footer .copyright {
 .comment .profile-picture {
 	display: block;
 	padding: 4px;
-	width: 70px; 
+	width: 70px;
 	background: white;
 	border-radius: 8px;
 }
@@ -787,4 +787,18 @@ footer .copyright {
 
 .comment a.username {
 	text-decoration: none;
+}
+
+.sharing .share-button {
+  display: inline-block;
+  opacity: 0.6;
+  margin-right: 10px;
+}
+
+.sharing .share-button.facebook * {
+  margin-top: -4px;
+}
+
+.sharing .share-button:hover {
+  opacity: 1.0;
 }
