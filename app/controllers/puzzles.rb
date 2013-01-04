@@ -15,6 +15,7 @@ MonkeyPuzzles.controllers :puzzles do
     @puzzle = Puzzle.find params[:slug]
     raise error 404 if @puzzle.nil?
     @title = @puzzle.title
+    set_meta_og_type "article"
     render "puzzles/show_puzzle"
   end
 

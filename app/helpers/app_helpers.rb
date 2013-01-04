@@ -13,4 +13,20 @@ MonkeyPuzzles.helpers do
       render "google_analytics", :layout => false
     end
   end
+
+  def make_title(title)
+    if not title.nil?
+      "#{title} - Monkeypuzzles"
+    else
+      "Monkeypuzzles, puzzles not even a monkey could solve"
+    end
+  end
+
+  def get_meta_og_type
+    @meta_og_type || "website"
+  end
+
+  def set_meta_og_type(type)
+    @meta_og_type = type
+  end
 end

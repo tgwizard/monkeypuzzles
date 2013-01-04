@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title><% if not @title.nil? %><%= @title %> - Monkeypuzzles<% else %>Monkeypuzzles, puzzles not even a monkey could solve<% end %></title>
+  <title><%= make_title(@title) %></title>
   <meta name="description" content="A collection of the greatest puzzles in the world.">
   <meta name="author" content="Adam Renberg and Olle Werme">
   <meta name="viewport" content="width=device-width">
@@ -16,6 +16,20 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
 
   <meta name="_csrf" content="<%= csrf_token %>">
+
+  <!-- twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:url" content="<%= request.url %>">
+  <meta name="twitter:title" content="<%= make_title(@title) %>">
+  <meta name="twitter:image" content="<%= uri "/images/monkey_w.png" %>">
+  <meta name="twitter:site" content="@monkeypuzzles">
+
+  <!-- facebook -->
+  <meta name="og:url" content="<%= request.url %>">
+  <meta name="og:title" content="<%= make_title(@title) %>">
+  <meta name="og:image" content="<%= uri "/images/monkey_w.png" %>">
+  <meta name="og:site_name" content="Monkeypuzzles">
+  <meta name="og:type" content="<%= get_meta_og_type %>">
 
   <script type="text/javascript" src="//use.typekit.net/jwu3hij.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
