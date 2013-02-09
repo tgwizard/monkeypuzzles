@@ -33,11 +33,15 @@ p {
   margin-bottom: 1.25rem;
 }
 
-h1,h2,h3 {
+h1, h2, h3 {
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   text-align: center;
+}
+
+h2 {
+  font-size: 1.4rem;
 }
 
 li {
