@@ -1,155 +1,151 @@
 <div class="row-fluid">
   <% # helper render functions for this view %>
-<% def write_nav_arrows %>
+  <% def write_nav_arrows %>
   <span class="arrow-left">
-    <a href="<%= url_for(:puzzles, :show, :slug => @puzzle.prev_puzzle.slug) %>"><i class="icon-caret-left"></i></a>
+  <a href="<%= url_for(:puzzles, :show, :slug => @puzzle.prev_puzzle.slug) %>"><i class="icon-caret-left"></i></a>
   </span>
   <span class="arrow-right">
-    <a href="<%= url_for(:puzzles, :show, :slug => @puzzle.next_puzzle.slug) %>"><i class="icon-caret-right"></i></a>
+  <a href="<%= url_for(:puzzles, :show, :slug => @puzzle.next_puzzle.slug) %>"><i class="icon-caret-right"></i></a>
   </span>
-<% end %>
+  <% end %>
 
-<%= partial :"sharing" %>
+  <%= partial :"sharing" %>
 
-<div class="span12">
+  <div class="span12">
 
-  <header>
-    <!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
-    <smaller class="ornament">Category: <a href="#">Riddl<span>e</span></a></smaller>
+    <header>
+      <!-- Since browsers still won't handle letter-spacing correctly. SPAN! |(-.-)/ -->
+      <smaller class="ornament">Category: <a href="#">Riddl<span>e</span></a></smaller>
       <h1><%= @puzzle.title[0, @puzzle.title.length-1] %><span><%= @puzzle.title[-1, 1] %></span></h1>
       <h1 style="line-height: 0; margin: 0.2rem 0 1.2rem; color: white;"><span>.</span></h1>
       <small>A somewhat eas<span>y</span></small><br />
       <small>monkey riddl<span>e</span></small><br />
       <smaller>Author: <%= @puzzle.author[0, @puzzle.author.length-1] %><span><%= @puzzle.author[-1, 1] %></span></a></smaller>
-  </header>
+    </header>
 
-  <article>
+    <article>
       <%= @puzzle.content %>
       <% if not @puzzle.related.empty? or not @puzzle.categories.empty? %>
       <hr />
       <% end %>
 
-    <% if not @puzzle.categories.empty? %>
+      <% if not @puzzle.categories.empty? %>
       <p class="categories">
-      Categories:
-      <%=
+        Categories:
+        <%=
         @puzzle.categories.map {|c| "<a href=\"#{url_for(:categories, :show, :slug => c.slug)}\">#{c.title}</a>"}.join
-      %>
+        %>
       </p>
-    <% end %>
+      <% end %>
 
-    <% if not @puzzle.related.empty? %>
+      <% if not @puzzle.related.empty? %>
       <p class="categories">
-      Related puzzles:
-      <%=
+        Related puzzles:
+        <%=
         @puzzle.related.map {|p| "<a href=\"#{url_for(:puzzles, :show, :slug => p.slug)}\">#{p.title}</a>"}.join
-      %>
+        %>
       </p>
-    <% end %>
+      <% end %>
 
-    <% if not @puzzle.about.nil? %>
+      <% if not @puzzle.about.nil? %>
       <%= @puzzle.about %>
-    <% end %>
+      <% end %>
 
-    <div class="high-res-nav">
-      <% write_nav_arrows %>
-    </div>
-  </article>
+      <div class="high-res-nav">
+        <% write_nav_arrows %>
+      </div>
+    </article>
 
-  <div class="low-res-nav">
-    <% if not @puzzle.answer.nil? %>
+    <div class="low-res-nav">
+      <% if not @puzzle.answer.nil? %>
       <div class="answer-link">
         <a href="<%= url_for(:puzzles, :show_answer, :slug => @puzzle.slug) %>"></a>
       </div>
-    <% else %>
+      <% else %>
       <div class="inactive-answer-link">
         <a href="#" onclick="javascript:return false"></a>
       </div>
-    <% end %>
+      <% end %>
 
-    <% write_nav_arrows %>
-  </div>
-
-  <div class="likes">
-    <p>
-    <span class="num-likes"><%= @puzzle.num_likes %></span> likes.
-    <% if login? %>
-      <a class="like" href="<%= url_for(:puzzles, :like, :slug => @puzzle.slug) %>" data-action="like"
-        <%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
-      <a class="unlike" href="<%= url_for(:puzzles, :like, :slug => @puzzle.slug) %>" data-action="unlike"
-        <%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
-    <% else %>
-      <a class="login" href="#">Login</a> to like.
-    <% end %>
-    </p>
-  </div>
-
-  <div class="sharing">
-    <hr />
-    <div class="share-button facebook">
-      <div class="fb-like" data-href="<%= get_meta_og_url %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+      <% write_nav_arrows %>
     </div>
-    <div class="share-button google">
-      <div class="g-plus" data-href="<%= get_meta_og_url %>" data-action="share" data-height="20" data-annotation="bubble"></div>
-    </div>
-    <div class="share-button twitter">
-      <a href="https://twitter.com/share" data-url="<%= get_meta_og_url %>" class="twitter-share-button" data-size="small">Tweet</a>
-    </div>
-    <hr />
-  </div>
 
-<div class="comments container-fluid">
-	<% @puzzle.comments.each do |comment| %>
-	<div class="comment row-fluid">
-		<div class="span2 profile-picture">
-      <img src="<%= comment.user.image_url %>" />
-		</div>
-		<div class="span10 text">
-      <p>
-        <a href="#" class="username"><%= comment.user.display_username %>: </a>
-        <%= h comment.content %>
-      </p>
-      <p>
-      <span class="pull-right timestamp">
-        <time datetime="<%= comment.created_at %>">
-        <%= comment.created_at.strftime '%Y-%m-%d %H:%M' %>
-        </time>
-      <span>
-      </p>
-		</div>
-  </div>
-	<% end %>
-</div>
+    <div class="likes clearfix">
+      <div class="like-button">
+        <% if login? %>
+          <a class="like" href="<%= url_for(:puzzles, :like, :slug => @puzzle.slug) %>" data-action="like"
+          <%= 'style="display:none;"' if @puzzle.user_likes?(user) %>>Like</a>
+          <a class="unlike" href="<%= url_for(:puzzles, :like, :slug => @puzzle.slug) %>" data-action="unlike"
+          <%= 'style="display:none;"' if !@puzzle.user_likes?(user) %>>Unlike</a>
+        <% else %>
+          <a class="login" href="#">Login</a> to like.
+        <% end %>
+        <span class="colored-number"><%= @puzzle.num_likes %></span> likes</div>
 
-<% if login? %>
-  <div class="post-comment">
-    <a name="post-comment"></a>
-    <% form_tag url_for(:puzzles, :comments, :slug => @puzzle.slug), :method => 'post', :class => 'comment' do %>
-      <%= csrf_tag %>
-      <!-- TODO: do this better -->
-      <% if flash[:comment] %>
+      <div class="share-buttons">
+        <div class="share-button facebook">
+          <div class="fb-like" data-href="<%= get_meta_og_url %>" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+        </div>
+        <div class="share-button google">
+          <div class="g-plus" data-href="<%= get_meta_og_url %>" data-action="share" data-height="20" data-annotation="bubble"></div>
+        </div>
+        <div class="share-button twitter">
+          <a href="https://twitter.com/share" data-url="<%= get_meta_og_url %>" class="twitter-share-button" data-size="small">Tweet</a>
+      </div>
+      </div>
+    </div>
+
+    <div class="comments container-fluid">
+     <% @puzzle.comments.each do |comment| %>
+     <div class="comment row-fluid">
+      <div class="span2 profile-picture">
+        <img src="<%= comment.user.image_url %>" />
+      </div>
+      <div class="span10 text">
+        <p>
+          <a href="#" class="username"><%= comment.user.display_username %>: </a>
+          <%= h comment.content %>
+        </p>
+        <p>
+          <span class="pull-right timestamp">
+            <time datetime="<%= comment.created_at %>">
+              <%= comment.created_at.strftime '%Y-%m-%d %H:%M' %>
+            </time>
+            <span>
+            </p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <% if login? %>
+      <div class="post-comment">
+        <a name="post-comment"></a>
+        <% form_tag url_for(:puzzles, :comments, :slug => @puzzle.slug), :method => 'post' do %>
+        <%= csrf_tag %>
+        <!-- TODO: do this better -->
+        <% if flash[:comment] %>
         <div class="alert alert-block alert-error">
           <button type="button" class="close" data-dismiss="alert">×</button>
           <h4>Please fix these errors, <%= user.display_username %>!</h4>
           <ul>
             <% flash[:comment].each do |error| %>
-              <li><%= error %></li>
+            <li><%= error %></li>
             <% end %>
           </ul>
         </div>
-      <% end %>
-      <div class="text">
-        <%= text_area_tag :content, :value => params[:content] %>
-        <input type="submit" value="Post comment" />
+        <% end %>
+        <div class="text">
+          <%= text_area_tag :content, :value => params[:content] %>
+          <input class="btn btn-primary" type="submit" value="Post comment" />
+        </div>
+        <% end %>
       </div>
-    <% end %>
+      <% else %>
+      <p><a class="login" href="#">Login</a> to comment.</p>
+      <% end %>
+
+    </div>
+
   </div>
-  <% else %>
-  <p><a class="login" href="#">Login</a> to comment.</p>
-  <% end %>
-
 </div>
-
-</div>
-</div>
-
