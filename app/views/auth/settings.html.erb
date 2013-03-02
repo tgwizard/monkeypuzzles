@@ -8,8 +8,11 @@
   </p>
 
   <% if user.username_set? %>
-    <p>You have chosen <em><%= user.username %></em> as your username. This is
-    what will be displayed as the source of the comments you make.</p>
+    <p>
+    You have chosen <span class="username"><%= user.username %></span> as
+    your username. This is what will be displayed as the source of the comments
+    you make.
+    </p>
   <% else %>
     <label for="settings_username">Username:
       <input type="text" id="settings_username" name="username" />
@@ -23,13 +26,14 @@
   <% end %>
 
   <div class="gravatar-row">
-    <div class="gravatar-img">
-      <img src="<%= user.gravatar_url %>" class="img-polaroid" style="float: left"/>
-    </div>
+    <img class="gravatar-img img-polaroid" src="<%= user.gravatar_url %>" />
     <div class="gravatar-text">
       <label class="checkbox">
         <input type="checkbox" name="use_gravatar" <%= user.use_gravatar ? 'checked="checked"' : '' %>>
-        Use this gravatar image. <a target="_new" href="https://gravatar.com/emails">Setup gravatar images</a>.
+        Use this gravatar as your profile picture. It will be displayed
+        publicly alongside your username when you post comments on this site.
+        <br/>
+        <a target="_new" href="https://gravatar.com/emails">Setup gravatar images</a>.
       </label>
     </div>
   </div>

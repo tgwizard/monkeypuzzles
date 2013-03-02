@@ -768,13 +768,15 @@ footer .copyright {
 }
 
 .modal .gravatar-row .gravatar-img {
+  float: left;
   width: 90px;
   height: 90px;
 }
 
 .modal .gravatar-row .gravatar-text {
-  width: 420px;
-  margin-left: 15px;
+  float: right;
+  width: 400px;
+  margin-left: 10px;
 }
 
 /* COMMENT LOVE */
