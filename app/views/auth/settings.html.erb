@@ -1,10 +1,11 @@
 <form>
-  <p>You are logged in as <a href="mailto:<%= user.email %>"><%= user.email
-    %></a>, verified via <a
-    href="http://www.mozilla.org/en-US/persona/">Mozilla Persona</a>. You email
-  address will never be displayed on the site or shared with third parties. It
-  will only be used for identification and, optionally, for a gravatar
-  image.</p>
+  <p>
+  You are logged in as <a href="mailto:<%= user.email %>"><%= user.email %></a>,
+  verified via <a href="https://login.persona.org" target="_new">Mozilla Persona</a>.
+  Your email address will never be displayed on the site or shared with third
+  parties. It will only be used for identification and, optionally, for a gravatar
+  image.
+  </p>
 
   <% if user.username_set? %>
     <p>You have chosen <em><%= user.username %></em> as your username. This is
